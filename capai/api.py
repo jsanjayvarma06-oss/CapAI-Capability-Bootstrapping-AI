@@ -28,10 +28,20 @@ app = FastAPI(
     version="0.1.0",
 )
 
-# One shared CapAI instance per worker process.
-# The registry is persisted to disk so capabilities survive restarts
-# (requires a Render Persistent Disk or equivalent mounted at CAPAI_HOME).
 _capai = CapAI()
+
+
+@app.on_event("startup")
+async def startup_cleanup():
+    """On startup, remove any registry entries that have no source code (broken entries)."""
+    broken = [
+        cap.name for cap in _capai.registry._capabilities.values()
+        if not getattr(cap, "source_code", None)
+    ]
+    for name in broken:
+        _capai.registry._capabilities.pop(name, None)
+    if broken:
+        print(f"[startup] Cleared {len(broken)} broken registry entries: {broken}")
 
 
 # ── request / response models ────────────────────────────────────────
@@ -85,11 +95,10 @@ def list_capabilities():
 
 @app.post("/reset")
 def reset_registry():
-    """Clear all capabilities from the in-memory registry. Useful after bad entries."""
-    caps = _capai.registry.list_active()
-    for cap in caps:
-        _capai.registry.retire(cap.name)
-    return {"cleared": len(caps), "message": "Registry cleared successfully"}
+    """Wipe the entire in-memory registry. Useful after bad entries."""
+    all_names = list(_capai.registry._capabilities.keys())
+    _capai.registry._capabilities.clear()
+    return {"cleared": len(all_names), "removed": all_names, "message": "Registry wiped — all capabilities will be rebuilt on next call"}
 
 
 @app.post("/run", response_model=RunResponse)
