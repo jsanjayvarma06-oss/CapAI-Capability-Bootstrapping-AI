@@ -41,8 +41,12 @@ no usage examples, no other functions.
 
 class CodeWriter:
     def write(self, spec: CapabilitySpec) -> str:
+        # always try heuristic first — it's guaranteed correct for known functions
+        heuristic = _heuristic_source(spec)
+        if heuristic is not None:
+            return heuristic
         if not config.LLM_ENABLED:
-            return _heuristic_source(spec)
+            return _generic_stub(spec)
         prompt = _CODEGEN_PROMPT.format(
             name=spec.name,
             description=spec.description,
@@ -124,6 +128,11 @@ def _heuristic_source(spec: CapabilitySpec) -> str:
             f"    return True\n"
         )
 
+    return None  # not a known heuristic — let LLM handle it
+
+
+def _generic_stub(spec: CapabilitySpec) -> str:
+    name = spec.name
     return (
         f"def {name}(value=None):\n"
         f"    if value is None:\n"
