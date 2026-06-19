@@ -86,12 +86,7 @@ def list_capabilities():
 @app.post("/run", response_model=RunResponse)
 def run_task(req: RunRequest):
     try:
-        result = _capai.run(
-            name=req.name,
-            description=req.description,
-            args=req.args,
-            kwargs=req.kwargs,
-        )
+        result = _capai.run(req.name, req.description, *req.args, **req.kwargs)
         return RunResponse(success=True, result=result, capability_name=req.name)
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
