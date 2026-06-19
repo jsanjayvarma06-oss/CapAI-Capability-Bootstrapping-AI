@@ -1,17 +1,11 @@
 """
 capai.diagnostic_agent
 =======================
-Section 3.3 / 4.1 of the report: "rather than guessing at a fix from the
-symptom of the failure, it probes the failure directly... to pin down
-precisely what capability is missing."
+Probes a task failure and produces a structured CapabilitySpec describing
+the exact function that needs to be built.
 
-In this prototype, "probing the failure" means looking at three things
-together: the task's declared name and natural-language description, the
-arguments the host agent actually tried to pass, and (if this is a retry)
-the exception that came back the previous time. When an LLM key is
-configured, Claude is asked to turn that into a structured CapabilitySpec;
-otherwise a deterministic heuristic builds a reasonable spec directly from
-the task, which is enough to keep the rest of the loop runnable offline.
+Uses the unified llm_client (Groq or Anthropic). Falls back to a
+deterministic heuristic when no LLM key is configured.
 """
 from __future__ import annotations
 
@@ -19,6 +13,7 @@ import json
 from typing import Optional
 
 from . import config
+from . import llm_client
 from .models import CapabilitySpec, Task
 
 _DIAGNOSIS_PROMPT = """You are the Diagnostic Agent inside CapAI, a self-expanding AI capability \
@@ -62,33 +57,28 @@ def _heuristic_spec(task: Task, error: Optional[Exception]) -> CapabilitySpec:
 
 
 class DiagnosticAgent:
-    def __init__(self, client=None, model: str = config.ANTHROPIC_MODEL):
-        self._client = client
-        self.model = model
-
     def diagnose(self, task: Task, error: Optional[Exception] = None) -> CapabilitySpec:
         if not config.LLM_ENABLED:
             return _heuristic_spec(task, error)
-        return self._diagnose_with_llm(task, error)
 
-    def _diagnose_with_llm(self, task: Task, error: Optional[Exception]) -> CapabilitySpec:
-        import anthropic
-        client = self._client or anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY)
         error_block = f"Previous attempt raised: {type(error).__name__}: {error}\n" if error else ""
         prompt = _DIAGNOSIS_PROMPT.format(
             name=task.name, description=task.description,
             args=list(task.args), kwargs=task.kwargs, error_block=error_block,
         )
-        response = client.messages.create(
-            model=self.model, max_tokens=600,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = "".join(block.text for block in response.content if block.type == "text").strip()
         try:
+            text = llm_client.complete(prompt, max_tokens=600)
+            # Strip markdown fences if model added them despite instructions
+            text = text.strip()
+            if text.startswith("```"):
+                text = text.split("```")[1]
+                if text.startswith("json"):
+                    text = text[4:]
+                text = text.strip()
             data = json.loads(text)
-        except json.JSONDecodeError:
-            # Model didn't follow the format; fall back rather than crash the loop.
+        except Exception:
             return _heuristic_spec(task, error)
+
         return CapabilitySpec(
             name=data.get("name", task.name),
             description=data.get("description", task.description),
