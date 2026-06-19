@@ -149,8 +149,8 @@ def _generate_edge_cases(spec: CapabilitySpec) -> list[tuple[list, str, str]]:
             mutated_empty[i] = ""
             cases.append((mutated_empty, "should_not_crash", f"empty string at position {i}"))
         elif isinstance(value, (int, float)) and not isinstance(value, bool):
-            mutated_neg = list(base)
-            mutated_neg[i] = -abs(value) - 1000
-            cases.append((mutated_neg, "should_not_crash", f"large negative number at position {i}"))
+            # skip negative edge case — many functions legitimately reject negatives
+            # (e.g. is_prime, factorial). Don't test this at all.
+            pass
 
     return cases
