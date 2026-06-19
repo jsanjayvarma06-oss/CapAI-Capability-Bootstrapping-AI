@@ -26,13 +26,11 @@ Arguments the host agent tried to pass: {args}
 Keyword arguments: {kwargs}
 {error_block}
 Respond with ONLY a JSON object (no markdown fences, no commentary) with these keys:
-  "name": a valid Python identifier for the function (snake_case)
+  "name": MUST be exactly "{name}" — do not rename, do not add suffixes
   "description": one sentence describing what the function does
-  "signature": a single-line Python function signature with type hints, e.g.
-               "def convert_temperature(value: float, from_unit: str, to_unit: str) -> float:"
+  "signature": must start with "def {name}(" — use the exact name
   "example_inputs": a list of 2-3 example argument lists that should work
-  "expected_behavior": one or two sentences describing correct behaviour, including
-                        how it should handle invalid input
+  "expected_behavior": one or two sentences describing correct behaviour
   "root_cause": one sentence on why the original task failed
 """
 
@@ -79,10 +77,13 @@ class DiagnosticAgent:
         except Exception:
             return _heuristic_spec(task, error)
 
+        # Always use task.name — never let the LLM rename the function
         return CapabilitySpec(
-            name=data.get("name", task.name),
+            name=task.name,
             description=data.get("description", task.description),
-            signature=data.get("signature", f"def {task.name}(*args):"),
+            signature=data.get("signature", f"def {task.name}(*args):").replace(
+                f"def {data.get('name', task.name)}(", f"def {task.name}("
+            ),
             example_inputs=data.get("example_inputs", []),
             expected_behavior=data.get("expected_behavior", ""),
             root_cause=data.get("root_cause", ""),
