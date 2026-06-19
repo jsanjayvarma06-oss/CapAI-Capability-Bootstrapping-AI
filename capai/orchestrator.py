@@ -63,8 +63,12 @@ class Orchestrator:
         self._emit("task_received", f"Task '{task.name}' received.")
 
         if self.registry.has(task.name):
-            self._emit("registry_hit", f"'{task.name}' already in registry — executing directly.")
-            return self._execute_registered(task)
+            cap = self.registry.get(task.name)
+            if cap and getattr(cap, "source_code", None):
+                self._emit("registry_hit", f"'{task.name}' already in registry — executing directly.")
+                return self._execute_registered(task)
+            # has() returned True but entry is broken — clear and re-acquire
+            self.registry._capabilities.pop(task.name, None)
 
         self._emit("registry_miss", f"'{task.name}' not found in registry — starting acquisition loop.")
         return self._acquire_and_run(task)
@@ -72,10 +76,11 @@ class Orchestrator:
     # ------------------------------------------------------------ internals
     def _execute_registered(self, task: Task, _reacquire: bool = True):
         capability = self.registry.get(task.name)
-        if capability is None:
-            # registry entry exists but is broken/incomplete — re-acquire
+        if capability is None or not getattr(capability, "source_code", None):
+            # registry entry missing or incomplete — re-acquire if allowed
             if not _reacquire:
                 raise RuntimeError(f"No valid capability found for '{task.name}'")
+            self.registry._capabilities.pop(task.name, None)  # clear broken entry
             return self._acquire_and_run(task)
         result = run_capability(capability.source_code, capability.name, task.args)
         if not result.success:
