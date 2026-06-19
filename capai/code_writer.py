@@ -1,24 +1,18 @@
 """
 capai.code_writer
 ===================
-Section 3.3 / 4.4 of the report: turns a CapabilitySpec (the Diagnostic
-Agent's output) into an actual, callable Python function.
+Turns a CapabilitySpec into an actual, callable Python function.
 
-When ANTHROPIC_API_KEY is configured, this asks Claude to write the
-function. When it isn't, it falls back to a small built-in library of
-common capabilities so the *rest* of the acquisition loop — MCP creation,
-git versioning, three-layer testing, Manager Agent promotion, registry
-reuse — can be exercised and demoed with zero external dependencies and
-zero cost. The heuristic fallback is deliberately narrow: it exists so
-`python -m capai.demo` works out of the box, not as a substitute for real
-code generation. Anything it doesn't recognise gets an honestly-labelled
-generic stub rather than a silent wrong answer.
+Uses the unified llm_client (Groq or Anthropic, whichever key is set).
+Falls back to a small offline heuristic library when no key is configured
+so `python -m capai.demo` always runs out of the box.
 """
 from __future__ import annotations
 
 import re
 
 from . import config
+from . import llm_client
 from .models import CapabilitySpec
 
 _CODEGEN_PROMPT = """\
@@ -44,19 +38,9 @@ no usage examples, no other functions.
 
 
 class CodeWriter:
-    def __init__(self, client=None, model: str = None):
-        self._client = client
-        self.model = model or config.ANTHROPIC_MODEL
-
     def write(self, spec: CapabilitySpec) -> str:
         if not config.LLM_ENABLED:
             return _heuristic_source(spec)
-        return self._write_with_llm(spec)
-
-    def _write_with_llm(self, spec: CapabilitySpec) -> str:
-        import anthropic
-
-        client = self._client or anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY)
         prompt = _CODEGEN_PROMPT.format(
             name=spec.name,
             description=spec.description,
@@ -64,12 +48,7 @@ class CodeWriter:
             example_inputs=spec.example_inputs,
             expected_behavior=spec.expected_behavior,
         )
-        response = client.messages.create(
-            model=self.model,
-            max_tokens=800,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = "".join(block.text for block in response.content if block.type == "text").strip()
+        text = llm_client.complete(prompt, max_tokens=800)
         return _strip_markdown_fences(text)
 
 
@@ -79,10 +58,7 @@ def _strip_markdown_fences(text: str) -> str:
 
 
 # ──────────────────────────────────────────────────────────────────────
-# Offline fallback library. Recognises a small set of common capabilities
-# by keyword so the demo and tests can run with zero API key. Real,
-# arbitrary capability generation is the LLM path above — this is not a
-# replacement for it.
+# Offline fallback library
 # ──────────────────────────────────────────────────────────────────────
 
 def _heuristic_source(spec: CapabilitySpec) -> str:
@@ -146,10 +122,6 @@ def _heuristic_source(spec: CapabilitySpec) -> str:
             f"    return True\n"
         )
 
-    # Honestly-labelled generic fallback: validates that an input was
-    # supplied and echoes it back. Keeps the surrounding loop runnable
-    # offline for capabilities the heuristic library doesn't know; it is
-    # not a stand-in for genuine code generation.
     return (
         f"def {name}(value=None):\n"
         f"    if value is None:\n"
