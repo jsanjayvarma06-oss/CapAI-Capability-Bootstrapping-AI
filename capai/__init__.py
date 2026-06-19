@@ -49,12 +49,11 @@ class CapAI:
     def __init__(self, base_model: Optional[str] = None,
                  on_event: Optional[Callable[[AcquisitionEvent], None]] = None,
                  registry: Optional[CapabilityRegistry] = None):
-        model = base_model or config.ANTHROPIC_MODEL
         self._registry = registry or CapabilityRegistry()
         self._orchestrator = Orchestrator(
             registry=self._registry,
-            diagnostic_agent=DiagnosticAgent(model=model),
-            code_writer=CodeWriter(model=model),
+            diagnostic_agent=DiagnosticAgent(),
+            code_writer=CodeWriter(),
             testing_agent=TestingAgent(),
             manager_agent=ManagerAgent(self._registry),
             on_event=on_event,
