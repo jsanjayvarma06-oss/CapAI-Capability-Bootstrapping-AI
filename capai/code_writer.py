@@ -21,8 +21,10 @@ specification.
 
 Requirements:
 - No side effects: no file I/O, no network calls, no printing.
-- Validate inputs and raise ValueError or TypeError for invalid input rather than silently \
-returning a wrong answer.
+- For out-of-domain inputs (e.g. negative numbers for is_prime, empty string for slugify), \
+return a sensible default (False, None, 0) rather than raising an exception, \
+unless the spec explicitly says to raise.
+- Only raise TypeError for completely wrong types (e.g. passing a string where a number is required).
 - Standard library only — no third-party imports.
 - Exactly one top-level function definition, nothing else.
 
