@@ -4,15 +4,19 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "capai"
-version = "0.1.0"
+version = "0.2.0"
 description = "CapAI -- a self-expanding capability-acquisition layer for AI systems."
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.29.0",
+    "groq>=0.9.0",
+]
 
 [project.optional-dependencies]
-llm = ["anthropic>=0.40.0"]
-dev = ["pytest>=8.0"]
+anthropic = ["anthropic>=0.40.0"]
+dev       = ["pytest>=8.0", "anthropic>=0.40.0"]
 
 [tool.setuptools.packages.find]
 include = ["capai*"]
