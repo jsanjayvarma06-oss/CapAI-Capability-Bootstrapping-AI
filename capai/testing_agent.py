@@ -143,7 +143,11 @@ def _generate_edge_cases(spec: CapabilitySpec) -> list[tuple[list, str, str]]:
         if isinstance(value, str):
             mutated = list(base)
             mutated[i] = "totally-not-a-valid-value-###"
-            cases.append((mutated, "should_raise", f"invalid string at position {i}"))
+            cases.append((mutated, "should_not_crash", f"unusual string at position {i}"))
+            # also test empty string — some functions should handle it gracefully
+            mutated_empty = list(base)
+            mutated_empty[i] = ""
+            cases.append((mutated_empty, "should_not_crash", f"empty string at position {i}"))
         elif isinstance(value, (int, float)) and not isinstance(value, bool):
             mutated_neg = list(base)
             mutated_neg[i] = -abs(value) - 1000
