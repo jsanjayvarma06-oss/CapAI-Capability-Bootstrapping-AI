@@ -1,0 +1,47 @@
+services:
+  - type: web
+    name: capai-api
+    runtime: python
+    buildCommand: pip install -e ".[api]"
+    startCommand: uvicorn capai.api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: CAPAI_HOME
+        value: /data/.capai
+    disk:
+      name: capai-registry
+      mountPath: /data
+      sizeGB: 1
+
+  - type: cron
+    name: capai-keepalive
+    runtime: python
+    schedule: "*/14 * * * *"   # every 14 min — beats the 15-min free-tier spindown
+    buildCommand: pip install httpx
+    startCommand: python -c "
+import httpx, os, sys
+url = os.environ['CAPAI_URL'] + '/health'
+r = httpx.get(url, timeout=30)
+print(r.status_code, r.text)
+sys.exit(0 if r.status_code == 200 else 1)
+"
+    envVars:
+      - key: CAPAI_URL
+        sync: false   # set to your web service URL in the dashboard
+
+  - type: cron
+    name: capai-registry-snapshot
+    runtime: python
+    schedule: "0 2 * * *"   # daily at 2 AM UTC
+    buildCommand: pip install -e ".[api]"
+    startCommand: python -m capai.cron snapshot
+    envVars:
+      - key: CAPAI_HOME
+        value: /data/.capai
+      - key: GROQ_API_KEY
+        sync: false
+    disk:
+      name: capai-registry   # same disk as the web service
+      mountPath: /data
+      sizeGB: 1
