@@ -23,7 +23,7 @@ from .models import Capability, CapabilitySpec
 
 class CapabilityRegistry:
     def __init__(self, path: Optional[Path] = None):
-        self.path = path or config.REGISTRY_PATH
+        self.path = path or (config.CAPAI_HOME / "registry.json")
         self._lock = threading.Lock()
         self._capabilities: dict[str, Capability] = {}
         self._load()
@@ -34,7 +34,11 @@ class CapabilityRegistry:
         return cap is not None and cap.approved and not cap.retired
 
     def get(self, name: str) -> Optional[Capability]:
-        return self._capabilities.get(name)
+        cap = self._capabilities.get(name)
+        # only return approved, non-retired capabilities with actual source code
+        if cap is not None and cap.approved and not cap.retired and cap.source_code:
+            return cap
+        return None
 
     def list_active(self) -> list[Capability]:
         return [c for c in self._capabilities.values() if c.approved and not c.retired]
