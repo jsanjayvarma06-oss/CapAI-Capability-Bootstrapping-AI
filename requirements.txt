@@ -1,0 +1,5 @@
+# Core package has zero hard dependencies — everything runs offline
+# with the heuristic fallback. Install these to enable real LLM-backed
+# diagnosis and code generation, and to run the test suite.
+anthropic>=0.40.0
+pytest>=8.0
