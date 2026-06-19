@@ -83,6 +83,15 @@ def list_capabilities():
     ]
 
 
+@app.post("/reset")
+def reset_registry():
+    """Clear all capabilities from the in-memory registry. Useful after bad entries."""
+    caps = _capai.registry.list_active()
+    for cap in caps:
+        _capai.registry.retire(cap.name)
+    return {"cleared": len(caps), "message": "Registry cleared successfully"}
+
+
 @app.post("/run", response_model=RunResponse)
 def run_task(req: RunRequest):
     try:
