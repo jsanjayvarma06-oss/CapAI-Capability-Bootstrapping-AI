@@ -70,10 +70,19 @@ class Orchestrator:
         return self._acquire_and_run(task)
 
     # ------------------------------------------------------------ internals
-    def _execute_registered(self, task: Task):
+    def _execute_registered(self, task: Task, _reacquire: bool = True):
         capability = self.registry.get(task.name)
+        if capability is None:
+            # registry entry exists but is broken/incomplete — re-acquire
+            if not _reacquire:
+                raise RuntimeError(f"No valid capability found for '{task.name}'")
+            return self._acquire_and_run(task)
         result = run_capability(capability.source_code, capability.name, task.args)
         if not result.success:
+            if not _reacquire:
+                raise RuntimeError(
+                    f"'{task.name}' failed in sandbox after re-acquisition: {result.error_message}"
+                )
             # A previously-working capability just failed on a new input.
             # Treat this exactly like a fresh gap rather than crashing the host.
             self._emit(
@@ -129,12 +138,12 @@ class Orchestrator:
                     "(likely merged into an existing near-duplicate).",
                 )
                 if self.registry.has(task.name):
-                    return self._execute_registered(task)
+                    return self._execute_registered(task, _reacquire=False)
                 error = RuntimeError("Capability rejected by Manager Agent and no equivalent exists.")
                 continue
 
             self._emit("promoted", f"'{spec.name}' is now live in the Main Registry.")
-            return self._execute_registered(task)
+            return self._execute_registered(task, _reacquire=False)
 
         self._emit(
             "acquisition_failed",
