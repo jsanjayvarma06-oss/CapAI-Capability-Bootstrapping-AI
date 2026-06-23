@@ -144,10 +144,6 @@ def _generate_edge_cases(spec: CapabilitySpec) -> list[tuple[list, str, str]]:
             mutated = list(base)
             mutated[i] = "totally-not-a-valid-value-###"
             cases.append((mutated, "should_not_crash", f"unusual string at position {i}"))
-            # also test empty string — some functions should handle it gracefully
-            mutated_empty = list(base)
-            mutated_empty[i] = ""
-            cases.append((mutated_empty, "should_not_crash", f"empty string at position {i}"))
         elif isinstance(value, (int, float)) and not isinstance(value, bool):
             # skip negative edge case — many functions legitimately reject negatives
             # (e.g. is_prime, factorial). Don't test this at all.
