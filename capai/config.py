@@ -10,6 +10,12 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
+# ---------------------------------------------------------------- persistence
+# MongoDB URI for permanent capability storage (recommended).
+# Set MONGODB_URI env var to your Atlas connection string.
+# If not set, falls back to local JSON file (lost on Render restart).
+MONGODB_URI = os.environ.get("MONGODB_URI")
+
 # ---------------------------------------------------------------- LLM
 # Provider priority: Groq > Anthropic > offline heuristic.
 # Set GROQ_API_KEY to use Groq (faster, free tier available).
