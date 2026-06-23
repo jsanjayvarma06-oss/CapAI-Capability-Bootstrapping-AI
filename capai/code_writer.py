@@ -128,6 +128,29 @@ def _heuristic_source(spec: CapabilitySpec) -> str:
             f"    return True\n"
         )
 
+    if "flatten" in key and "json" in key:
+        return (
+            f"def {name}(data, parent_key='', sep='.'):\n"
+            f"    if not isinstance(data, dict):\n"
+            f"        raise TypeError('Input must be a dict')\n"
+            f"    items = {{}}\n"
+            f"    for k, v in data.items():\n"
+            f"        new_key = parent_key + sep + k if parent_key else k\n"
+            f"        if isinstance(v, dict):\n"
+            f"            items.update({name}(v, new_key, sep=sep))\n"
+            f"        else:\n"
+            f"            items[new_key] = v\n"
+            f"    return items\n"
+        )
+
+    if "json_keys" in key or ("json" in key and "keys" in key):
+        return (
+            f"def {name}(data):\n"
+            f"    if not isinstance(data, dict):\n"
+            f"        raise TypeError('Input must be a dict')\n"
+            f"    return sorted(data.keys())\n"
+        )
+
     return None  # not a known heuristic — let LLM handle it
 
 
