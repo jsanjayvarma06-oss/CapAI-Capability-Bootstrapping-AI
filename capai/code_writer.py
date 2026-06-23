@@ -172,6 +172,229 @@ def _heuristic_source(spec: CapabilitySpec) -> str:
             f"    return count\n"
         )
 
+    # ── temperature ──────────────────────────────────────────────────────
+    if "km" in key and "mile" in key:
+        return (
+            f"def {name}(km):\n"
+            f"    if not isinstance(km, (int, float)) or isinstance(km, bool):\n"
+            f"        raise TypeError('km must be a number')\n"
+            f"    return km * 0.621371\n"
+        )
+
+    if "mile" in key and "km" in key:
+        return (
+            f"def {name}(miles):\n"
+            f"    if not isinstance(miles, (int, float)) or isinstance(miles, bool):\n"
+            f"        raise TypeError('miles must be a number')\n"
+            f"    return miles / 0.621371\n"
+        )
+
+    # ── string utils ─────────────────────────────────────────────────────
+    if "reverse" in key and ("string" in key or "str" in key):
+        return (
+            f"def {name}(text):\n"
+            f"    if not isinstance(text, str):\n"
+            f"        raise TypeError('text must be a string')\n"
+            f"    return text[::-1]\n"
+        )
+
+    if "word_count" in key or ("word" in key and "count" in key):
+        return (
+            f"def {name}(text):\n"
+            f"    if not isinstance(text, str):\n"
+            f"        raise TypeError('text must be a string')\n"
+            f"    return len(text.split())\n"
+        )
+
+    if "camel" in key and "snake" in key:
+        return (
+            f"def {name}(text):\n"
+            f"    if not isinstance(text, str):\n"
+            f"        raise TypeError('text must be a string')\n"
+            f"    import re\n"
+            f"    return re.sub(r'(?<!^)(?=[A-Z])', '_', text).lower()\n"
+        )
+
+    if "snake" in key and "camel" in key:
+        return (
+            f"def {name}(text):\n"
+            f"    if not isinstance(text, str):\n"
+            f"        raise TypeError('text must be a string')\n"
+            f"    parts = text.split('_')\n"
+            f"    return parts[0] + ''.join(p.capitalize() for p in parts[1:])\n"
+        )
+
+    if "palindrome" in key:
+        return (
+            f"def {name}(text):\n"
+            f"    if not isinstance(text, str):\n"
+            f"        raise TypeError('text must be a string')\n"
+            f"    clean = text.lower().replace(' ', '')\n"
+            f"    return clean == clean[::-1]\n"
+        )
+
+    if "truncate" in key:
+        return (
+            f"def {name}(text, length=100, suffix='...'):\n"
+            f"    if not isinstance(text, str):\n"
+            f"        raise TypeError('text must be a string')\n"
+            f"    return text if len(text) <= length else text[:length] + suffix\n"
+        )
+
+    if "count_vowel" in key or ("count" in key and "vowel" in key):
+        return (
+            f"def {name}(text):\n"
+            f"    if not isinstance(text, str):\n"
+            f"        raise TypeError('text must be a string')\n"
+            f"    return sum(1 for c in text.lower() if c in 'aeiou')\n"
+        )
+
+    # ── hashing ──────────────────────────────────────────────────────────
+    if "md5" in key:
+        return (
+            f"def {name}(text):\n"
+            f"    if not isinstance(text, str):\n"
+            f"        raise TypeError('text must be a string')\n"
+            f"    import hashlib\n"
+            f"    return hashlib.md5(text.encode()).hexdigest()\n"
+        )
+
+    if "sha256" in key or "sha_256" in key:
+        return (
+            f"def {name}(text):\n"
+            f"    if not isinstance(text, str):\n"
+            f"        raise TypeError('text must be a string')\n"
+            f"    import hashlib\n"
+            f"    return hashlib.sha256(text.encode()).hexdigest()\n"
+        )
+
+    if "sha512" in key or "sha_512" in key:
+        return (
+            f"def {name}(text):\n"
+            f"    if not isinstance(text, str):\n"
+            f"        raise TypeError('text must be a string')\n"
+            f"    import hashlib\n"
+            f"    return hashlib.sha512(text.encode()).hexdigest()\n"
+        )
+
+    # ── password ─────────────────────────────────────────────────────────
+    if "strong_password" in key or ("strong" in key and "password" in key):
+        return (
+            f"def {name}(password):\n"
+            f"    if not isinstance(password, str):\n"
+            f"        raise TypeError('password must be a string')\n"
+            f"    if len(password) < 8: return False\n"
+            f"    if not any(c.isupper() for c in password): return False\n"
+            f"    if not any(c.islower() for c in password): return False\n"
+            f"    if not any(c.isdigit() for c in password): return False\n"
+            f"    if not any(c in '!@#$%^&*()_+-=[]{{}}|;:,.<>?' for c in password): return False\n"
+            f"    return True\n"
+        )
+
+    if "password_strength" in key or ("password" in key and "strength" in key and "score" in key):
+        return (
+            f"def {name}(password):\n"
+            f"    if not isinstance(password, str):\n"
+            f"        raise TypeError('password must be a string')\n"
+            f"    score = 0\n"
+            f"    if len(password) >= 8: score += 1\n"
+            f"    if any(c.isupper() for c in password): score += 1\n"
+            f"    if any(c.islower() for c in password): score += 1\n"
+            f"    if any(c.isdigit() for c in password): score += 1\n"
+            f"    if any(c in '!@#$%^&*()_+-=[]{{}}|;:,.<>?' for c in password): score += 1\n"
+            f"    return score\n"
+        )
+
+    # ── url / email ───────────────────────────────────────────────────────
+    if "valid_url" in key or ("valid" in key and "url" in key):
+        return (
+            f"def {name}(url):\n"
+            f"    if not isinstance(url, str):\n"
+            f"        raise TypeError('url must be a string')\n"
+            f"    return url.startswith('http://') or url.startswith('https://')\n"
+        )
+
+    if "extract_domain" in key or ("domain" in key and "extract" in key):
+        return (
+            f"def {name}(url):\n"
+            f"    if not isinstance(url, str):\n"
+            f"        raise TypeError('url must be a string')\n"
+            f"    from urllib.parse import urlparse\n"
+            f"    return urlparse(url).netloc\n"
+        )
+
+    if "valid_email" in key or ("valid" in key and "email" in key):
+        return (
+            f"def {name}(email):\n"
+            f"    if not isinstance(email, str):\n"
+            f"        raise TypeError('email must be a string')\n"
+            f"    import re\n"
+            f"    return bool(re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{{2,}}$', email))\n"
+        )
+
+    # ── maths ─────────────────────────────────────────────────────────────
+    if "factorial" in key:
+        return (
+            f"def {name}(n):\n"
+            f"    if not isinstance(n, int) or isinstance(n, bool) or n < 0:\n"
+            f"        raise ValueError('n must be a non-negative integer')\n"
+            f"    import math\n"
+            f"    return math.factorial(n)\n"
+        )
+
+    if "fibonacci" in key:
+        return (
+            f"def {name}(n):\n"
+            f"    if not isinstance(n, int) or isinstance(n, bool) or n < 0:\n"
+            f"        raise ValueError('n must be a non-negative integer')\n"
+            f"    a, b = 0, 1\n"
+            f"    for _ in range(n):\n"
+            f"        a, b = b, a + b\n"
+            f"    return a\n"
+        )
+
+    if "bmi" in key or ("body" in key and "mass" in key):
+        return (
+            f"def {name}(weight_kg, height_m):\n"
+            f"    if not isinstance(weight_kg, (int, float)) or isinstance(weight_kg, bool):\n"
+            f"        raise TypeError('weight_kg must be a number')\n"
+            f"    if not isinstance(height_m, (int, float)) or isinstance(height_m, bool):\n"
+            f"        raise TypeError('height_m must be a number')\n"
+            f"    if height_m <= 0:\n"
+            f"        raise ValueError('height_m must be positive')\n"
+            f"    return weight_kg / (height_m ** 2)\n"
+        )
+
+    if "is_even" in key or ("even" in key and "odd" not in key):
+        return (
+            f"def {name}(number):\n"
+            f"    if not isinstance(number, int) or isinstance(number, bool):\n"
+            f"        raise TypeError('number must be an integer')\n"
+            f"    return number % 2 == 0\n"
+        )
+
+    if "is_odd" in key or ("odd" in key and "even" not in key):
+        return (
+            f"def {name}(number):\n"
+            f"    if not isinstance(number, int) or isinstance(number, bool):\n"
+            f"        raise TypeError('number must be an integer')\n"
+            f"    return number % 2 != 0\n"
+        )
+
+    if "clamp" in key:
+        return (
+            f"def {name}(value, min_val, max_val):\n"
+            f"    return max(min_val, min(max_val, value))\n"
+        )
+
+    if "percent" in key or "percentage" in key:
+        return (
+            f"def {name}(part, total):\n"
+            f"    if total == 0:\n"
+            f"        raise ValueError('total cannot be zero')\n"
+            f"    return (part / total) * 100\n"
+        )
+
     return None  # not a known heuristic — let LLM handle it
 
 
