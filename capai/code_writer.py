@@ -143,12 +143,33 @@ def _heuristic_source(spec: CapabilitySpec) -> str:
             f"    return items\n"
         )
 
-    if "json_keys" in key or ("json" in key and "keys" in key):
+    if "json_keys" in key or ("json" in key and "key" in key and "count" not in key and "csv" not in key):
         return (
             f"def {name}(data):\n"
             f"    if not isinstance(data, dict):\n"
             f"        raise TypeError('Input must be a dict')\n"
             f"    return sorted(data.keys())\n"
+        )
+
+    if "json_to_csv" in key or ("json" in key and "csv" in key):
+        return (
+            f"def {name}(data):\n"
+            f"    if not isinstance(data, dict):\n"
+            f"        raise TypeError('Input must be a dict')\n"
+            f"    return ','.join(f'{{k}}={{v}}' for k, v in data.items())\n"
+        )
+
+    if "count_json_keys" in key or ("count" in key and "json" in key and "key" in key):
+        return (
+            f"def {name}(data):\n"
+            f"    if not isinstance(data, dict):\n"
+            f"        raise TypeError('Input must be a dict')\n"
+            f"    count = 0\n"
+            f"    for k, v in data.items():\n"
+            f"        count += 1\n"
+            f"        if isinstance(v, dict):\n"
+            f"            count += {name}(v)\n"
+            f"    return count\n"
         )
 
     return None  # not a known heuristic — let LLM handle it
