@@ -95,10 +95,28 @@ def list_capabilities():
 
 @app.post("/reset")
 def reset_registry():
-    """Wipe the entire in-memory registry. Useful after bad entries."""
+    """Wipe in-memory registry AND MongoDB. Useful after bad entries."""
     all_names = list(_capai.registry._capabilities.keys())
     _capai.registry._capabilities.clear()
+    # also wipe MongoDB so bad entries don't reload on next restart
+    if _capai.registry._collection is not None:
+        try:
+            _capai.registry._collection.delete_many({})
+        except Exception as e:
+            print(f"[reset] MongoDB wipe failed: {e}")
     return {"cleared": len(all_names), "removed": all_names, "message": "Registry wiped — all capabilities will be rebuilt on next call"}
+
+
+@app.post("/reset/{name}")
+def reset_capability(name: str):
+    """Delete a single capability from memory and MongoDB."""
+    _capai.registry._capabilities.pop(name, None)
+    if _capai.registry._collection is not None:
+        try:
+            _capai.registry._collection.delete_one({"name": name})
+        except Exception as e:
+            print(f"[reset] MongoDB delete failed for '{name}': {e}")
+    return {"deleted": name, "message": f"'{name}' removed — will be rebuilt on next call"}
 
 
 @app.post("/run", response_model=RunResponse)
