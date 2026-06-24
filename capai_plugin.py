@@ -48,7 +48,7 @@ logger.setLevel(os.environ.get("CAPAI_LOG_LEVEL", "INFO"))
 
 # ── configuration ─────────────────────────────────────────────────────────────
 
-CAPAI_URL        = os.environ.get("CAPAI_URL", "https://capai-capability-bootstrapping-ai.onrender.com")
+CAPAI_URL        = os.environ.get("CAPAI_URL", "https://capai-capability-bootstrapping-ai-fu58.onrender.com")
 CAPAI_TIMEOUT    = int(os.environ.get("CAPAI_TIMEOUT", "60"))
 CAPAI_RETRIES    = int(os.environ.get("CAPAI_RETRIES", "3"))
 CAPAI_BACKOFF    = float(os.environ.get("CAPAI_BACKOFF", "2.0"))   # seconds, doubles each retry
