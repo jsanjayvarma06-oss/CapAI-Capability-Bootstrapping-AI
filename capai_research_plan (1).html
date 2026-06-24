@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CapAI — Research Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── Tokens ─────────────────────────────────────────────── */
+  :root {
+    --bg:        #0f1117;
+    --bg-card:   #181c27;
+    --bg-raised: #1e2235;
+    --border:    #2a2f45;
+    --border-hi: #3a4060;
+
+    --text-primary:   #e8eaf2;
+    --text-secondary: #8b90a8;
+    --text-muted:     #555c7a;
+
+    --green:     #22c98a;
+    --green-dim: #122b20;
+    --green-mid: #163326;
+
+    --amber:     #f59e0b;
+    --amber-dim: #261c06;
+
+    --blue:      #6ea8fe;
+    --blue-dim:  #0d1e38;
+
+    --red:       #f87171;
+    --red-dim:   #2a1010;
+
+    --phase1: #22c98a;
+    --phase2: #f59e0b;
+    --phase3: #6ea8fe;
+    --phase4: #f87171;
+
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', system-ui, sans-serif;
+
+    --radius-sm: 5px;
+    --radius:    8px;
+    --radius-lg: 12px;
+  }
+
+  /* ── Reset ──────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  .page { max-width: 820px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+  /* ── Header ─────────────────────────────────────────────── */
+  .header { margin-bottom: 2.5rem; }
+  .header-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .header h1 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  .header h1 span { color: var(--green); }
+  .header-sub {
+    font-size: 13px;
+    color: var(--text-secondary);
+    max-width: 540px;
+    line-height: 1.6;
+  }
+  .header-divider {
+    margin-top: 1.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--green) 0%, var(--border) 60%, transparent 100%);
+  }
+
+  /* ── Meta strip ─────────────────────────────────────────── */
+  .meta-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  .meta-cell {
+    background: var(--bg-card);
+    padding: 0.75rem 1rem;
+  }
+  .meta-cell-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+  }
+  .meta-cell-val {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  /* ── Info callout ───────────────────────────────────────── */
+  .callout {
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    border-left: 3px solid;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .callout-info  { background: var(--blue-dim);  border-color: var(--blue);  color: #b8d4fe; }
+  .callout-green { background: var(--green-dim); border-color: var(--green); color: #7be8bc; }
+  .callout strong { font-weight: 600; color: #fff; }
+
+  /* ── Section label ──────────────────────────────────────── */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    margin: 2rem 0 1rem;
+  }
+
+  /* ── Angle grid ─────────────────────────────────────────── */
+  .angle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 10px;
+    margin-bottom: 2.5rem;
+  }
+  .angle-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
+    transition: border-color 0.15s;
+  }
+  .angle-card.best { border-color: var(--green); background: var(--green-mid); }
+  .angle-card.good { border-color: var(--amber); }
+  .angle-card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .angle-card-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+  .angle-card-body {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ── Badge ──────────────────────────────────────────────── */
+  .badge {
+    flex-shrink: 0;
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+  .badge-green { background: rgba(34,201,138,.18); color: var(--green); border: 1px solid rgba(34,201,138,.35); }
+  .badge-amber { background: rgba(245,158,11,.15); color: var(--amber); border: 1px solid rgba(245,158,11,.3);  }
+  .badge-blue  { background: rgba(110,168,254,.15); color: var(--blue);  border: 1px solid rgba(110,168,254,.3); }
+
+  /* ── Phase ──────────────────────────────────────────────── */
+  .phase { margin-bottom: 1.5rem; }
+
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 1rem 1.1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    user-select: none;
+    list-style: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .phase-header:hover { border-color: var(--border-hi); }
+  .phase-header::-webkit-details-marker { display: none; }
+  details[open] > .phase-header { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+
+  .phase-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .p1 { background: rgba(34,201,138,.15);  color: var(--phase1); }
+  .p2 { background: rgba(245,158,11,.15);  color: var(--phase2); }
+  .p3 { background: rgba(110,168,254,.15); color: var(--phase3); }
+  .p4 { background: rgba(248,113,113,.15); color: var(--phase4); }
+
+  .phase-title-block { flex: 1; min-width: 0; }
+  .phase-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+  .phase-weeks {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+  .phase-chevron {
+    color: var(--text-muted);
+    font-size: 14px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  details[open] .phase-chevron { transform: rotate(180deg); }
+
+  .phase-body {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-bottom-left-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+    padding: 0 0 4px;
+  }
+
+  /* ── Week card ──────────────────────────────────────────── */
+  .week {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .week:last-child { border-bottom: none; }
+  .week.featured { border-left: 3px solid var(--green); }
+
+  .week-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .week-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+  }
+  .week-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* ── List ───────────────────────────────────────────────── */
+  .task-list { padding-left: 1.1rem; }
+  .task-list li {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 2px;
+  }
+  .task-list li::marker { color: var(--text-muted); }
+  .task-list li strong { font-weight: 600; color: var(--text-primary); }
+  .task-list li code {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: var(--green);
+  }
+
+  /* ── Tool pills ─────────────────────────────────────────── */
+  .tools { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .tool-pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 9px;
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+  }
+
+  /* ── Milestone ──────────────────────────────────────────── */
+  .milestone {
+    margin-top: 14px;
+    padding: 8px 12px;
+    background: var(--green-dim);
+    border: 1px solid rgba(34,201,138,.25);
+    border-radius: var(--radius-sm);
+    font-size: 11.5px;
+    color: var(--green);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .milestone::before { content: "✓"; font-weight: 700; flex-shrink: 0; }
+
+  /* ── Deliverable box ────────────────────────────────────── */
+  .deliverable {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: var(--green-dim);
+    border: 1px solid rgba(34,201,138,.3);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    color: #7be8bc;
+    line-height: 1.65;
+  }
+  .deliverable-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--green);
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  /* ── Venue grid ─────────────────────────────────────────── */
+  .venue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-top: 1rem;
+  }
+  .venue-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.9rem 1rem;
+  }
+  .venue-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    line-height: 1.4;
+  }
+  .venue-detail {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────── */
+  .footer {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-left {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  .footer-right {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* ── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 540px) {
+    .page { padding: 2rem 1rem 4rem; }
+    .meta-strip { grid-template-columns: repeat(2, 1fr); }
+    .angle-grid { grid-template-columns: 1fr; }
+    .venue-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ──────────────────────────────────────────── -->
+  <div class="header">
+    <div class="header-eyebrow">Undergraduate Research Plan · 2026</div>
+    <h1>CapAI — <span>Capability-Bootstrapping AI</span></h1>
+    <p class="header-sub">A step-by-step publication roadmap for our self-expanding agentic system. We built a working prototype — this plan turns it into a peer-reviewed paper.</p>
+    <div class="header-divider"></div>
+  </div>
+
+  <!-- ── Meta strip ──────────────────────────────────────── -->
+  <div class="meta-strip">
+    <div class="meta-cell"><div class="meta-cell-label">Starting point</div><div class="meta-cell-val">Working system</div></div>
+    <div class="meta-cell"><div class="meta-cell-label">Duration</div><div class="meta-cell-val">10–12 weeks</div></div>
+    <div class="meta-cell"><div class="meta-cell-label">Team</div><div class="meta-cell-val">2–3 students</div></div>
+    <div class="meta-cell"><div class="meta-cell-label">Compute</div><div class="meta-cell-val">Laptop + API</div></div>
+    <div class="meta-cell"><div class="meta-cell-label">Type</div><div class="meta-cell-val">Systems + Empirical</div></div>
+    <div class="meta-cell"><div class="meta-cell-label">Advantage</div><div class="meta-cell-val">Nobody else has this</div></div>
+  </div>
+
+  <!-- ── What we built ───────────────────────────────────── -->
+  <div class="callout callout-info">
+    <strong>What we've built, precisely.</strong> CapAI is a self-expanding capability acquisition system — an orchestration layer that detects when a task exceeds its current function library, autonomously diagnoses the gap (DiagnosticAgent), generates sandboxed Python code via an LLM (CodeWriter), verifies it across three independent layers — known tests, history replay, self-generated edge cases — (TestingAgent), and promotes it through a gating ManagerAgent into a persistent, deduplicated registry. It also implements a tiered cross-agent capability sharing protocol with independent re-verification on the receiving side (TrustedImporter). This is a real, non-trivial agentic systems prototype and a valid research artifact in its own right.
+  </div>
+
+  <!-- ── Research angles ─────────────────────────────────── -->
+  <div class="section-label">Pick one research angle — these are our publishable gaps</div>
+
+  <div class="angle-grid">
+    <div class="angle-card best">
+      <div class="angle-card-head">
+        <div class="angle-card-title">Angle A — Empirical evaluation of 3-layer verification</div>
+        <span class="badge badge-green">Best pick</span>
+      </div>
+      <div class="angle-card-body">Our TestingAgent has three layers: known tests, history replay, and self-generated edge cases. Nobody has empirically measured what each layer actually contributes — does Layer 3 catch bugs Layers 1+2 miss? How often does the loop converge within 1 vs 3 attempts? Clear experimental design, no competing prior work.</div>
+    </div>
+    <div class="angle-card best">
+      <div class="angle-card-head">
+        <div class="angle-card-title">Angle B — Cross-agent capability sharing trust model</div>
+        <span class="badge badge-green">Strong pick</span>
+      </div>
+      <div class="angle-card-body">sharing.py implements a tiered trust model with re-verification on import. Build a controlled experiment: export capabilities with planted bugs, import via TrustedImporter, measure detection rate. A concrete security result for agentic systems that no prior work addresses.</div>
+    </div>
+    <div class="angle-card good">
+      <div class="angle-card-head">
+        <div class="angle-card-title">Angle C — Registry deduplication analysis</div>
+        <span class="badge badge-amber">Narrower fit</span>
+      </div>
+      <div class="angle-card-body">ManagerAgent uses SequenceMatcher (threshold 0.85) for near-duplicate detection. Measure false-merge and false-non-merge rates at varying thresholds across a benchmark capability set. Proposes embedding-based similarity as an improvement.</div>
+    </div>
+    <div class="angle-card good">
+      <div class="angle-card-head">
+        <div class="angle-card-title">Angle D — Sandbox escape surface</div>
+        <span class="badge badge-amber">Niche but sharp</span>
+      </div>
+      <div class="angle-card-body">sandbox.py runs LLM-generated code in a subprocess without restricting network access, filesystem writes, or resource exhaustion. Systematically characterise what an adversarially-crafted capability can do. A security/safety paper on autonomous code execution boundaries.</div>
+    </div>
+  </div>
+
+  <!-- ── Phase 1 ──────────────────────────────────────────── -->
+  <div class="phase">
+    <details open>
+      <summary class="phase-header">
+        <div class="phase-num p1">1</div>
+        <div class="phase-title-block">
+          <div class="phase-title">Position the work &amp; choose our angle</div>
+          <div class="phase-weeks">Weeks 1–2</div>
+        </div>
+        <span class="phase-chevron">▾</span>
+      </summary>
+      <div class="phase-body">
+
+        <div class="week">
+          <div class="week-head">
+            <span class="week-tag">Week 1</span>
+            <span class="week-title">Read 5 papers that define your context</span>
+          </div>
+          <ul class="task-list">
+            <li><strong>Voyager (arXiv 2305.16291)</strong> — the closest prior system to CapAI. An LLM-driven agent that iteratively acquires JavaScript skills in a Minecraft environment. Their verification is single-layer (execution success only) — not three-layer like ours. Read Section 3 in full; their skill library has no registry lifecycle or deduplication.</li>
+            <li><strong>CodeAct (arXiv 2402.01030)</strong> — LLM agents that generate and execute code as actions. Widely cited but focuses on task completion, not persistent capability accumulation with a registry lifecycle.</li>
+            <li><strong>ToolBench / ToolLLM (arXiv 2307.16789)</strong> — large-scale tool learning for LLMs. Their tools are pre-defined; CapAI synthesises new ones on demand. Note the difference carefully in our related work.</li>
+            <li><strong>Self-expansion literature</strong> — search "LLM capability self-expansion 2024 2025" on Semantic Scholar. Confirm that registry-managed, three-layer-verified, cross-agent-shareable capability acquisition has not been formally evaluated as a system.</li>
+            <li><strong>SWE-Bench (arXiv 2310.06770)</strong> — the standard benchmark for LLM code generation. Useful for contextualising CapAI's code generation quality claims, even though CapAI's domain is narrower.</li>
+            <li>After reading, write a half-page "what exists vs. what CapAI adds" memo. This becomes the core of your Introduction and Related Work sections.</li>
+          </ul>
+          <div class="tools">
+            <span class="tool-pill">arXiv</span>
+            <span class="tool-pill">Google Scholar</span>
+            <span class="tool-pill">Semantic Scholar</span>
+          </div>
+        </div>
+
+        <div class="week">
+          <div class="week-head">
+            <span class="week-tag">Week 2</span>
+            <span class="week-title">Confirm our angle &amp; design the experiment</span>
+          </div>
+          <ul class="task-list">
+            <li>Pick Angle A or B (or both if our team has 3 people). Decide as a team before Week 3 — the experimental design is completely different for each.</li>
+            <li><strong>If Angle A (3-layer verification):</strong> design a benchmark of 30–50 capability tasks spanning trivial (celsius conversion), moderate (fibonacci, palindrome check), tricky (string manipulation with edge cases), and domain-specific (statistical functions). Write ground-truth test suites for each.</li>
+            <li><strong>If Angle B (sharing trust):</strong> design a set of 20–30 capabilities with planted bugs of known types — off-by-one, missing type check, wrong formula, silent wrong output for edge input. Export via CapabilityExchange, import via TrustedImporter, measure detection rate by bug type and layer.</li>
+            <li>Pre-register our experimental design on OSF.io before running any experiments. We have a working system, so pre-registration is feasible and signals methodological rigor to reviewers.</li>
+          </ul>
+          <div class="milestone">Angle chosen. Benchmark or bug suite designed. OSF pre-registration posted. We know what our Table 1 will look like before we run a single experiment.</div>
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Phase 2 ──────────────────────────────────────────── -->
+  <div class="phase">
+    <details open>
+      <summary class="phase-header">
+        <div class="phase-num p2">2</div>
+        <div class="phase-title-block">
+          <div class="phase-title">Instrument the system &amp; run experiments</div>
+          <div class="phase-weeks">Weeks 3–6</div>
+        </div>
+        <span class="phase-chevron">▾</span>
+      </summary>
+      <div class="phase-body">
+
+        <div class="week featured">
+          <div class="week-head">
+            <span class="week-tag">Week 3</span>
+            <span class="week-title">Add logging &amp; metrics — instrument before we measure</span>
+            <span class="badge badge-green">Critical</span>
+          </div>
+          <ul class="task-list">
+            <li>Add structured event logging to the Orchestrator's <code>_emit()</code> calls so every acquisition attempt produces a machine-readable JSON lines record capturing: task name, attempt number, each layer's pass/fail, final outcome, LLM call count, wall-clock time per stage.</li>
+            <li>For Angle A: add per-layer bug-catching attribution to <code>testing_agent.py</code> — when a capability fails, record which layer first caught it. This is our main measurement.</li>
+            <li>For Angle B: instrument <code>TrustedImporter.import_from()</code> to record which verification layer catches each planted bug.</li>
+            <li>Add a deterministic test mode: when <code>CAPAI_TEST_MODE=1</code> is set, bypass LLM calls and use the heuristic fallback — lets you run hundreds of trials cheaply before spending API credits.</li>
+          </ul>
+          <div class="tools">
+            <span class="tool-pill">Python logging / jsonlines</span>
+            <span class="tool-pill">pytest fixtures</span>
+          </div>
+        </div>
+
+        <div class="week">
+          <div class="week-head">
+            <span class="week-tag">Weeks 4–5</span>
+            <span class="week-title">Run the main experiments</span>
+          </div>
+          <ul class="task-list">
+            <li><strong>Angle A run:</strong> for each of our 30–50 benchmark tasks, run CapAI 3 times with different random seeds. Record: did it succeed? How many attempts? Which layer caught each failure? What was the false-positive rate per layer?</li>
+            <li><strong>Angle B run:</strong> for each of our 20–30 planted-bug capabilities, run the full import-and-verify pipeline. Record: was the bug caught? Which layer? Did the bug type affect detection rate?</li>
+            <li>Run in deterministic/heuristic mode first (free, instant) to confirm our logging pipeline is correct, then run with LLM enabled for real results. Budget ~$5–20 in API credits for Groq or Anthropic.</li>
+            <li>Save all raw logs — we will need full provenance to answer reviewer questions about reproducibility.</li>
+          </ul>
+          <div class="tools">
+            <span class="tool-pill">pytest</span>
+            <span class="tool-pill">Groq API (free tier)</span>
+            <span class="tool-pill">pandas (log analysis)</span>
+          </div>
+        </div>
+
+        <div class="week">
+          <div class="week-head">
+            <span class="week-tag">Week 6</span>
+            <span class="week-title">Ablation study — the layer contribution analysis</span>
+          </div>
+          <ul class="task-list">
+            <li>Re-run experiments with one layer disabled at a time: (a) no history replay, (b) no self-generated edge cases, (c) only known tests. This ablation directly answers "what does each layer add?" and is our strongest empirical result.</li>
+            <li>For Angle A: report "unique bug detection rate" per layer — bugs caught by Layer N that Layers 1 to N-1 missed. This table is our paper's central finding.</li>
+            <li>For Angle B: compare detection rate with re-verification vs. trust-on-import (no re-verification). The gap between those two numbers is the concrete security value of our trust model.</li>
+            <li>Also compute: overall acquisition success rate, mean attempts to success, mean wall-clock time per acquisition, LLM call count per acquisition. These populate our evaluation table.</li>
+          </ul>
+          <div class="milestone">Full experiment results + ablation complete. Main result tables and figures ready. We know our headline numbers.</div>
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Phase 3 ──────────────────────────────────────────── -->
+  <div class="phase">
+    <details>
+      <summary class="phase-header">
+        <div class="phase-num p3">3</div>
+        <div class="phase-title-block">
+          <div class="phase-title">Analysis, figures &amp; secondary contributions</div>
+          <div class="phase-weeks">Weeks 7–8</div>
+        </div>
+        <span class="phase-chevron">▾</span>
+      </summary>
+      <div class="phase-body">
+
+        <div class="week featured">
+          <div class="week-head">
+            <span class="week-tag">Week 7</span>
+            <span class="week-title">Comparative baseline &amp; qualitative analysis</span>
+            <span class="badge badge-green">Strengthens the paper significantly</span>
+          </div>
+          <ul class="task-list">
+            <li><strong>Build a baseline for comparison:</strong> implement a "single-shot" version of CapAI — no acquisition loop, no verification, just generate-and-execute once. Compare success rate against the full CapAI loop. This baseline comparison is what turns our paper from a system description into an empirical evaluation.</li>
+            <li>Qualitative analysis: pick 5 interesting cases where CapAI failed or took 3 attempts. Write them up as case studies — what went wrong, which layer caught it, how the code changed between attempts. These make the paper readable beyond the numbers.</li>
+            <li>Build our 3 main figures: (1) layer-contribution bar chart (unique detection rate per layer), (2) attempts-to-success distribution histogram, (3) capability taxonomy breakdown (trivial / moderate / tricky) by success rate.</li>
+          </ul>
+        </div>
+
+        <div class="week">
+          <div class="week-head">
+            <span class="week-tag">Week 8</span>
+            <span class="week-title">Known limitations &amp; proposed extensions</span>
+          </div>
+          <ul class="task-list">
+            <li>The sandbox restricts execution to JSON-serializable inputs/outputs — document this as a deliberate design constraint, not merely a limitation, and argue why it is the right tradeoff for autonomous capability generation.</li>
+            <li>SequenceMatcher-based deduplication uses Levenshtein-style surface similarity — discuss why embedding-based similarity would be a better long-term approach and sketch what that extension would look like.</li>
+            <li>The git-based MCP server versioning is local-only — discuss how adding a remote push step enables distributed capability provenance tracking across multiple CapAI instances.</li>
+            <li>Self-generated edge cases skip negative numbers deliberately (see code comment in <code>testing_agent.py</code>). Argue both sides and propose a more principled edge-case generation strategy as future work.</li>
+          </ul>
+          <div class="milestone">Three figures done. Baseline comparison complete. Case studies written. Limitations section drafted. Full story assembled.</div>
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Phase 4 ──────────────────────────────────────────── -->
+  <div class="phase">
+    <details>
+      <summary class="phase-header">
+        <div class="phase-num p4">4</div>
+        <div class="phase-title-block">
+          <div class="phase-title">Writing &amp; submission</div>
+          <div class="phase-weeks">Weeks 9–12</div>
+        </div>
+        <span class="phase-chevron">▾</span>
+      </summary>
+      <div class="phase-body">
+
+        <div class="week">
+          <div class="week-head">
+            <span class="week-tag">Weeks 9–10</span>
+            <span class="week-title">Write the paper</span>
+          </div>
+          <ul class="task-list">
+            <li>Use ACL or NeurIPS LaTeX template on Overleaf. For a systems paper, IEEE double-column is also appropriate depending on our target venue.</li>
+            <li>Write in this order: Section 3 (System Design) → Section 4 (Evaluation) → Section 2 (Related Work) → Section 1 (Introduction) → Abstract.</li>
+            <li><strong>Key framing for the intro:</strong> "We present CapAI, a self-expanding capability acquisition system, and the first empirical evaluation of multi-layer automated verification for autonomously-generated code capabilities. We show that [Layer 3 catches X% of bugs missed by Layers 1–2], and that cross-agent capability sharing with independent re-verification catches Y% of bugs undetected at the exporting instance."</li>
+            <li>The System Design section should reference actual class names — Orchestrator, ManagerAgent, TestingAgent, TrustedImporter — and specific design decisions (why subprocess isolation, why JSON-only sandbox).</li>
+            <li>Release CapAI as open source on GitHub and reference it in the paper. Systems papers with a public codebase are taken more seriously at review.</li>
+          </ul>
+          <div class="tools">
+            <span class="tool-pill">Overleaf</span>
+            <span class="tool-pill">ACL / NeurIPS LaTeX template</span>
+          </div>
+        </div>
+
+        <div class="week">
+          <div class="week-head">
+            <span class="week-tag">Weeks 11–12</span>
+            <span class="week-title">Review, submit, arXiv, open-source</span>
+          </div>
+          <ul class="task-list">
+            <li>Faculty or PhD mentor review — ask specifically: "Is the evaluation clearly differentiated from just describing the system?" and "Is the comparison to Voyager's single-layer verification accurate and fair?"</li>
+            <li>Submit to chosen venue.</li>
+            <li>Post arXiv preprint immediately after submission — a working, open-source self-expanding agent will get traction and community attention.</li>
+            <li>Make the GitHub repo public with a clear README, installation instructions, and the quick-start demo (demo.py is already there — just add a badge and usage examples).</li>
+          </ul>
+          <div class="deliverable">
+            <div class="deliverable-label">Final deliverables</div>
+            Submitted paper &nbsp;·&nbsp; arXiv preprint &nbsp;·&nbsp; Public GitHub repo with reproducible experiments &nbsp;·&nbsp; Layer-contribution evaluation table &nbsp;·&nbsp; Capability benchmark suite (reusable by others)
+          </div>
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Venues ───────────────────────────────────────────── -->
+  <div class="section-label">Target publication venues</div>
+  <div class="venue-grid">
+    <div class="venue-card">
+      <div class="venue-name">ACL 2026 — System Demo / Short Paper <span class="badge badge-green">Best fit</span></div>
+      <div class="venue-detail">System demonstrations and short empirical papers on agentic systems are squarely in scope. Demo track is explicitly designed for working systems with evaluation.</div>
+    </div>
+    <div class="venue-card">
+      <div class="venue-name">NeurIPS 2026 — Workshop on Agentic AI <span class="badge badge-green">Strong fit</span></div>
+      <div class="venue-detail">Workshops on LLM agents and tool use are core NeurIPS topics. A working system with empirical evaluation is exactly what these workshops want.</div>
+    </div>
+    <div class="venue-card">
+      <div class="venue-name">EMNLP 2026 — System Track <span class="badge badge-amber">Good fit</span></div>
+      <div class="venue-detail">System description + evaluation papers accepted. The code-generation and agentic NLP angle fits well in this venue's scope.</div>
+    </div>
+    <div class="venue-card">
+      <div class="venue-name">arXiv preprint <span class="badge badge-blue">Do immediately</span></div>
+      <div class="venue-detail">Post as soon as the paper is drafted. A working open-source self-expanding agent will attract attention — timestamp your contribution now, before similar systems appear.</div>
+    </div>
+  </div>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <div class="footer">
+    <div class="footer-left">CAPAI · RESEARCH PLAN · 2026</div>
+    <div class="footer-right">Phases 3 &amp; 4 collapsed by default — click to expand</div>
+  </div>
+
+</div>
+</body>
+</html>
