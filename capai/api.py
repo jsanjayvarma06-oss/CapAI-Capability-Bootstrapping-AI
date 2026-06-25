@@ -95,16 +95,23 @@ def list_capabilities():
 
 @app.post("/reset")
 def reset_registry():
-    """Wipe in-memory registry AND MongoDB. Useful after bad entries."""
+    """Wipe in-memory registry only. MongoDB is preserved so capabilities reload on restart."""
     all_names = list(_capai.registry._capabilities.keys())
     _capai.registry._capabilities.clear()
-    # also wipe MongoDB so bad entries don't reload on next restart
+    return {"cleared": len(all_names), "removed": all_names, "message": "Memory wiped — capabilities will reload from MongoDB on next call"}
+
+
+@app.post("/reset/hard")
+def hard_reset_registry():
+    """Wipe BOTH in-memory registry AND MongoDB. Use only to clear bad entries."""
+    all_names = list(_capai.registry._capabilities.keys())
+    _capai.registry._capabilities.clear()
     if _capai.registry._collection is not None:
         try:
             _capai.registry._collection.delete_many({})
         except Exception as e:
             print(f"[reset] MongoDB wipe failed: {e}")
-    return {"cleared": len(all_names), "removed": all_names, "message": "Registry wiped — all capabilities will be rebuilt on next call"}
+    return {"cleared": len(all_names), "removed": all_names, "message": "Memory and MongoDB wiped — all capabilities will be rebuilt from scratch"}
 
 
 @app.post("/reset/{name}")
