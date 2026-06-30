@@ -14,6 +14,13 @@ dependencies = [
     "groq>=0.9.0",
     "anthropic>=0.40.0",
     "pymongo>=4.0.0",
+    "pyflakes>=3.0.0",
+    "mypy>=1.10.0",
+    "coverage>=7.0.0",
+    "requests>=2.31.0",
+    "pandas>=2.0.0",
+    "pydantic>=2.0.0",
+    "python-dateutil>=2.8.0",
 ]
 
 [project.optional-dependencies]
