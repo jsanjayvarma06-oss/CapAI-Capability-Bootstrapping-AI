@@ -136,6 +136,7 @@ def run_task(req: RunRequest):
 class BuildRequest(BaseModel):
     description: str
     max_iterations: Optional[int] = None
+    use_cache: bool = True
 
 
 class BuildResponse(BaseModel):
@@ -145,18 +146,24 @@ class BuildResponse(BaseModel):
     iterations: int = 0
     log: List[str] = []
     error: str = ""
+    confidence: int = 0
+    coverage_percent: float = 0.0
+    from_cache: bool = False
+    static_issues: List[str] = []
+    type_issues: List[str] = []
 
 
 @app.post("/build", response_model=BuildResponse)
 def build_advanced(req: BuildRequest):
     """
     Build bigger-than-a-single-function code: multi-function modules,
-    classes, algorithms, or pipelines. Writes the code, auto-generates a
-    test suite, runs both in a sandbox, and self-corrects on failure —
-    all in one request, no human-in-the-loop refinement.
+    classes, algorithms, or pipelines. Writes the code, statically
+    analyses it, type-checks it, auto-generates a coverage-tracked test
+    suite, self-corrects on failure, scores confidence, and caches the
+    verified result in MongoDB so repeat requests are instant.
     """
     from .advanced_writer import build
-    result = build(req.description, max_iterations=req.max_iterations)
+    result = build(req.description, max_iterations=req.max_iterations, use_cache=req.use_cache)
     return BuildResponse(
         success=result.success,
         code=result.code,
@@ -164,4 +171,82 @@ def build_advanced(req: BuildRequest):
         iterations=result.iterations,
         log=result.log,
         error=result.error,
+        confidence=result.confidence,
+        coverage_percent=result.coverage_percent,
+        from_cache=result.from_cache,
+        static_issues=result.static_issues,
+        type_issues=result.type_issues,
     )
+
+
+@app.post("/build/stream")
+async def build_advanced_stream(req: BuildRequest):
+    """
+    Same as /build, but streams progress log lines as they happen
+    (server-sent text lines) instead of waiting for the entire
+    write -> test -> critique loop to finish before responding.
+    """
+    from fastapi.responses import StreamingResponse
+    from .advanced_writer import build_streaming
+
+    async def event_stream():
+        for line in build_streaming(req.description, max_iterations=req.max_iterations, use_cache=req.use_cache):
+            yield line + "\n"
+
+    return StreamingResponse(event_stream(), media_type="text/plain")
+
+
+@app.get("/usage")
+def usage_summary():
+    """Token usage and cost-tracking summary across Groq and Anthropic calls."""
+    from .llm_client import get_usage_summary
+    return get_usage_summary()
+
+
+class AutoRequest(BaseModel):
+    description: str
+    args: List[Any] = []
+    kwargs: Dict[str, Any] = {}
+
+
+@app.post("/auto")
+def auto_route(req: AutoRequest):
+    """
+    Difficulty-aware single entry point. Heuristically decides whether a
+    request is a simple single-function call (routes to /run-style
+    acquisition, fast heuristic path) or a multi-function/class/pipeline
+    request (routes to /build's full write-test-critique loop), so
+    callers don't have to choose the endpoint themselves.
+    """
+    complex_signals = [
+        "class", "pipeline", "multiple functions", "and a function that",
+        "orchestrat", "several methods", "step 1", "step one", "module with",
+    ]
+    is_complex = (
+        len(req.description.split()) > 25
+        or any(sig in req.description.lower() for sig in complex_signals)
+    )
+
+    if is_complex:
+        from .advanced_writer import build
+        result = build(req.description)
+        return {
+            "route": "build",
+            "success": result.success,
+            "code": result.code,
+            "confidence": result.confidence,
+            "coverage_percent": result.coverage_percent,
+            "iterations": result.iterations,
+            "from_cache": result.from_cache,
+            "error": result.error,
+        }
+
+    # simple path — derive a snake_case name from the description
+    import re as _re
+    words = _re.findall(r"[a-zA-Z]+", req.description.lower())[:4]
+    name = "_".join(words) if words else "auto_capability"
+    try:
+        result = _capai.run(name, req.description, *req.args, **req.kwargs)
+        return {"route": "run", "success": True, "result": result, "capability_name": name}
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
