@@ -14,6 +14,7 @@ Endpoints:
 """
 from __future__ import annotations
 
+import contextlib
 from typing import Any, Dict, List, Optional
 
 from fastapi import FastAPI, HTTPException
@@ -22,31 +23,31 @@ from pydantic import BaseModel
 from . import config
 from .__init__ import CapAI
 
-app = FastAPI(
-    title="CapAI",
-    description="Self-expanding capability acquisition layer for AI systems.",
-    version="0.1.0",
-)
-
 _capai = CapAI()
 
-
-# ── MCP server mount ────────────────────────────────────────────────────────
+# ── MCP server setup ──────────────────────────────────────────────────────────
 # Exposes the same CapAI capabilities as native MCP tools at /mcp, so any
 # MCP-compatible client (Claude Desktop, agent frameworks, etc.) can connect
 # to THIS SAME Render service instead of needing a separate one.
+_mcp_server = None
 try:
     from .mcp_tools import mcp as _mcp_server, bind as _mcp_bind
     _mcp_bind(_capai)
-    app.mount("/mcp", _mcp_server.streamable_http_app())
-    print("[api] MCP server mounted at /mcp")
 except Exception as e:
-    print(f"[api] MCP server could not be mounted ({e}) — REST API still works normally.")
+    print(f"[api] MCP server could not be initialised ({e}) — REST API still works normally.")
 
 
-@app.on_event("startup")
-async def startup_cleanup():
-    """On startup, remove any registry entries that have no source code (broken entries)."""
+@contextlib.asynccontextmanager
+async def _lifespan(app: FastAPI):
+    """
+    Combined startup/shutdown for the main app AND the mounted MCP
+    server. The MCP streamable-http transport requires its session
+    manager's run() context to be active for the whole process lifetime
+    — mounting the sub-app alone does NOT start this automatically, so
+    it must be entered here as part of the parent app's own lifespan.
+    """
+    # startup: clear any broken registry entries left over from a
+    # previous failed acquisition attempt
     broken = [
         cap.name for cap in _capai.registry._capabilities.values()
         if not getattr(cap, "source_code", None)
@@ -55,6 +56,25 @@ async def startup_cleanup():
         _capai.registry._capabilities.pop(name, None)
     if broken:
         print(f"[startup] Cleared {len(broken)} broken registry entries: {broken}")
+
+    if _mcp_server is not None:
+        async with _mcp_server.session_manager.run():
+            print("[api] MCP session manager started.")
+            yield
+    else:
+        yield
+
+
+app = FastAPI(
+    title="CapAI",
+    description="Self-expanding capability acquisition layer for AI systems.",
+    version="0.1.0",
+    lifespan=_lifespan,
+)
+
+if _mcp_server is not None:
+    app.mount("/mcp", _mcp_server.streamable_http_app())
+    print("[api] MCP server mounted at /mcp")
 
 
 # ── request / response models ────────────────────────────────────────
