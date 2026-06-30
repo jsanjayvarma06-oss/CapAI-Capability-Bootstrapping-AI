@@ -131,3 +131,37 @@ def run_task(req: RunRequest):
         return RunResponse(success=True, result=result, capability_name=req.name)
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
+
+
+class BuildRequest(BaseModel):
+    description: str
+    max_iterations: Optional[int] = None
+
+
+class BuildResponse(BaseModel):
+    success: bool
+    code: str = ""
+    test_code: str = ""
+    iterations: int = 0
+    log: List[str] = []
+    error: str = ""
+
+
+@app.post("/build", response_model=BuildResponse)
+def build_advanced(req: BuildRequest):
+    """
+    Build bigger-than-a-single-function code: multi-function modules,
+    classes, algorithms, or pipelines. Writes the code, auto-generates a
+    test suite, runs both in a sandbox, and self-corrects on failure —
+    all in one request, no human-in-the-loop refinement.
+    """
+    from .advanced_writer import build
+    result = build(req.description, max_iterations=req.max_iterations)
+    return BuildResponse(
+        success=result.success,
+        code=result.code,
+        test_code=result.test_code,
+        iterations=result.iterations,
+        log=result.log,
+        error=result.error,
+    )
