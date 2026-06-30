@@ -12,13 +12,31 @@ Any MCP-compatible client (Claude Desktop, agent frameworks) connects to:
 """
 from __future__ import annotations
 
+import os
 from typing import Any, Optional
 
 from mcp.server.fastmcp import FastMCP
+from mcp.server.fastmcp.server import TransportSecuritySettings
+
+# DNS-rebinding protection only allows "localhost" by default, which
+# blocks every real request once this is deployed behind a public
+# hostname like Render. CAPAI_MCP_ALLOWED_HOSTS lets the actual domain
+# be whitelisted via env var without hardcoding it here. Comma-separated,
+# e.g. "capai-capability-bootstrapping-ai-fu58.onrender.com".
+_allowed_hosts_env = os.environ.get("CAPAI_MCP_ALLOWED_HOSTS", "")
+_allowed_hosts = [h.strip() for h in _allowed_hosts_env.split(",") if h.strip()]
+_allowed_hosts += ["localhost", "127.0.0.1", "testserver"]
+
+_transport_security = TransportSecuritySettings(
+    enable_dns_rebinding_protection=bool(_allowed_hosts_env),
+    allowed_hosts=_allowed_hosts,
+    allowed_origins=["*"],
+)
 
 mcp = FastMCP(
     name="CapAI",
     streamable_http_path="/",
+    transport_security=_transport_security,
     instructions=(
         "CapAI gives you skills you don't natively have. When you need to do "
         "something computational that you can't do reliably yourself — math, "
