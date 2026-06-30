@@ -76,6 +76,12 @@ The test script will be executed via exec() in the SAME namespace as the
 module below, so call the functions/classes directly by name — do not import
 anything, do not redefine the module.
 
+CRITICAL: If the module defines a class, you MUST instantiate it first
+(e.g. `obj = ClassName()`) and call its methods on that instance
+(e.g. `obj.method_name(args)`) — do NOT call methods as if they were
+free-standing functions. If the module defines top-level functions
+instead of a class, call them directly by name with no instantiation.
+
 MODULE:
 ```python
 {code}
@@ -89,6 +95,13 @@ _CRITIQUE_PROMPT = """\
 The following Python module failed its test suite. Diagnose the bug and
 return a CORRECTED full version of the module — not a diff, not an
 explanation, the complete fixed source code only.
+
+IMPORTANT: First check whether the failure is actually a bug in the test
+script itself (e.g. calling a class method as a free function without
+instantiating the class first) rather than a bug in the module. If the
+module's logic is correct and the test script is the actual problem,
+fix the MODULE anyway to be more robust/forgiving where reasonable, but
+do not break correct behaviour just because the test was written wrong.
 
 ORIGINAL REQUEST:
 {description}
@@ -167,6 +180,14 @@ def build(description: str, max_iterations: Optional[int] = None) -> AdvancedBui
         )
         code = _strip_fences(fixed)
         log.append(f"Rewrote module after attempt {attempt} failure.")
+
+        # Regenerate the test script too — many failures are caused by a
+        # badly-written test (e.g. calling a class method as a free
+        # function) rather than a bug in the module itself.
+        test_code = _strip_fences(
+            llm_client.complete(_TEST_PROMPT.format(code=code), max_tokens=1000)
+        )
+        log.append("Regenerated test script for the fixed module.")
 
     return AdvancedBuildResult(
         success=False, code=code, test_code=test_code,
