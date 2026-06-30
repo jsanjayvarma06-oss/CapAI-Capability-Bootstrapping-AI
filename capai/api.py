@@ -241,12 +241,16 @@ def auto_route(req: AutoRequest):
             "error": result.error,
         }
 
-    # simple path — derive a snake_case name from the description
+    # simple path — derive a meaningful snake_case name from the description
+    # by dropping common stopwords rather than blindly taking the first N words,
+    # so "Check if a number is prime" -> "check_number_prime" not "check_if_a_number"
     import re as _re
-    words = _re.findall(r"[a-zA-Z]+", req.description.lower())[:4]
+    STOPWORDS = {"a", "an", "the", "is", "if", "of", "to", "for", "and", "or",
+                 "given", "from", "with", "in", "on", "this", "that", "it"}
+    words = [w for w in _re.findall(r"[a-zA-Z]+", req.description.lower()) if w not in STOPWORDS][:5]
     name = "_".join(words) if words else "auto_capability"
     try:
         result = _capai.run(name, req.description, *req.args, **req.kwargs)
         return {"route": "run", "success": True, "result": result, "capability_name": name}
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=str(exc))
+        raise HTTPException(status_code=500, detail=f"{type(exc).__name__}: {exc}")
