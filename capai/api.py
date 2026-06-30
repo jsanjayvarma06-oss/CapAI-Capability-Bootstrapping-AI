@@ -31,6 +31,19 @@ app = FastAPI(
 _capai = CapAI()
 
 
+# ── MCP server mount ────────────────────────────────────────────────────────
+# Exposes the same CapAI capabilities as native MCP tools at /mcp, so any
+# MCP-compatible client (Claude Desktop, agent frameworks, etc.) can connect
+# to THIS SAME Render service instead of needing a separate one.
+try:
+    from .mcp_tools import mcp as _mcp_server, bind as _mcp_bind
+    _mcp_bind(_capai)
+    app.mount("/mcp", _mcp_server.streamable_http_app())
+    print("[api] MCP server mounted at /mcp")
+except Exception as e:
+    print(f"[api] MCP server could not be mounted ({e}) — REST API still works normally.")
+
+
 @app.on_event("startup")
 async def startup_cleanup():
     """On startup, remove any registry entries that have no source code (broken entries)."""
