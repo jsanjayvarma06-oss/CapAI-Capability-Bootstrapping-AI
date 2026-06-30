@@ -19,13 +19,7 @@ services:
     runtime: python
     schedule: "*/14 * * * *"   # every 14 min — beats the 15-min free-tier spindown
     buildCommand: pip install httpx
-    startCommand: python -c "
-import httpx, os, sys
-url = os.environ['CAPAI_URL'] + '/health'
-r = httpx.get(url, timeout=30)
-print(r.status_code, r.text)
-sys.exit(0 if r.status_code == 200 else 1)
-"
+    startCommand: python -c "import httpx, os, sys; r = httpx.get(os.environ['CAPAI_URL'] + '/health', timeout=30); print(r.status_code, r.text); sys.exit(0 if r.status_code == 200 else 1)"
     envVars:
       - key: CAPAI_URL
         sync: false   # set to your web service URL in the dashboard
