@@ -18,6 +18,7 @@ from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP(
     name="CapAI",
+    streamable_http_path="/",
     instructions=(
         "CapAI gives you skills you don't natively have. When you need to do "
         "something computational that you can't do reliably yourself — math, "
