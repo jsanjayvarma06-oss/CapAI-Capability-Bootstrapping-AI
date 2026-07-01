@@ -162,6 +162,33 @@ def capai_list_capabilities() -> list:
 
 
 @mcp.tool()
+def capai_skill(request: str, repo_urls: Optional[list] = None, max_repos: int = 3) -> dict:
+    """
+    Discover GitHub skill repos relevant to the request, read their
+    README and code files, and use AI to apply the most relevant
+    skill to produce ready-to-use output.
+
+    Use this for creative/design/web tasks where pre-built templates
+    exist on GitHub — e.g. "design a landing page", "create a navbar",
+    "generate a dashboard layout".
+
+    Args:
+        request:   plain English description of what to build
+        repo_urls: optional specific GitHub repo URLs to use directly
+        max_repos: how many repos to auto-search (default 3)
+    """
+    from .skill_discoverer import discover_skill
+    from .skill_executor import apply_skill
+    try:
+        repos = discover_skill(request, repo_urls=repo_urls, max_repos=max_repos)
+        result = apply_skill(request, repos)
+        return {"success": result.success, "output": result.output,
+                "repos_used": result.repos_used, "error": result.error}
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+
+@mcp.tool()
 def capai_health() -> dict:
     """
     Check whether CapAI is reachable and which LLM provider is backing it.
