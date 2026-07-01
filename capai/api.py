@@ -229,6 +229,50 @@ async def build_advanced_stream(req: BuildRequest):
     return StreamingResponse(event_stream(), media_type="text/plain")
 
 
+class SkillRequest(BaseModel):
+    request: str
+    repo_urls: Optional[List[str]] = None
+    max_repos: int = 3
+
+
+class SkillResponse(BaseModel):
+    success: bool
+    output: str = ""
+    repos_used: List[dict] = []
+    error: str = ""
+
+
+@app.post("/skill", response_model=SkillResponse)
+def run_skill(req: SkillRequest):
+    """
+    Discover skill repos on GitHub relevant to the request (or use
+    provided repo_urls directly), read their README + code files,
+    and use Groq to apply the most relevant skill to produce the output.
+
+    Example — design a landing page using a specific UI skill repo:
+        POST /skill
+        {"request": "Create a modern landing page for a SaaS product",
+         "repo_urls": ["https://github.com/owner/ui-ux-skills"]}
+
+    Example — search GitHub automatically:
+        POST /skill
+        {"request": "Create a responsive navbar component", "max_repos": 2}
+    """
+    from .skill_discoverer import discover_skill
+    from .skill_executor import apply_skill
+    try:
+        repos = discover_skill(req.request, repo_urls=req.repo_urls, max_repos=req.max_repos)
+        result = apply_skill(req.request, repos)
+        return SkillResponse(
+            success=result.success,
+            output=result.output,
+            repos_used=result.repos_used,
+            error=result.error,
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
 @app.get("/usage")
 def usage_summary():
     """Token usage and cost-tracking summary across Groq and Anthropic calls."""
