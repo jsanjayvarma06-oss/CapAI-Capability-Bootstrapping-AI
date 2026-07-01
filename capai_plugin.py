@@ -256,6 +256,26 @@ class CapAIPlugin:
         self._cache.invalidate(name)
         logger.debug(f"Cache invalidated: {name or 'all'}")
 
+    def skill(self, request: str, repo_urls: list = None, max_repos: int = 3) -> str:
+        """
+        Discover GitHub skill repos, read their code/templates, and apply
+        the most relevant skill to produce output for the request.
+
+        Args:
+            request:   plain English description e.g. "create a landing page for a SaaS product"
+            repo_urls: optional list of specific GitHub repo URLs to use
+                       e.g. ["https://github.com/owner/ui-ux-skills"]
+                       if None, CapAI searches GitHub automatically
+            max_repos: how many repos to search (default 3, ignored if repo_urls provided)
+
+        Returns the generated output (e.g. HTML page, component code, etc.)
+        """
+        payload = {"request": request, "repo_urls": repo_urls, "max_repos": max_repos}
+        response = self._post("/skill", payload)
+        if not response.get("success"):
+            raise CapAIBuildError(f"Skill error: {response.get('error', 'unknown')}")
+        return response["output"]
+
     # ── retry loop ────────────────────────────────────────────────────────────
 
     def _run_with_retry(self, name: str, description: str, args: tuple, kwargs: dict) -> Any:
