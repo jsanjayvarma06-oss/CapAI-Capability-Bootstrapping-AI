@@ -284,24 +284,50 @@ class AutoRequest(BaseModel):
     description: str
     args: List[Any] = []
     kwargs: Dict[str, Any] = {}
+    repo_urls: Optional[List[str]] = None
 
 
 @app.post("/auto")
 def auto_route(req: AutoRequest):
     """
-    Difficulty-aware single entry point. Heuristically decides whether a
-    request is a simple single-function call (routes to /run-style
-    acquisition, fast heuristic path) or a multi-function/class/pipeline
-    request (routes to /build's full write-test-critique loop), so
-    callers don't have to choose the endpoint themselves.
+    Unified entry point — automatically routes to the right pipeline:
+      skill → UI/web output from GitHub repos
+      build → classes, pipelines, multi-function modules
+      run   → single utility functions
     """
-    complex_signals = [
+    desc = req.description.lower()
+
+    # ── skill: UI/web/design requests ────────────────────────────────────────
+    skill_signals = [
+        "page", "landing", "website", "component", "navbar", "dashboard",
+        "form", "layout", "template", "ui", "design", "html", "css",
+        "frontend", "portfolio", "menu", "card", "modal", "hero", "footer",
+        "header", "blog", "product page", "pricing", "register", "login page",
+    ]
+    is_skill = req.repo_urls is not None or any(sig in desc for sig in skill_signals)
+
+    if is_skill:
+        from .skill_discoverer import discover_skill
+        from .skill_executor import apply_skill
+        repos = discover_skill(req.description, repo_urls=req.repo_urls, max_repos=2)
+        if repos:
+            result = apply_skill(req.description, repos)
+            return {
+                "route": "skill",
+                "success": result.success,
+                "output": result.output,
+                "repos_used": result.repos_used,
+                "error": result.error,
+            }
+
+    # ── build: classes, pipelines, multi-function modules ────────────────────
+    build_signals = [
         "class", "pipeline", "multiple functions", "and a function that",
         "orchestrat", "several methods", "step 1", "step one", "module with",
     ]
     is_complex = (
         len(req.description.split()) > 25
-        or any(sig in req.description.lower() for sig in complex_signals)
+        or any(sig in desc for sig in build_signals)
     )
 
     if is_complex:
@@ -318,9 +344,7 @@ def auto_route(req: AutoRequest):
             "error": result.error,
         }
 
-    # simple path — derive a meaningful snake_case name from the description
-    # by dropping common stopwords rather than blindly taking the first N words,
-    # so "Check if a number is prime" -> "check_number_prime" not "check_if_a_number"
+    # ── run: single utility function ──────────────────────────────────────────
     import re as _re
     STOPWORDS = {"a", "an", "the", "is", "if", "of", "to", "for", "and", "or",
                  "given", "from", "with", "in", "on", "this", "that", "it"}
