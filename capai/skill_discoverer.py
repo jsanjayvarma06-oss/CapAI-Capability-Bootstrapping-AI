@@ -22,9 +22,13 @@ GITHUB_SEARCH_API = "https://api.github.com/search/repositories"
 GITHUB_RAW        = "https://raw.githubusercontent.com"
 GITHUB_API        = "https://api.github.com"
 
+import os as _os
+_GITHUB_TOKEN = _os.environ.get("GITHUB_TOKEN", "")
+
 HEADERS = {
     "Accept": "application/vnd.github+json",
     "User-Agent": "CapAI-SkillDiscoverer/1.0",
+    **( {"Authorization": f"Bearer {_GITHUB_TOKEN}"} if _GITHUB_TOKEN else {} )
 }
 
 SKILL_CODE_EXTENSIONS = {".py", ".html", ".css", ".js", ".json", ".md", ".txt", ".yaml", ".yml"}
