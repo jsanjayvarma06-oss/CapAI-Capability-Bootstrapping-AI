@@ -34,10 +34,14 @@ MONGODB_URI = os.environ.get("MONGODB_URI")
 # Set none to run in offline heuristic mode (no LLM, no cost).
 
 CEREBRAS_API_KEY = os.environ.get("CEREBRAS_API_KEY")
-# Same model family as the original Groq-based benchmarks (llama-3.3-70b),
-# chosen deliberately to keep latency numbers comparable across the
-# provider switch rather than introducing another confounding change.
-CEREBRAS_MODEL = os.environ.get("CAPAI_CEREBRAS_MODEL", "llama-3.3-70b")
+# gpt-oss-120b is a reasoning model on Cerebras (generates intermediate
+# thinking tokens before its final answer, similar to the NVIDIA
+# Nemotron model tested earlier) — llm_client.py handles this the same
+# defensive way: prefer final content, fall back to reasoning content
+# only if content comes back empty. Switched from llama-3.3-70b after
+# that model returned a 404 "model not found / no access" error for
+# this account despite matching Cerebras' documented model ID.
+CEREBRAS_MODEL = os.environ.get("CAPAI_CEREBRAS_MODEL", "gpt-oss-120b")
 
 NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY")
 # Default is a plain instruct model, NOT a reasoning model — testing
