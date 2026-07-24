@@ -104,11 +104,17 @@ class CapabilityInfo(BaseModel):
 
 @app.get("/health")
 def health():
+    if config.NVIDIA_API_KEY:
+        provider, model = "nvidia", config.NVIDIA_MODEL
+    elif config.ANTHROPIC_API_KEY:
+        provider, model = "anthropic", config.ANTHROPIC_MODEL
+    else:
+        provider, model = "offline", None
     return {
         "status": "ok",
         "llm_enabled": config.LLM_ENABLED,
-        "provider": "groq" if config.GROQ_API_KEY else ("anthropic" if config.ANTHROPIC_API_KEY else "offline"),
-        "model": config.GROQ_MODEL if config.GROQ_API_KEY else config.ANTHROPIC_MODEL,
+        "provider": provider,
+        "model": model,
     }
 
 
