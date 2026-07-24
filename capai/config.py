@@ -17,16 +17,27 @@ from pathlib import Path
 MONGODB_URI = os.environ.get("MONGODB_URI")
 
 # ---------------------------------------------------------------- LLM
-# Provider priority: NVIDIA NIM > Anthropic > offline heuristic.
-# Groq has been REMOVED from the active provider chain (see
-# llm_client.py) — its free tier's hard 100k-tokens/day ceiling was
-# repeatedly blocking benchmark runs. GROQ_API_KEY / GROQ_MODEL are
-# kept below only so an old .env with that variable still set doesn't
-# break anything; they are never read by llm_client.complete().
+# Provider priority: Cerebras > NVIDIA NIM > Anthropic > offline heuristic.
+# Cerebras is primary: 1,000,000 tokens/day free, 30 req/min, runs on
+# custom Wafer-Scale Engine hardware (much faster than typical GPU
+# inference). NVIDIA NIM is kept as a fallback after being demoted from
+# primary — its shared free-tier infrastructure was observed under
+# heavy congestion (a trivial request took 41+ seconds during testing).
+# Groq is NOT part of the chain — its free tier's hard 100k-tokens/day
+# ceiling repeatedly blocked benchmark runs. GROQ_API_KEY / GROQ_MODEL
+# are kept below only so an old .env with that variable still set
+# doesn't break anything; they are never read by llm_client.complete().
 #
-# Set NVIDIA_API_KEY (starts with "nvapi-") to use NVIDIA NIM.
-# Set ANTHROPIC_API_KEY to use Anthropic Claude as fallback.
-# Set neither to run in offline heuristic mode (no LLM, no cost).
+# Set CEREBRAS_API_KEY to use Cerebras (primary).
+# Set NVIDIA_API_KEY (starts with "nvapi-") to use NVIDIA NIM (fallback).
+# Set ANTHROPIC_API_KEY to use Anthropic Claude (final fallback).
+# Set none to run in offline heuristic mode (no LLM, no cost).
+
+CEREBRAS_API_KEY = os.environ.get("CEREBRAS_API_KEY")
+# Same model family as the original Groq-based benchmarks (llama-3.3-70b),
+# chosen deliberately to keep latency numbers comparable across the
+# provider switch rather than introducing another confounding change.
+CEREBRAS_MODEL = os.environ.get("CAPAI_CEREBRAS_MODEL", "llama-3.3-70b")
 
 NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY")
 # Default is a plain instruct model, NOT a reasoning model — testing
@@ -45,7 +56,7 @@ ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 ANTHROPIC_MODEL   = os.environ.get("CAPAI_MODEL", "claude-sonnet-4-6")
 
 # LLM_ENABLED reflects only the providers actually used by llm_client.complete()
-LLM_ENABLED = bool(NVIDIA_API_KEY or ANTHROPIC_API_KEY)
+LLM_ENABLED = bool(CEREBRAS_API_KEY or NVIDIA_API_KEY or ANTHROPIC_API_KEY)
 
 # ---------------------------------------------------------------- storage
 CAPAI_HOME      = Path(os.environ.get("CAPAI_HOME", Path.cwd() / ".capai"))
