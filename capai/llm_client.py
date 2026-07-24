@@ -1,14 +1,15 @@
 """
 capai.llm_client
 =================
-Unified LLM client wrapping Groq and Anthropic with automatic fallback
-and usage tracking.
+Unified LLM client with a three-tier provider chain and usage tracking.
 
 Behaviour:
-  - Tries Groq first if GROQ_API_KEY is set.
-  - On Groq failure (over-capacity, timeout, error) automatically falls
-    back to Anthropic if ANTHROPIC_API_KEY is also set, rather than
-    failing the whole request.
+  - Tries NVIDIA NIM first if NVIDIA_API_KEY is set (primary — free tier
+    has no daily token cap, only a 40 req/min rate limit, which is far
+    more forgiving for repeated benchmark/synthesis calls than Groq's
+    hard 100k-tokens/day ceiling).
+  - On NVIDIA failure, falls back to Groq if GROQ_API_KEY is set.
+  - On Groq failure, falls back to Anthropic if ANTHROPIC_API_KEY is set.
   - Every call's token usage (when the provider reports it) is recorded
     in-memory and, if MongoDB is configured, persisted for cost tracking.
 """
@@ -69,22 +70,104 @@ def get_usage_summary() -> dict:
 def complete(prompt: str, max_tokens: int = 800) -> str:
     """
     Send a single-turn prompt to the configured LLM and return the text.
-    Tries Groq first, falls back to Anthropic on any failure if both
-    keys are configured. Raises RuntimeError if no LLM is configured.
+    Provider chain: NVIDIA NIM (primary) -> Groq -> Anthropic.
+    Each tier is only attempted if its API key is configured, and a
+    failure at one tier automatically tries the next rather than
+    failing the whole request. Raises RuntimeError if no LLM is
+    configured at all, or if every configured tier fails.
     """
     if not config.LLM_ENABLED:
         raise RuntimeError("complete() called with no LLM configured")
 
+    last_error: Optional[Exception] = None
+
+    if config.NVIDIA_API_KEY:
+        try:
+            return _complete_nvidia(prompt, max_tokens)
+        except Exception as e:
+            last_error = e
+            print(f"[llm_client] NVIDIA NIM failed ({e}) — trying next provider.")
+
     if config.GROQ_API_KEY:
         try:
-            return _complete_groq(prompt, max_tokens)
+            fallback = last_error is not None
+            return _complete_groq(prompt, max_tokens, fallback=fallback)
         except Exception as e:
-            if config.ANTHROPIC_API_KEY:
-                print(f"[llm_client] Groq failed ({e}) — falling back to Anthropic.")
-                return _complete_anthropic(prompt, max_tokens, fallback=True)
-            raise
+            last_error = e
+            print(f"[llm_client] Groq failed ({e}) — trying next provider.")
 
-    return _complete_anthropic(prompt, max_tokens)
+    if config.ANTHROPIC_API_KEY:
+        try:
+            return _complete_anthropic(prompt, max_tokens, fallback=True)
+        except Exception as e:
+            last_error = e
+
+    raise RuntimeError(f"All configured LLM providers failed. Last error: {last_error}")
+
+
+def _complete_nvidia(prompt: str, max_tokens: int, fallback: bool = False) -> str:
+    """
+    NVIDIA NIM — hosted at build.nvidia.com, fully OpenAI-compatible.
+    Free tier: 40 requests/minute, no daily token cap (unlike Groq's
+    hard 100k-tokens/day ceiling, which is what motivated adding this
+    as the primary provider).
+
+    Uses streaming because config.NVIDIA_MODEL defaults to a reasoning
+    model (nemotron-3-ultra-550b-a55b) which emits a separate
+    `reasoning_content` stream before the final `content` — the two are
+    accumulated separately and only the final content is returned to
+    the caller (CapAI needs the code/answer, not the model's visible
+    chain-of-thought). If a non-reasoning model is configured instead,
+    reasoning_content simply never appears and this still works
+    correctly with no code change needed.
+    """
+    from openai import OpenAI
+
+    client = OpenAI(
+        base_url="https://integrate.api.nvidia.com/v1",
+        api_key=config.NVIDIA_API_KEY,
+    )
+    stream = client.chat.completions.create(
+        model=config.NVIDIA_MODEL,
+        max_tokens=max_tokens,
+        temperature=1,
+        top_p=0.95,
+        messages=[{"role": "user", "content": prompt}],
+        extra_body={
+            "chat_template_kwargs": {"enable_thinking": config.NVIDIA_ENABLE_THINKING},
+            "reasoning_budget": config.NVIDIA_REASONING_BUDGET,
+        },
+        stream=True,
+    )
+
+    content_parts = []
+    reasoning_parts = []
+    prompt_tokens = completion_tokens = 0
+
+    for chunk in stream:
+        if not chunk.choices:
+            continue
+        delta = chunk.choices[0].delta
+        reasoning = getattr(delta, "reasoning_content", None)
+        if reasoning:
+            reasoning_parts.append(reasoning)
+        if delta.content is not None:
+            content_parts.append(delta.content)
+        usage = getattr(chunk, "usage", None)
+        if usage:
+            prompt_tokens = getattr(usage, "prompt_tokens", prompt_tokens)
+            completion_tokens = getattr(usage, "completion_tokens", completion_tokens)
+
+    _record_usage("nvidia", config.NVIDIA_MODEL, prompt_tokens, completion_tokens, fallback)
+
+    final_content = "".join(content_parts).strip()
+    if not final_content:
+        # some reasoning models put everything in reasoning_content on
+        # very short/simple prompts — fall back to that rather than
+        # returning an empty string, which would otherwise silently
+        # break every downstream _strip_fences() call
+        final_content = "".join(reasoning_parts).strip()
+    return final_content
 
 
 def _complete_groq(prompt: str, max_tokens: int, fallback: bool = False) -> str:
