@@ -76,33 +76,36 @@ def get_usage_summary() -> dict:
 def complete(prompt: str, max_tokens: int = 800) -> str:
     """
     Send a single-turn prompt to the configured LLM and return the text.
-    Provider chain: Cerebras (primary) -> NVIDIA NIM -> Anthropic.
-    Each tier is only attempted if its API key is configured, and a
-    failure at one tier automatically tries the next rather than
-    failing the whole request. Raises RuntimeError if no LLM is
-    configured at all, or if every configured tier fails.
+    Provider chain: NVIDIA NIM (primary) -> Cerebras -> Anthropic.
+    NVIDIA is now primary using mistralai/mistral-medium-3.5-128b —
+    a less-congested model than the previously-tried Nemotron Ultra
+    (52M monthly calls) chosen based on real catalog usage data:
+    Mistral Medium 3.5 has 5M monthly calls (10x less contention).
+    Cerebras is kept as first fallback given its 1M tokens/day budget.
+    Raises RuntimeError if no LLM is configured at all, or if every
+    configured tier fails.
     """
-    if not (config.CEREBRAS_API_KEY or config.NVIDIA_API_KEY or config.ANTHROPIC_API_KEY):
+    if not (config.NVIDIA_API_KEY or config.CEREBRAS_API_KEY or config.ANTHROPIC_API_KEY):
         raise RuntimeError(
             "complete() called with no LLM configured "
-            "(need CEREBRAS_API_KEY, NVIDIA_API_KEY, or ANTHROPIC_API_KEY)"
+            "(need NVIDIA_API_KEY, CEREBRAS_API_KEY, or ANTHROPIC_API_KEY)"
         )
 
-    last_error: Optional[Exception] = None
-
-    if config.CEREBRAS_API_KEY:
-        try:
-            return _complete_cerebras(prompt, max_tokens)
-        except Exception as e:
-            last_error = e
-            print(f"[llm_client] Cerebras failed ({e}) — trying next provider.")
+    last_error = None
 
     if config.NVIDIA_API_KEY:
         try:
-            return _complete_nvidia(prompt, max_tokens, fallback=last_error is not None)
+            return _complete_nvidia(prompt, max_tokens)
         except Exception as e:
             last_error = e
             print(f"[llm_client] NVIDIA NIM failed ({e}) — trying next provider.")
+
+    if config.CEREBRAS_API_KEY:
+        try:
+            return _complete_cerebras(prompt, max_tokens, fallback=last_error is not None)
+        except Exception as e:
+            last_error = e
+            print(f"[llm_client] Cerebras failed ({e}) — trying next provider.")
 
     if config.ANTHROPIC_API_KEY:
         try:
