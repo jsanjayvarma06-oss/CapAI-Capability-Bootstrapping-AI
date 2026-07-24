@@ -119,11 +119,14 @@ def _complete_cerebras(prompt: str, max_tokens: int, fallback: bool = False) -> 
     Free tier: 1,000,000 tokens/day, 30 requests/minute, runs on
     Cerebras' Wafer-Scale Engine (WSE) hardware rather than GPUs, which
     is why it is dramatically faster per-token than typical providers.
-    Default model is llama-3.3-70b — the same model family CapAI's
-    original Groq-based benchmarks used, chosen deliberately so that
-    latency numbers collected on Cerebras remain comparable to the
-    earlier Groq-based benchmark data rather than introducing yet
-    another confounding model change.
+
+    Default model (gpt-oss-120b) is a reasoning model that can return
+    intermediate "thinking" content on a separate field from the final
+    answer. This function defensively checks message.content first and
+    only falls back to message.reasoning_content if content comes back
+    empty — the same pattern used for the NVIDIA reasoning model in
+    _complete_nvidia, so an empty string never silently reaches
+    downstream code that expects real content (e.g. _strip_fences()).
     """
     from openai import OpenAI
 
@@ -143,7 +146,13 @@ def _complete_cerebras(prompt: str, max_tokens: int, fallback: bool = False) -> 
         getattr(usage, "completion_tokens", 0) if usage else 0,
         fallback,
     )
-    return response.choices[0].message.content.strip()
+
+    message = response.choices[0].message
+    content = (message.content or "").strip()
+    if not content:
+        reasoning = getattr(message, "reasoning_content", None) or getattr(message, "reasoning", None)
+        content = (reasoning or "").strip()
+    return content
 
 
 def _complete_nvidia(prompt: str, max_tokens: int, fallback: bool = False) -> str:
