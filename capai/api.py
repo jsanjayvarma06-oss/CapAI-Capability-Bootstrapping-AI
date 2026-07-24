@@ -104,7 +104,9 @@ class CapabilityInfo(BaseModel):
 
 @app.get("/health")
 def health():
-    if config.NVIDIA_API_KEY:
+    if config.CEREBRAS_API_KEY:
+        provider, model = "cerebras", config.CEREBRAS_MODEL
+    elif config.NVIDIA_API_KEY:
         provider, model = "nvidia", config.NVIDIA_MODEL
     elif config.ANTHROPIC_API_KEY:
         provider, model = "anthropic", config.ANTHROPIC_MODEL
