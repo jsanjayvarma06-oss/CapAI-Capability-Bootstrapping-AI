@@ -1,16 +1,21 @@
 """
 capai.llm_client
 =================
-Unified LLM client with a two-tier provider chain and usage tracking.
+Unified LLM client with a three-tier provider chain and usage tracking.
 
 Behaviour:
-  - Tries NVIDIA NIM first if NVIDIA_API_KEY is set (primary — free tier
-    has no daily token cap, only a 40 req/min rate limit, which is far
-    more forgiving for repeated benchmark/synthesis calls than Groq's
-    hard 100k-tokens/day ceiling that this replaced).
+  - Tries Cerebras first if CEREBRAS_API_KEY is set (primary — free tier
+    offers 1,000,000 tokens/day, 30 requests/minute, and runs on
+    Cerebras' custom Wafer-Scale Engine hardware which is dramatically
+    faster than typical GPU-based inference. This replaced NVIDIA NIM
+    as primary after NVIDIA's shared free-tier infrastructure was
+    observed under heavy congestion — a single trivial request took
+    41+ seconds during testing, with no code-side fix possible for
+    that kind of upstream congestion.)
+  - On Cerebras failure, falls back to NVIDIA NIM if NVIDIA_API_KEY is set.
   - On NVIDIA failure, falls back to Anthropic if ANTHROPIC_API_KEY is set.
-  - Groq has been removed from the provider chain entirely (see the
-    `complete()` docstring below for why).
+  - Groq is not part of the chain at all (see git history — its free
+    tier's hard 100k-tokens/day ceiling repeatedly blocked benchmark runs).
   - Every call's token usage (when the provider reports it) is recorded
     in-memory and, if MongoDB is configured, persisted for cost tracking.
 """
@@ -71,23 +76,30 @@ def get_usage_summary() -> dict:
 def complete(prompt: str, max_tokens: int = 800) -> str:
     """
     Send a single-turn prompt to the configured LLM and return the text.
-    Provider chain: NVIDIA NIM (primary) -> Anthropic (fallback).
-    Groq has been removed from the chain entirely — its free tier's
-    hard 100k-tokens/day ceiling was blocking benchmark runs and it was
-    causing confusion about which provider actually served a given
-    request, so it is no longer attempted even if GROQ_API_KEY happens
-    to still be set in the environment.
-    Raises RuntimeError if no LLM is configured at all, or if every
-    configured tier fails.
+    Provider chain: Cerebras (primary) -> NVIDIA NIM -> Anthropic.
+    Each tier is only attempted if its API key is configured, and a
+    failure at one tier automatically tries the next rather than
+    failing the whole request. Raises RuntimeError if no LLM is
+    configured at all, or if every configured tier fails.
     """
-    if not (config.NVIDIA_API_KEY or config.ANTHROPIC_API_KEY):
-        raise RuntimeError("complete() called with no LLM configured (need NVIDIA_API_KEY or ANTHROPIC_API_KEY)")
+    if not (config.CEREBRAS_API_KEY or config.NVIDIA_API_KEY or config.ANTHROPIC_API_KEY):
+        raise RuntimeError(
+            "complete() called with no LLM configured "
+            "(need CEREBRAS_API_KEY, NVIDIA_API_KEY, or ANTHROPIC_API_KEY)"
+        )
 
     last_error: Optional[Exception] = None
 
+    if config.CEREBRAS_API_KEY:
+        try:
+            return _complete_cerebras(prompt, max_tokens)
+        except Exception as e:
+            last_error = e
+            print(f"[llm_client] Cerebras failed ({e}) — trying next provider.")
+
     if config.NVIDIA_API_KEY:
         try:
-            return _complete_nvidia(prompt, max_tokens)
+            return _complete_nvidia(prompt, max_tokens, fallback=last_error is not None)
         except Exception as e:
             last_error = e
             print(f"[llm_client] NVIDIA NIM failed ({e}) — trying next provider.")
@@ -101,21 +113,50 @@ def complete(prompt: str, max_tokens: int = 800) -> str:
     raise RuntimeError(f"All configured LLM providers failed. Last error: {last_error}")
 
 
+def _complete_cerebras(prompt: str, max_tokens: int, fallback: bool = False) -> str:
+    """
+    Cerebras Inference API — hosted at api.cerebras.ai, OpenAI-compatible.
+    Free tier: 1,000,000 tokens/day, 30 requests/minute, runs on
+    Cerebras' Wafer-Scale Engine (WSE) hardware rather than GPUs, which
+    is why it is dramatically faster per-token than typical providers.
+    Default model is llama-3.3-70b — the same model family CapAI's
+    original Groq-based benchmarks used, chosen deliberately so that
+    latency numbers collected on Cerebras remain comparable to the
+    earlier Groq-based benchmark data rather than introducing yet
+    another confounding model change.
+    """
+    from openai import OpenAI
+
+    client = OpenAI(
+        base_url="https://api.cerebras.ai/v1",
+        api_key=config.CEREBRAS_API_KEY,
+    )
+    response = client.chat.completions.create(
+        model=config.CEREBRAS_MODEL,
+        max_tokens=max_tokens,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    usage = getattr(response, "usage", None)
+    _record_usage(
+        "cerebras", config.CEREBRAS_MODEL,
+        getattr(usage, "prompt_tokens", 0) if usage else 0,
+        getattr(usage, "completion_tokens", 0) if usage else 0,
+        fallback,
+    )
+    return response.choices[0].message.content.strip()
+
+
 def _complete_nvidia(prompt: str, max_tokens: int, fallback: bool = False) -> str:
     """
     NVIDIA NIM — hosted at build.nvidia.com, fully OpenAI-compatible.
-    Free tier: 40 requests/minute, no daily token cap (unlike Groq's
-    hard 100k-tokens/day ceiling, which is what motivated adding this
-    as the primary provider).
+    Kept as a fallback tier (not primary — see module docstring for why
+    it was demoted after observed free-tier congestion).
 
-    Uses streaming because config.NVIDIA_MODEL defaults to a reasoning
-    model (nemotron-3-ultra-550b-a55b) which emits a separate
-    `reasoning_content` stream before the final `content` — the two are
-    accumulated separately and only the final content is returned to
-    the caller (CapAI needs the code/answer, not the model's visible
-    chain-of-thought). If a non-reasoning model is configured instead,
-    reasoning_content simply never appears and this still works
-    correctly with no code change needed.
+    Uses streaming to correctly handle reasoning models that emit a
+    separate `reasoning_content` stream before the final `content` —
+    accumulated separately, only final content is returned. If a plain
+    instruct model is configured (the current default), reasoning_content
+    simply never appears and this still works correctly.
     """
     from openai import OpenAI
 
@@ -158,10 +199,6 @@ def _complete_nvidia(prompt: str, max_tokens: int, fallback: bool = False) -> st
 
     final_content = "".join(content_parts).strip()
     if not final_content:
-        # some reasoning models put everything in reasoning_content on
-        # very short/simple prompts — fall back to that rather than
-        # returning an empty string, which would otherwise silently
-        # break every downstream _strip_fences() call
         final_content = "".join(reasoning_parts).strip()
     return final_content
 
