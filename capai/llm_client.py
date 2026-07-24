@@ -1,15 +1,16 @@
 """
 capai.llm_client
 =================
-Unified LLM client with a three-tier provider chain and usage tracking.
+Unified LLM client with a two-tier provider chain and usage tracking.
 
 Behaviour:
   - Tries NVIDIA NIM first if NVIDIA_API_KEY is set (primary — free tier
     has no daily token cap, only a 40 req/min rate limit, which is far
     more forgiving for repeated benchmark/synthesis calls than Groq's
-    hard 100k-tokens/day ceiling).
-  - On NVIDIA failure, falls back to Groq if GROQ_API_KEY is set.
-  - On Groq failure, falls back to Anthropic if ANTHROPIC_API_KEY is set.
+    hard 100k-tokens/day ceiling that this replaced).
+  - On NVIDIA failure, falls back to Anthropic if ANTHROPIC_API_KEY is set.
+  - Groq has been removed from the provider chain entirely (see the
+    `complete()` docstring below for why).
   - Every call's token usage (when the provider reports it) is recorded
     in-memory and, if MongoDB is configured, persisted for cost tracking.
 """
@@ -70,14 +71,17 @@ def get_usage_summary() -> dict:
 def complete(prompt: str, max_tokens: int = 800) -> str:
     """
     Send a single-turn prompt to the configured LLM and return the text.
-    Provider chain: NVIDIA NIM (primary) -> Groq -> Anthropic.
-    Each tier is only attempted if its API key is configured, and a
-    failure at one tier automatically tries the next rather than
-    failing the whole request. Raises RuntimeError if no LLM is
-    configured at all, or if every configured tier fails.
+    Provider chain: NVIDIA NIM (primary) -> Anthropic (fallback).
+    Groq has been removed from the chain entirely — its free tier's
+    hard 100k-tokens/day ceiling was blocking benchmark runs and it was
+    causing confusion about which provider actually served a given
+    request, so it is no longer attempted even if GROQ_API_KEY happens
+    to still be set in the environment.
+    Raises RuntimeError if no LLM is configured at all, or if every
+    configured tier fails.
     """
-    if not config.LLM_ENABLED:
-        raise RuntimeError("complete() called with no LLM configured")
+    if not (config.NVIDIA_API_KEY or config.ANTHROPIC_API_KEY):
+        raise RuntimeError("complete() called with no LLM configured (need NVIDIA_API_KEY or ANTHROPIC_API_KEY)")
 
     last_error: Optional[Exception] = None
 
@@ -88,17 +92,9 @@ def complete(prompt: str, max_tokens: int = 800) -> str:
             last_error = e
             print(f"[llm_client] NVIDIA NIM failed ({e}) — trying next provider.")
 
-    if config.GROQ_API_KEY:
-        try:
-            fallback = last_error is not None
-            return _complete_groq(prompt, max_tokens, fallback=fallback)
-        except Exception as e:
-            last_error = e
-            print(f"[llm_client] Groq failed ({e}) — trying next provider.")
-
     if config.ANTHROPIC_API_KEY:
         try:
-            return _complete_anthropic(prompt, max_tokens, fallback=True)
+            return _complete_anthropic(prompt, max_tokens, fallback=last_error is not None)
         except Exception as e:
             last_error = e
 
@@ -168,25 +164,6 @@ def _complete_nvidia(prompt: str, max_tokens: int, fallback: bool = False) -> st
         # break every downstream _strip_fences() call
         final_content = "".join(reasoning_parts).strip()
     return final_content
-
-
-def _complete_groq(prompt: str, max_tokens: int, fallback: bool = False) -> str:
-    from groq import Groq
-
-    client = Groq(api_key=config.GROQ_API_KEY)
-    response = client.chat.completions.create(
-        model=config.GROQ_MODEL,
-        max_tokens=max_tokens,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    usage = getattr(response, "usage", None)
-    _record_usage(
-        "groq", config.GROQ_MODEL,
-        getattr(usage, "prompt_tokens", 0) if usage else 0,
-        getattr(usage, "completion_tokens", 0) if usage else 0,
-        fallback,
-    )
-    return response.choices[0].message.content.strip()
 
 
 def _complete_anthropic(prompt: str, max_tokens: int, fallback: bool = False) -> str:
