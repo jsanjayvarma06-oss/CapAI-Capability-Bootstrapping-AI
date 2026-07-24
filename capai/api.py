@@ -106,10 +106,8 @@ class CapabilityInfo(BaseModel):
 def health():
     if config.NVIDIA_API_KEY:
         provider, model = "nvidia", config.NVIDIA_MODEL
-    elif config.CEREBRAS_API_KEY:
-        provider, model = "cerebras", config.CEREBRAS_MODEL
-    elif config.ANTHROPIC_API_KEY:
-        provider, model = "anthropic", config.ANTHROPIC_MODEL
+    elif config.GROQ_API_KEY:
+        provider, model = "groq", config.GROQ_MODEL
     else:
         provider, model = "offline", None
     return {
