@@ -8,6 +8,8 @@ CAPAI_HOME.mkdir(parents=True, exist_ok=True)
 # ---------------------------------------------------------------- MongoDB
 MONGODB_URI = os.environ.get("MONGODB_URI")
 
+SANDBOX_TIMEOUT_SECONDS = int(os.environ.get("SANDBOX_TIMEOUT_SECONDS", 10))
+
 # ---------------------------------------------------------------- LLM
 # Provider chain: NVIDIA NIM (primary) -> Groq (fallback).
 # NVIDIA model is meta/llama-3.1-70b-instruct — lower congestion than
