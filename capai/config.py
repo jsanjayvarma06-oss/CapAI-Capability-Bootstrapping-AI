@@ -19,6 +19,9 @@ COVERAGE_THRESHOLD       = float(os.environ.get("COVERAGE_THRESHOLD", 70.0))
 MAX_CODE_LENGTH          = int(os.environ.get("MAX_CODE_LENGTH", 50000))
 MAX_DESCRIPTION_LENGTH   = int(os.environ.get("MAX_DESCRIPTION_LENGTH", 2000))
 
+SKIP_SANDBOX    = os.environ.get("CAPAI_SKIP_SANDBOX", "false").lower() == "true"
+SKIP_HEURISTICS = os.environ.get("CAPAI_SKIP_HEURISTICS", "false").lower() == "true"
+
 # ---------------------------------------------------------------- Registry
 SIMILARITY_THRESHOLD     = float(os.environ.get("SIMILARITY_THRESHOLD", 0.7))
 MAX_REGISTRY_SIZE        = int(os.environ.get("MAX_REGISTRY_SIZE", 10000))
