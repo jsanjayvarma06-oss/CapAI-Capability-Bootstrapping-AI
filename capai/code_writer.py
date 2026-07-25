@@ -41,7 +41,8 @@ no usage examples, no other functions.
 
 class CodeWriter:
     def write(self, spec: CapabilitySpec) -> str:
-        # always try heuristic first — it's guaranteed correct for known functions
+    # always try heuristic first — it's guaranteed correct for known functions
+    if not getattr(config, 'SKIP_HEURISTICS', False):
         heuristic = _heuristic_source(spec)
         if heuristic is not None:
             return heuristic
