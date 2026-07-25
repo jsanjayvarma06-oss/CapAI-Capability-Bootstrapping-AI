@@ -10,6 +10,9 @@ MONGODB_URI = os.environ.get("MONGODB_URI")
 
 SANDBOX_TIMEOUT_SECONDS = int(os.environ.get("SANDBOX_TIMEOUT_SECONDS", 10))
 
+MCP_SERVERS_DIR = Path(os.environ.get("MCP_SERVERS_DIR", CAPAI_HOME / "mcp_servers"))
+MCP_SERVERS_DIR.mkdir(parents=True, exist_ok=True)
+
 # ---------------------------------------------------------------- LLM
 # Provider chain: NVIDIA NIM (primary) -> Groq (fallback).
 # NVIDIA model is meta/llama-3.1-70b-instruct — lower congestion than
