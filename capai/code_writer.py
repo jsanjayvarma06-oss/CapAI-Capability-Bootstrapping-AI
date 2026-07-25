@@ -41,22 +41,21 @@ no usage examples, no other functions.
 
 class CodeWriter:
     def write(self, spec: CapabilitySpec) -> str:
-    # always try heuristic first — it's guaranteed correct for known functions
     if not getattr(config, 'SKIP_HEURISTICS', False):
         heuristic = _heuristic_source(spec)
         if heuristic is not None:
             return heuristic
-        if not config.LLM_ENABLED:
-            return _generic_stub(spec)
-        prompt = _CODEGEN_PROMPT.format(
-            name=spec.name,
-            description=spec.description,
-            signature=spec.signature,
-            example_inputs=spec.example_inputs,
-            expected_behavior=spec.expected_behavior,
-        )
-        text = llm_client.complete(prompt, max_tokens=800)
-        return _strip_markdown_fences(text)
+    if not config.LLM_ENABLED:
+        return _generic_stub(spec)
+    prompt = _CODEGEN_PROMPT.format(
+        name=spec.name,
+        description=spec.description,
+        signature=spec.signature,
+        example_inputs=spec.example_inputs,
+        expected_behavior=spec.expected_behavior,
+    )
+    text = llm_client.complete(prompt, max_tokens=800)
+    return _strip_markdown_fences(text)
 
 
 def _strip_markdown_fences(text: str) -> str:
