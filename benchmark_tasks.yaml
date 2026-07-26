@@ -1,0 +1,1773 @@
+meta:
+  version: "2.0"
+  total_tasks: 170
+  workflows: [run, build]
+  difficulties: [Easy, Medium, Hard]
+  categories:
+    - String and Text Processing
+    - Numerical and Mathematical
+    - Data Structures and Algorithms
+    - File and IO Utilities
+    - Date Time and Calendar
+    - Validation and Parsing
+    - Encoding and Hashing
+    - India Specific Utilities
+    - Object Oriented Classes
+    - Multi Component Pipelines
+    - Adversarial and Edge Case
+
+tasks:
+
+  # ──────────────────────────────────────────────
+  # CATEGORY 1: String and Text Processing (25)
+  # ──────────────────────────────────────────────
+
+  - id: reverse_words
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return the sentence with word order reversed, preserving spacing between words."
+    args: ["hello world foo bar"]
+    expected: "bar foo world hello"
+    check: exact
+
+  - id: count_vowels
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return the count of vowel characters (a, e, i, o, u) in string s, case-insensitive."
+    args: ["Hello World"]
+    expected: 3
+    check: exact
+
+  - id: title_case
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return string s converted to title case where the first letter of each word is capitalised."
+    args: ["the quick brown fox"]
+    expected: "The Quick Brown Fox"
+    check: exact
+
+  - id: is_pangram
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return True if string s contains every letter of the English alphabet at least once, ignoring case."
+    args: ["The quick brown fox jumps over the lazy dog"]
+    expected: true
+    check: exact
+
+  - id: longest_common_prefix
+    category: String and Text Processing
+    difficulty: Medium
+    workflow: run
+    description: "Return the longest string that is a prefix of every string in the list strs. Return empty string if none exists."
+    args: [["flower", "flow", "flight"]]
+    expected: "fl"
+    check: exact
+
+  - id: run_length_encode
+    category: String and Text Processing
+    difficulty: Medium
+    workflow: run
+    description: "Return run-length encoding of string s. For example aaabbc becomes 3a2b1c."
+    args: ["aaabbc"]
+    expected: "3a2b1c"
+    check: exact
+
+  - id: caesar_cipher
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Apply Caesar cipher to string s with the given integer shift. Wrap around alphabet boundaries. Preserve case and non-alpha characters."
+    args: ["Hello, World!", 3]
+    expected: "Khoor, Zruog!"
+    check: exact
+
+  - id: remove_duplicate_chars
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return string s with duplicate characters removed, keeping only the first occurrence of each character."
+    args: ["programming"]
+    expected: "progamin"
+    check: exact
+
+  - id: word_frequency
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return a dict mapping each word in string text to its frequency count. Words are lowercased and split by whitespace."
+    args: ["the cat sat on the mat the cat"]
+    expected: {"the": 3, "cat": 2, "sat": 1, "on": 1, "mat": 1}
+    check: exact
+
+  - id: levenshtein_distance
+    category: String and Text Processing
+    difficulty: Hard
+    workflow: run
+    description: "Return the Levenshtein edit distance between strings a and b."
+    args: ["kitten", "sitting"]
+    expected: 3
+    check: exact
+
+  - id: is_anagram
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return True if string a is an anagram of string b, ignoring case and whitespace."
+    args: ["Listen", "Silent"]
+    expected: true
+    check: exact
+
+  - id: truncate_string
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return string s truncated to max_length characters. If truncated, append ellipsis so total length equals max_length."
+    args: ["Hello World this is a long string", 10]
+    expected: "Hello W..."
+    check: exact
+
+  - id: count_words
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return the number of words in string s, where words are separated by whitespace."
+    args: ["  hello   world  foo  "]
+    expected: 3
+    check: exact
+
+  - id: snake_to_camel
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Convert snake_case string s to camelCase."
+    args: ["hello_world_foo_bar"]
+    expected: "helloWorldFooBar"
+    check: exact
+
+  - id: camel_to_snake
+    category: String and Text Processing
+    difficulty: Medium
+    workflow: run
+    description: "Convert camelCase string s to snake_case."
+    args: ["helloWorldFooBar"]
+    expected: "hello_world_foo_bar"
+    check: exact
+
+  - id: count_substring
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return the number of non-overlapping occurrences of substring sub in string s."
+    args: ["ababab", "ab"]
+    expected: 3
+    check: exact
+
+  - id: reverse_string
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return string s reversed."
+    args: ["Hello World"]
+    expected: "dlroW olleH"
+    check: exact
+
+  - id: capitalize_first
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return string s with only the very first character capitalised and the rest unchanged."
+    args: ["hello world"]
+    expected: "Hello world"
+    check: exact
+
+  - id: remove_whitespace
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return string s with all whitespace characters removed."
+    args: ["  hello   world  "]
+    expected: "helloworld"
+    check: exact
+
+  - id: is_palindrome_str
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return True if string s is a palindrome ignoring case, spaces, and punctuation."
+    args: ["A man a plan a canal Panama"]
+    expected: true
+    check: exact
+
+  - id: longest_word
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return the longest word in string sentence. If tie, return the first one."
+    args: ["The quick brown fox jumps"]
+    expected: "jumps"
+    check: exact
+
+  - id: char_frequency
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return a dict mapping each unique character in string s to its frequency."
+    args: ["aabbcc"]
+    expected: {"a": 2, "b": 2, "c": 2}
+    check: exact
+
+  - id: strip_html_tags
+    category: String and Text Processing
+    difficulty: Medium
+    workflow: run
+    description: "Return string html with all HTML tags removed, leaving only the text content."
+    args: ["<p>Hello <b>World</b></p>"]
+    expected: "Hello World"
+    check: exact
+
+  - id: repeat_string
+    category: String and Text Processing
+    difficulty: Easy
+    workflow: run
+    description: "Return string s repeated n times."
+    args: ["ab", 3]
+    expected: "ababab"
+    check: exact
+
+  - id: find_all_indices
+    category: String and Text Processing
+    difficulty: Medium
+    workflow: run
+    description: "Return a list of all starting indices where substring sub appears in string s."
+    args: ["abcabcabc", "abc"]
+    expected: [0, 3, 6]
+    check: exact
+
+  # ──────────────────────────────────────────────
+  # CATEGORY 2: Numerical and Mathematical (25)
+  # ──────────────────────────────────────────────
+
+  - id: is_prime
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Return True if integer n is a prime number, False otherwise."
+    args: [17]
+    expected: true
+    check: exact
+
+  - id: fibonacci
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Return the n-th Fibonacci number, 0-indexed, where F0=0 and F1=1."
+    args: [10]
+    expected: 55
+    check: exact
+
+  - id: factorial
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Return the factorial of non-negative integer n."
+    args: [6]
+    expected: 720
+    check: exact
+
+  - id: gcd
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Return the greatest common divisor of integers a and b."
+    args: [48, 18]
+    expected: 6
+    check: exact
+
+  - id: lcm
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Return the least common multiple of integers a and b."
+    args: [4, 6]
+    expected: 12
+    check: exact
+
+  - id: is_perfect_number
+    category: Numerical and Mathematical
+    difficulty: Medium
+    workflow: run
+    description: "Return True if integer n equals the sum of its proper divisors (divisors excluding n itself)."
+    args: [28]
+    expected: true
+    check: exact
+
+  - id: sieve_of_eratosthenes
+    category: Numerical and Mathematical
+    difficulty: Medium
+    workflow: run
+    description: "Return a sorted list of all prime numbers less than or equal to integer n."
+    args: [20]
+    expected: [2, 3, 5, 7, 11, 13, 17, 19]
+    check: exact
+
+  - id: power_mod
+    category: Numerical and Mathematical
+    difficulty: Medium
+    workflow: run
+    description: "Return (base raised to the power exp) modulo mod, computed efficiently."
+    args: [2, 10, 1000]
+    expected: 24
+    check: exact
+
+  - id: count_prime_factors
+    category: Numerical and Mathematical
+    difficulty: Medium
+    workflow: run
+    description: "Return a dict mapping each prime factor of integer n to its multiplicity."
+    args: [360]
+    expected: {2: 3, 3: 2, 5: 1}
+    check: exact
+
+  - id: is_armstrong_number
+    category: Numerical and Mathematical
+    difficulty: Medium
+    workflow: run
+    description: "Return True if integer n is an Armstrong number where each digit is raised to the power of the number of digits."
+    args: [153]
+    expected: true
+    check: exact
+
+  - id: roman_to_int
+    category: Numerical and Mathematical
+    difficulty: Medium
+    workflow: run
+    description: "Convert Roman numeral string s to its integer value."
+    args: ["MCMXCIV"]
+    expected: 1994
+    check: exact
+
+  - id: int_to_roman
+    category: Numerical and Mathematical
+    difficulty: Medium
+    workflow: run
+    description: "Convert positive integer n to its Roman numeral representation as a string."
+    args: [1994]
+    expected: "MCMXCIV"
+    check: exact
+
+  - id: celsius_to_fahrenheit
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Convert temperature c from Celsius to Fahrenheit and return the result."
+    args: [100]
+    expected: 212.0
+    check: exact
+
+  - id: is_perfect_square
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Return True if integer n is a perfect square."
+    args: [144]
+    expected: true
+    check: exact
+
+  - id: sum_of_digits
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Return the sum of all digits of integer n."
+    args: [12345]
+    expected: 15
+    check: exact
+
+  - id: count_digits
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Return the number of digits in integer n."
+    args: [12345]
+    expected: 5
+    check: exact
+
+  - id: is_even
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Return True if integer n is even."
+    args: [42]
+    expected: true
+    check: exact
+
+  - id: clamp
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Return value clamped to the range [lo, hi]. If value < lo return lo, if value > hi return hi, else return value."
+    args: [15, 0, 10]
+    expected: 10
+    check: exact
+
+  - id: nth_triangular
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Return the n-th triangular number, defined as n*(n+1)/2."
+    args: [10]
+    expected: 55
+    check: exact
+
+  - id: binary_to_decimal
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Convert binary string b (containing only 0s and 1s) to its decimal integer value."
+    args: ["1010"]
+    expected: 10
+    check: exact
+
+  - id: decimal_to_binary
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Convert non-negative integer n to its binary representation as a string without the 0b prefix."
+    args: [10]
+    expected: "1010"
+    check: exact
+
+  - id: matrix_multiply
+    category: Numerical and Mathematical
+    difficulty: Hard
+    workflow: run
+    description: "Return the matrix product of two 2D integer lists A and B."
+    args: [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
+    expected: [[19, 22], [43, 50]]
+    check: exact
+
+  - id: average
+    category: Numerical and Mathematical
+    difficulty: Easy
+    workflow: run
+    description: "Return the arithmetic mean of a list of numbers nums as a float."
+    args: [[1, 2, 3, 4, 5]]
+    expected: 3.0
+    check: exact
+
+  - id: median
+    category: Numerical and Mathematical
+    difficulty: Medium
+    workflow: run
+    description: "Return the median of a list of numbers nums. For even length, return the average of the two middle values."
+    args: [[3, 1, 4, 1, 5, 9]]
+    expected: 3.5
+    check: exact
+
+  - id: standard_deviation
+    category: Numerical and Mathematical
+    difficulty: Hard
+    workflow: run
+    description: "Return the population standard deviation of a list of numbers nums, rounded to 4 decimal places."
+    args: [[2, 4, 4, 4, 5, 5, 7, 9]]
+    expected: 2.0
+    check: exact
+
+  # ──────────────────────────────────────────────
+  # CATEGORY 3: Data Structures and Algorithms (25)
+  # ──────────────────────────────────────────────
+
+  - id: two_sum
+    category: Data Structures and Algorithms
+    difficulty: Easy
+    workflow: run
+    description: "Return a list of two indices from list nums whose values sum to target. Assume exactly one solution exists."
+    args: [[2, 7, 11, 15], 9]
+    expected: [0, 1]
+    check: set_equal
+
+  - id: max_subarray_sum
+    category: Data Structures and Algorithms
+    difficulty: Medium
+    workflow: run
+    description: "Return the maximum sum of any contiguous subarray of list nums using Kadane's algorithm."
+    args: [[-2, 1, -3, 4, -1, 2, 1, -5, 4]]
+    expected: 6
+    check: exact
+
+  - id: merge_sorted_lists
+    category: Data Structures and Algorithms
+    difficulty: Easy
+    workflow: run
+    description: "Return a single sorted list containing all elements from sorted lists l1 and l2."
+    args: [[1, 3, 5], [2, 4, 6]]
+    expected: [1, 2, 3, 4, 5, 6]
+    check: exact
+
+  - id: valid_parentheses
+    category: Data Structures and Algorithms
+    difficulty: Medium
+    workflow: run
+    description: "Return True if string s containing only brackets ()[]{}  has every opening bracket matched and properly closed."
+    args: ["()[]{}" ]
+    expected: true
+    check: exact
+
+  - id: rotate_array
+    category: Data Structures and Algorithms
+    difficulty: Medium
+    workflow: run
+    description: "Return list arr rotated to the right by k positions."
+    args: [[1, 2, 3, 4, 5], 2]
+    expected: [4, 5, 1, 2, 3]
+    check: exact
+
+  - id: find_kth_largest
+    category: Data Structures and Algorithms
+    difficulty: Medium
+    workflow: run
+    description: "Return the k-th largest element in list nums."
+    args: [[3, 2, 1, 5, 6, 4], 2]
+    expected: 5
+    check: exact
+
+  - id: group_anagrams
+    category: Data Structures and Algorithms
+    difficulty: Medium
+    workflow: run
+    description: "Return a list of groups where each group contains strings from list words that are anagrams of each other."
+    args: [["eat", "tea", "tan", "ate", "nat", "bat"]]
+    expected: [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]
+    check: anagram_groups
+
+  - id: coin_change
+    category: Data Structures and Algorithms
+    difficulty: Hard
+    workflow: run
+    description: "Return the minimum number of coins needed to make amount using denominations in list coins. Return -1 if impossible."
+    args: [[1, 5, 10, 25], 36]
+    expected: 3
+    check: exact
+
+  - id: longest_increasing_subsequence
+    category: Data Structures and Algorithms
+    difficulty: Hard
+    workflow: run
+    description: "Return the length of the longest strictly increasing subsequence in list nums."
+    args: [[10, 9, 2, 5, 3, 7, 101, 18]]
+    expected: 4
+    check: exact
+
+  - id: binary_search
+    category: Data Structures and Algorithms
+    difficulty: Easy
+    workflow: run
+    description: "Return the index of target in sorted list arr, or -1 if not present."
+    args: [[1, 3, 5, 7, 9, 11], 7]
+    expected: 3
+    check: exact
+
+  - id: flatten
+    category: Data Structures and Algorithms
+    difficulty: Medium
+    workflow: run
+    description: "Return a flat list containing all elements from nested list lst of arbitrary depth."
+    args: [[[1, [2, 3]], [4, [5, [6]]]]  ]
+    expected: [1, 2, 3, 4, 5, 6]
+    check: exact
+
+  - id: remove_duplicates_list
+    category: Data Structures and Algorithms
+    difficulty: Easy
+    workflow: run
+    description: "Return list nums with duplicates removed, preserving original order."
+    args: [[1, 2, 2, 3, 4, 3, 5]]
+    expected: [1, 2, 3, 4, 5]
+    check: exact
+
+  - id: intersection
+    category: Data Structures and Algorithms
+    difficulty: Easy
+    workflow: run
+    description: "Return a sorted list of elements that appear in both list a and list b, without duplicates."
+    args: [[1, 2, 3, 4], [3, 4, 5, 6]]
+    expected: [3, 4]
+    check: exact
+
+  - id: union_lists
+    category: Data Structures and Algorithms
+    difficulty: Easy
+    workflow: run
+    description: "Return a sorted list of all unique elements that appear in either list a or list b."
+    args: [[1, 2, 3], [3, 4, 5]]
+    expected: [1, 2, 3, 4, 5]
+    check: exact
+
+  - id: bubble_sort
+    category: Data Structures and Algorithms
+    difficulty: Easy
+    workflow: run
+    description: "Return a new sorted list with elements of list nums sorted in ascending order using bubble sort."
+    args: [[64, 34, 25, 12, 22, 11, 90]]
+    expected: [11, 12, 22, 25, 34, 64, 90]
+    check: exact
+
+  - id: count_occurrences
+    category: Data Structures and Algorithms
+    difficulty: Easy
+    workflow: run
+    description: "Return the number of times element target appears in list lst."
+    args: [[1, 2, 3, 2, 1, 2], 2]
+    expected: 3
+    check: exact
+
+  - id: chunk_list
+    category: Data Structures and Algorithms
+    difficulty: Medium
+    workflow: run
+    description: "Return list lst split into consecutive chunks of size n. The last chunk may be smaller."
+    args: [[1, 2, 3, 4, 5, 6, 7], 3]
+    expected: [[1, 2, 3], [4, 5, 6], [7]]
+    check: exact
+
+  - id: zip_lists
+    category: Data Structures and Algorithms
+    difficulty: Easy
+    workflow: run
+    description: "Return a list of pairs combining corresponding elements from lists a and b. Stop at the shorter list."
+    args: [[1, 2, 3], ["a", "b", "c"]]
+    expected: [[1, "a"], [2, "b"], [3, "c"]]
+    check: exact
+
+  - id: find_missing_number
+    category: Data Structures and Algorithms
+    difficulty: Medium
+    workflow: run
+    description: "Return the single missing integer from list nums which contains n-1 distinct integers in range 1 to n."
+    args: [[1, 2, 4, 5, 6]]
+    expected: 3
+    check: exact
+
+  - id: max_profit
+    category: Data Structures and Algorithms
+    difficulty: Medium
+    workflow: run
+    description: "Return the maximum profit from one buy-then-sell transaction given list prices of stock prices. Return 0 if no profit is possible."
+    args: [[7, 1, 5, 3, 6, 4]]
+    expected: 5
+    check: exact
+
+  - id: product_except_self
+    category: Data Structures and Algorithms
+    difficulty: Hard
+    workflow: run
+    description: "Return a list where each element is the product of all elements in list nums except the element at that index. Do not use division."
+    args: [[1, 2, 3, 4]]
+    expected: [24, 12, 8, 6]
+    check: exact
+
+  - id: sliding_window_max
+    category: Data Structures and Algorithms
+    difficulty: Hard
+    workflow: run
+    description: "Return a list of the maximum values in each sliding window of size k over list nums."
+    args: [[1, 3, -1, -3, 5, 3, 6, 7], 3]
+    expected: [3, 3, 5, 5, 6, 7]
+    check: exact
+
+  - id: three_sum
+    category: Data Structures and Algorithms
+    difficulty: Hard
+    workflow: run
+    description: "Return all unique triplets from list nums that sum to zero. Each triplet should be sorted internally."
+    args: [[-1, 0, 1, 2, -1, -4]]
+    expected: [[-1, -1, 2], [-1, 0, 1]]
+    check: triplet_equal
+
+  - id: is_balanced_tree
+    category: Data Structures and Algorithms
+    difficulty: Medium
+    workflow: run
+    description: "Given a list representing a binary tree in level-order where None indicates missing nodes, return True if the tree is height-balanced."
+    args: [[1, 2, 3, 4, 5]]
+    expected: true
+    check: exact
+
+  - id: frequency_sort
+    category: Data Structures and Algorithms
+    difficulty: Medium
+    workflow: run
+    description: "Return list nums sorted by element frequency in ascending order. For equal frequency, sort by element value."
+    args: [[1, 1, 2, 3, 3, 3, 2]]
+    expected: [2, 2, 1, 1, 3, 3, 3]
+    check: exact
+
+  # ──────────────────────────────────────────────
+  # CATEGORY 4: File and IO Utilities (15)
+  # ──────────────────────────────────────────────
+
+  - id: count_lines
+    category: File and IO Utilities
+    difficulty: Easy
+    workflow: run
+    description: "Return the number of non-empty lines in the text string content."
+    args: ["line one\nline two\n\nline three\n"]
+    expected: 3
+    check: exact
+
+  - id: parse_json_field
+    category: File and IO Utilities
+    difficulty: Medium
+    workflow: run
+    description: "Return the value at dot-notation key_path from JSON string json_str. Return None if path does not exist."
+    args: ["{\"user\": {\"name\": \"Alice\", \"age\": 30}}", "user.name"]
+    expected: "Alice"
+    check: exact
+
+  - id: flatten_dict
+    category: File and IO Utilities
+    difficulty: Medium
+    workflow: run
+    description: "Return a flattened version of nested dict d where keys are joined with dots."
+    args: [{"a": {"b": {"c": 1}}, "d": 2}]
+    expected: {"a.b.c": 1, "d": 2}
+    check: exact
+
+  - id: merge_dicts
+    category: File and IO Utilities
+    difficulty: Easy
+    workflow: run
+    description: "Return a new dict containing all key-value pairs from dicts a and b. For duplicate keys, values from b take priority."
+    args: [{"x": 1, "y": 2}, {"y": 99, "z": 3}]
+    expected: {"x": 1, "y": 99, "z": 3}
+    check: exact
+
+  - id: invert_dict
+    category: File and IO Utilities
+    difficulty: Easy
+    workflow: run
+    description: "Return a new dict with keys and values swapped from dict d. Assume all values are unique and hashable."
+    args: [{"a": 1, "b": 2, "c": 3}]
+    expected: {1: "a", 2: "b", 3: "c"}
+    check: exact
+
+  - id: deep_merge_dicts
+    category: File and IO Utilities
+    difficulty: Medium
+    workflow: run
+    description: "Return a deep merge of dicts a and b. Nested dicts are merged recursively; scalars from b override a."
+    args: [{"x": {"a": 1, "b": 2}}, {"x": {"b": 99, "c": 3}, "y": 4}]
+    expected: {"x": {"a": 1, "b": 99, "c": 3}, "y": 4}
+    check: exact
+
+  - id: filter_dict_by_keys
+    category: File and IO Utilities
+    difficulty: Easy
+    workflow: run
+    description: "Return a new dict containing only the key-value pairs from dict d whose keys appear in list keys."
+    args: [{"a": 1, "b": 2, "c": 3, "d": 4}, ["a", "c"]]
+    expected: {"a": 1, "c": 3}
+    check: exact
+
+  - id: group_by
+    category: File and IO Utilities
+    difficulty: Medium
+    workflow: run
+    description: "Group list of dicts records by the value of key field. Return a dict mapping each unique field value to a list of matching records."
+    args: [[{"type": "fruit", "name": "apple"}, {"type": "veg", "name": "carrot"}, {"type": "fruit", "name": "banana"}], "type"]
+    expected: {"fruit": [{"type": "fruit", "name": "apple"}, {"type": "fruit", "name": "banana"}], "veg": [{"type": "veg", "name": "carrot"}]}
+    check: exact
+
+  - id: csv_to_list
+    category: File and IO Utilities
+    difficulty: Easy
+    workflow: run
+    description: "Parse CSV string csv_str and return a list of lists where the first row is treated as a header."
+    args: ["name,age\nAlice,30\nBob,25"]
+    expected: [["name", "age"], ["Alice", "30"], ["Bob", "25"]]
+    check: exact
+
+  - id: list_to_csv
+    category: File and IO Utilities
+    difficulty: Easy
+    workflow: run
+    description: "Convert a list of lists rows to a CSV formatted string with rows separated by newlines and values by commas."
+    args: [[["name", "age"], ["Alice", "30"], ["Bob", "25"]]]
+    expected: "name,age\nAlice,30\nBob,25"
+    check: exact
+
+  - id: transpose_matrix
+    category: File and IO Utilities
+    difficulty: Medium
+    workflow: run
+    description: "Return the transpose of 2D list matrix."
+    args: [[[1, 2, 3], [4, 5, 6]]]
+    expected: [[1, 4], [2, 5], [3, 6]]
+    check: exact
+
+  - id: sort_dicts_by_key
+    category: File and IO Utilities
+    difficulty: Easy
+    workflow: run
+    description: "Return list of dicts records sorted by the value of field key in ascending order."
+    args: [[{"name": "Charlie", "age": 30}, {"name": "Alice", "age": 25}, {"name": "Bob", "age": 35}], "age"]
+    expected: [{"name": "Alice", "age": 25}, {"name": "Charlie", "age": 30}, {"name": "Bob", "age": 35}]
+    check: exact
+
+  - id: unique_values
+    category: File and IO Utilities
+    difficulty: Easy
+    workflow: run
+    description: "Return a sorted list of unique values for key field across all dicts in list records."
+    args: [[{"dept": "eng"}, {"dept": "hr"}, {"dept": "eng"}, {"dept": "finance"}], "dept"]
+    expected: ["eng", "finance", "hr"]
+    check: exact
+
+  - id: pivot_records
+    category: File and IO Utilities
+    difficulty: Medium
+    workflow: run
+    description: "Given a list of dicts records each with string fields row_key, col_key, and value_key, return a 2D dict pivot[row][col] = value."
+    args: [[{"r": "A", "c": "x", "v": 1}, {"r": "A", "c": "y", "v": 2}, {"r": "B", "c": "x", "v": 3}], "r", "c", "v"]
+    expected: {"A": {"x": 1, "y": 2}, "B": {"x": 3}}
+    check: exact
+
+  - id: running_sum
+    category: File and IO Utilities
+    difficulty: Easy
+    workflow: run
+    description: "Return a list of running (cumulative) sums of list nums."
+    args: [[1, 2, 3, 4, 5]]
+    expected: [1, 3, 6, 10, 15]
+    check: exact
+
+  # ──────────────────────────────────────────────
+  # CATEGORY 5: Date, Time and Calendar (10)
+  # ──────────────────────────────────────────────
+
+  - id: days_between
+    category: Date Time and Calendar
+    difficulty: Easy
+    workflow: run
+    description: "Return the number of calendar days between ISO-format date strings date1 and date2 as an absolute integer."
+    args: ["2024-01-01", "2024-01-31"]
+    expected: 30
+    check: exact
+
+  - id: is_leap_year
+    category: Date Time and Calendar
+    difficulty: Easy
+    workflow: run
+    description: "Return True if integer year is a leap year."
+    args: [2024]
+    expected: true
+    check: exact
+
+  - id: days_in_month
+    category: Date Time and Calendar
+    difficulty: Easy
+    workflow: run
+    description: "Return the number of days in month m of year y. m is 1-indexed."
+    args: [2, 2024]
+    expected: 29
+    check: exact
+
+  - id: day_of_week
+    category: Date Time and Calendar
+    difficulty: Easy
+    workflow: run
+    description: "Return the day of the week name for ISO-format date string date_str."
+    args: ["2024-01-01"]
+    expected: "Monday"
+    check: exact
+
+  - id: business_days_between
+    category: Date Time and Calendar
+    difficulty: Medium
+    workflow: run
+    description: "Return the count of weekdays (Monday through Friday) between ISO-format date strings start and end, inclusive of both."
+    args: ["2024-01-01", "2024-01-07"]
+    expected: 5
+    check: exact
+
+  - id: add_days
+    category: Date Time and Calendar
+    difficulty: Easy
+    workflow: run
+    description: "Return the ISO-format date string that is n days after ISO-format date string date_str."
+    args: ["2024-01-28", 5]
+    expected: "2024-02-02"
+    check: exact
+
+  - id: week_number
+    category: Date Time and Calendar
+    difficulty: Medium
+    workflow: run
+    description: "Return the ISO week number (1-53) for ISO-format date string date_str."
+    args: ["2024-01-08"]
+    expected: 2
+    check: exact
+
+  - id: quarter_of_date
+    category: Date Time and Calendar
+    difficulty: Easy
+    workflow: run
+    description: "Return the quarter number (1-4) for ISO-format date string date_str."
+    args: ["2024-07-15"]
+    expected: 3
+    check: exact
+
+  - id: next_weekday
+    category: Date Time and Calendar
+    difficulty: Medium
+    workflow: run
+    description: "Return the ISO-format date string of the next occurrence of weekday_name after ISO-format date string date_str. weekday_name is a full English day name."
+    args: ["2024-01-01", "Friday"]
+    expected: "2024-01-05"
+    check: exact
+
+  - id: date_range
+    category: Date Time and Calendar
+    difficulty: Medium
+    workflow: run
+    description: "Return a list of ISO-format date strings for every day from start to end inclusive."
+    args: ["2024-01-01", "2024-01-05"]
+    expected: ["2024-01-01", "2024-01-02", "2024-01-03", "2024-01-04", "2024-01-05"]
+    check: exact
+
+  # ──────────────────────────────────────────────
+  # CATEGORY 6: Validation and Parsing (20)
+  # ──────────────────────────────────────────────
+
+  - id: is_valid_email
+    category: Validation and Parsing
+    difficulty: Medium
+    workflow: run
+    description: "Return True if string s is a structurally valid email address with exactly one at sign, a non-empty local part, and a domain with at least one dot."
+    args: ["user@example.com"]
+    expected: true
+    check: exact
+
+  - id: is_valid_ipv4
+    category: Validation and Parsing
+    difficulty: Medium
+    workflow: run
+    description: "Return True if string s is a valid IPv4 address with four octets each in the range 0 to 255 separated by dots."
+    args: ["192.168.1.1"]
+    expected: true
+    check: exact
+
+  - id: is_valid_url
+    category: Validation and Parsing
+    difficulty: Medium
+    workflow: run
+    description: "Return True if string s is a valid URL starting with http or https and containing a domain."
+    args: ["https://www.example.com/path?q=1"]
+    expected: true
+    check: exact
+
+  - id: is_valid_json
+    category: Validation and Parsing
+    difficulty: Easy
+    workflow: run
+    description: "Return True if string s is syntactically valid JSON."
+    args: ["{\"key\": \"value\"}"]
+    expected: true
+    check: exact
+
+  - id: luhn_check
+    category: Validation and Parsing
+    difficulty: Hard
+    workflow: run
+    description: "Return True if string s passes the Luhn algorithm checksum, used for credit card number validation."
+    args: ["4532015112830366"]
+    expected: true
+    check: exact
+
+  - id: parse_query_string
+    category: Validation and Parsing
+    difficulty: Medium
+    workflow: run
+    description: "Parse URL query string qs and return a dict mapping parameter names to their values. Handle repeated keys by storing a list of values."
+    args: ["name=Alice&age=30&hobby=reading&hobby=coding"]
+    expected: {"name": "Alice", "age": "30", "hobby": ["reading", "coding"]}
+    check: exact
+
+  - id: validate_password
+    category: Validation and Parsing
+    difficulty: Medium
+    workflow: run
+    description: "Validate password string s against rules dict with keys min_length, require_uppercase, require_digit, require_special. Return a list of failed rule names."
+    args: ["weakpass", {"min_length": 8, "require_uppercase": true, "require_digit": true, "require_special": true}]
+    expected: ["require_uppercase", "require_digit", "require_special"]
+    check: set_equal
+
+  - id: is_valid_hex_color
+    category: Validation and Parsing
+    difficulty: Easy
+    workflow: run
+    description: "Return True if string s is a valid CSS hex color code in the form #RGB or #RRGGBB."
+    args: ["#FF8800"]
+    expected: true
+    check: exact
+
+  - id: extract_emails
+    category: Validation and Parsing
+    difficulty: Medium
+    workflow: run
+    description: "Return a list of all email addresses found in string text."
+    args: ["Contact us at info@example.com or support@test.org for help."]
+    expected: ["info@example.com", "support@test.org"]
+    check: exact
+
+  - id: extract_numbers
+    category: Validation and Parsing
+    difficulty: Easy
+    workflow: run
+    description: "Return a list of all integers found in string text in order of appearance."
+    args: ["I have 3 cats and 12 dogs born in 2020"]
+    expected: [3, 12, 2020]
+    check: exact
+
+  - id: parse_key_value
+    category: Validation and Parsing
+    difficulty: Easy
+    workflow: run
+    description: "Parse string s of key=value pairs separated by semicolons and return a dict."
+    args: ["host=localhost;port=5432;db=mydb"]
+    expected: {"host": "localhost", "port": "5432", "db": "mydb"}
+    check: exact
+
+  - id: normalize_phone
+    category: Validation and Parsing
+    difficulty: Medium
+    workflow: run
+    description: "Return phone number string s normalised to digits only, stripping all spaces, dashes, parentheses, and plus signs."
+    args: ["+1 (800) 555-1234"]
+    expected: "18005551234"
+    check: exact
+
+  - id: is_valid_isbn13
+    category: Validation and Parsing
+    difficulty: Hard
+    workflow: run
+    description: "Return True if string s is a valid ISBN-13 number using the standard checksum algorithm. Accept with or without hyphens."
+    args: ["978-3-16-148410-0"]
+    expected: true
+    check: exact
+
+  - id: parse_csv_line
+    category: Validation and Parsing
+    difficulty: Medium
+    workflow: run
+    description: "Parse a single CSV line string s respecting quoted fields that may contain commas. Return a list of field strings."
+    args: ["Alice,\"Smith, Jr.\",30"]
+    expected: ["Alice", "Smith, Jr.", "30"]
+    check: exact
+
+  - id: is_valid_mac_address
+    category: Validation and Parsing
+    difficulty: Easy
+    workflow: run
+    description: "Return True if string s is a valid MAC address in the form XX:XX:XX:XX:XX:XX where X is a hex digit."
+    args: ["01:AB:CD:EF:23:45"]
+    expected: true
+    check: exact
+
+  - id: extract_domain
+    category: Validation and Parsing
+    difficulty: Easy
+    workflow: run
+    description: "Return the domain name from URL string url, excluding the scheme and any path."
+    args: ["https://www.example.com/path/page"]
+    expected: "www.example.com"
+    check: exact
+
+  - id: is_valid_date
+    category: Validation and Parsing
+    difficulty: Easy
+    workflow: run
+    description: "Return True if string s represents a valid calendar date in YYYY-MM-DD format."
+    args: ["2024-02-29"]
+    expected: true
+    check: exact
+
+  - id: tokenize
+    category: Validation and Parsing
+    difficulty: Medium
+    workflow: run
+    description: "Return a list of tokens from string s, where tokens are sequences of alphanumeric characters, all lowercased with punctuation removed."
+    args: ["Hello, World! This is a test."]
+    expected: ["hello", "world", "this", "is", "a", "test"]
+    check: exact
+
+  - id: mask_string
+    category: Validation and Parsing
+    difficulty: Easy
+    workflow: run
+    description: "Return string s with all characters except the last n replaced by asterisks."
+    args: ["4111111111111111", 4]
+    expected: "************1111"
+    check: exact
+
+  - id: parse_range
+    category: Validation and Parsing
+    difficulty: Medium
+    workflow: run
+    description: "Parse range string s like '1-5,8,10-12' and return a sorted list of all integers in the range."
+    args: ["1-5,8,10-12"]
+    expected: [1, 2, 3, 4, 5, 8, 10, 11, 12]
+    check: exact
+
+  # ──────────────────────────────────────────────
+  # CATEGORY 7: Encoding and Hashing (10)
+  # ──────────────────────────────────────────────
+
+  - id: hex_to_rgb
+    category: Encoding and Hashing
+    difficulty: Easy
+    workflow: run
+    description: "Parse hex color string hex_str like #FF8800 and return a list [r, g, b] of integers."
+    args: ["#FF8800"]
+    expected: [255, 136, 0]
+    check: exact
+
+  - id: rgb_to_hex
+    category: Encoding and Hashing
+    difficulty: Easy
+    workflow: run
+    description: "Convert RGB values r, g, b (0-255 each) to uppercase hex color string in the form #RRGGBB."
+    args: [255, 136, 0]
+    expected: "#FF8800"
+    check: exact
+
+  - id: url_encode
+    category: Encoding and Hashing
+    difficulty: Medium
+    workflow: run
+    description: "Return string s percent-encoded for safe inclusion in a URL query component."
+    args: ["hello world & more=stuff"]
+    expected: "hello%20world%20%26%20more%3Dstuff"
+    check: exact
+
+  - id: url_decode
+    category: Encoding and Hashing
+    difficulty: Easy
+    workflow: run
+    description: "Return the decoded version of percent-encoded URL string s."
+    args: ["hello%20world%20%26%20more%3Dstuff"]
+    expected: "hello world & more=stuff"
+    check: exact
+
+  - id: md5_hex
+    category: Encoding and Hashing
+    difficulty: Easy
+    workflow: run
+    description: "Return the MD5 hex digest of string s using hashlib."
+    args: ["hello"]
+    expected: "5d41402abc4b2a76b9719d911017c592"
+    check: exact
+
+  - id: sha256_hex
+    category: Encoding and Hashing
+    difficulty: Easy
+    workflow: run
+    description: "Return the SHA-256 hex digest of string s using hashlib."
+    args: ["hello"]
+    expected: "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+    check: exact
+
+  - id: xor_bytes
+    category: Encoding and Hashing
+    difficulty: Medium
+    workflow: run
+    description: "Return the XOR of each byte in bytes object data with the repeating integer key, returned as a bytes object."
+    args: [{"__bytes__": [72, 101, 108, 108, 111]}, 42]
+    expected: {"__bytes__": [98, 79, 70, 70, 69]}
+    check: bytes_equal
+
+  - id: encode_base64
+    category: Encoding and Hashing
+    difficulty: Medium
+    workflow: run
+    description: "Return the base64 encoding of string s as a string using the standard alphabet."
+    args: ["Hello, World!"]
+    expected: "SGVsbG8sIFdvcmxkIQ=="
+    check: exact
+
+  - id: decode_base64
+    category: Encoding and Hashing
+    difficulty: Easy
+    workflow: run
+    description: "Return the decoded string from base64-encoded string s."
+    args: ["SGVsbG8sIFdvcmxkIQ=="]
+    expected: "Hello, World!"
+    check: exact
+
+  - id: count_bits
+    category: Encoding and Hashing
+    difficulty: Easy
+    workflow: run
+    description: "Return the number of set bits (1s) in the binary representation of non-negative integer n."
+    args: [255]
+    expected: 8
+    check: exact
+
+  # ──────────────────────────────────────────────
+  # CATEGORY 8: India Specific Utilities (10)
+  # ──────────────────────────────────────────────
+
+  - id: compute_gst
+    category: India Specific Utilities
+    difficulty: Easy
+    workflow: run
+    description: "Return a dict with keys gst_amount and total_amount given base_amount and gst_rate as a percentage integer."
+    args: [1000, 18]
+    expected: {"gst_amount": 180.0, "total_amount": 1180.0}
+    check: exact
+
+  - id: validate_pan
+    category: India Specific Utilities
+    difficulty: Medium
+    workflow: run
+    description: "Return True if string pan is a valid Indian PAN card number matching the pattern AAAAA9999A where A is uppercase letter and 9 is digit."
+    args: ["ABCDE1234F"]
+    expected: true
+    check: exact
+
+  - id: format_indian_number
+    category: India Specific Utilities
+    difficulty: Medium
+    workflow: run
+    description: "Return integer n formatted with the Indian numbering system using commas (e.g. 1234567 becomes 12,34,567)."
+    args: [1234567]
+    expected: "12,34,567"
+    check: exact
+
+  - id: inr_to_words
+    category: India Specific Utilities
+    difficulty: Hard
+    workflow: run
+    description: "Return integer n converted to Indian English word form using lakhs and crores (e.g. 100000 becomes One Lakh)."
+    args: [100000]
+    expected: "One Lakh"
+    check: exact_case_insensitive
+
+  - id: state_from_gstin
+    category: India Specific Utilities
+    difficulty: Medium
+    workflow: run
+    description: "Return the Indian state name corresponding to the two-digit state code at the start of GSTIN string gstin."
+    args: ["29ABCDE1234F1Z5"]
+    expected: "Karnataka"
+    check: exact
+
+  - id: validate_aadhaar
+    category: India Specific Utilities
+    difficulty: Hard
+    workflow: run
+    description: "Return True if string aadhaar is a syntactically valid 12-digit Aadhaar number (digits only, not starting with 0 or 1)."
+    args: ["234123412341"]
+    expected: true
+    check: exact
+
+  - id: compute_emi
+    category: India Specific Utilities
+    difficulty: Medium
+    workflow: run
+    description: "Return the monthly EMI amount rounded to 2 decimal places given principal, annual_rate as a percentage, and tenure_months."
+    args: [100000, 12, 12]
+    expected: 8884.88
+    check: approx
+
+  - id: tds_calculation
+    category: India Specific Utilities
+    difficulty: Easy
+    workflow: run
+    description: "Return the TDS amount given gross_amount and tds_rate as a percentage. Return a dict with tds and net_payable."
+    args: [50000, 10]
+    expected: {"tds": 5000.0, "net_payable": 45000.0}
+    check: exact
+
+  - id: pf_contribution
+    category: India Specific Utilities
+    difficulty: Easy
+    workflow: run
+    description: "Return a dict with employee_contribution and employer_contribution given basic_salary. Both are 12 percent of basic salary."
+    args: [30000]
+    expected: {"employee_contribution": 3600.0, "employer_contribution": 3600.0}
+    check: exact
+
+  - id: pin_to_state
+    category: India Specific Utilities
+    difficulty: Medium
+    workflow: run
+    description: "Return the Indian state or region name corresponding to the first digit of PIN code string pin."
+    args: ["560001"]
+    expected: "Karnataka"
+    check: exact
+
+  # ──────────────────────────────────────────────
+  # CATEGORY 9: Object Oriented Classes (20, /build)
+  # ──────────────────────────────────────────────
+
+  - id: build_stack
+    category: Object Oriented Classes
+    difficulty: Easy
+    workflow: build
+    description: "Implement a Stack class with push(item), pop() returning the top item, peek() returning the top without removing, is_empty() returning bool, and size() returning int. Raise ValueError on pop or peek from empty stack."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_queue
+    category: Object Oriented Classes
+    difficulty: Easy
+    workflow: build
+    description: "Implement a Queue class with enqueue(item), dequeue() returning front item, front() returning front without removing, is_empty() returning bool, and size() returning int. Raise ValueError on dequeue or front from empty queue."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_linked_list
+    category: Object Oriented Classes
+    difficulty: Medium
+    workflow: build
+    description: "Implement a LinkedList class with append(val), prepend(val), delete(val) removing first occurrence, search(val) returning bool, and to_list() returning all values as a Python list."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_min_heap
+    category: Object Oriented Classes
+    difficulty: Medium
+    workflow: build
+    description: "Implement a MinHeap class with push(val) inserting a value, pop() removing and returning the minimum, peek() returning the minimum without removing, and size() returning int. Raise ValueError on pop or peek from empty heap."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_lru_cache
+    category: Object Oriented Classes
+    difficulty: Hard
+    workflow: build
+    description: "Implement an LRUCache class initialised with capacity. get(key) returns the value or -1 if absent, updating recency. put(key, value) inserts or updates, evicting the least recently used item when at capacity."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_trie
+    category: Object Oriented Classes
+    difficulty: Hard
+    workflow: build
+    description: "Implement a Trie class with insert(word) adding a word, search(word) returning True if word was inserted, and starts_with(prefix) returning True if any inserted word begins with prefix."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_graph
+    category: Object Oriented Classes
+    difficulty: Medium
+    workflow: build
+    description: "Implement an undirected Graph class with add_vertex(v), add_edge(u, v), bfs(start) returning nodes in BFS order as a list, dfs(start) returning nodes in DFS order as a list, and has_cycle() returning bool."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_circular_buffer
+    category: Object Oriented Classes
+    difficulty: Medium
+    workflow: build
+    description: "Implement a CircularBuffer class initialised with size. write(item) adds an item overwriting the oldest when full. read() returns and removes the oldest item. is_empty() and is_full() return bool. Raise ValueError on read from empty buffer."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_event_bus
+    category: Object Oriented Classes
+    difficulty: Medium
+    workflow: build
+    description: "Implement an EventBus class with subscribe(event, handler) registering a callable, publish(event, data) calling all registered handlers with data, and unsubscribe(event, handler) removing a handler."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_binary_search_tree
+    category: Object Oriented Classes
+    difficulty: Medium
+    workflow: build
+    description: "Implement a BinarySearchTree class with insert(val), search(val) returning bool, inorder() returning all values in sorted order as a list, and height() returning the tree height as an integer."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_password_policy
+    category: Object Oriented Classes
+    difficulty: Easy
+    workflow: build
+    description: "Implement a PasswordPolicy class initialised with min_length, require_uppercase, require_digit, require_special all as configurable parameters. validate(password) returns a list of failed rule name strings."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_rate_limiter
+    category: Object Oriented Classes
+    difficulty: Hard
+    workflow: build
+    description: "Implement a RateLimiter class initialised with max_calls and period_seconds. is_allowed(client_id) returns True if the client has made fewer than max_calls in the last period_seconds, updating the counter."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_observer
+    category: Object Oriented Classes
+    difficulty: Medium
+    workflow: build
+    description: "Implement the Observer pattern with a Subject class having attach(observer), detach(observer), and notify() calling update(subject) on all attached observers, and an Observer base class with an update method."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_state_machine
+    category: Object Oriented Classes
+    difficulty: Hard
+    workflow: build
+    description: "Implement a StateMachine class with add_state(name), add_transition(from_state, event, to_state), trigger(event) transitioning from current state, current_state property, and reset() returning to the initial state."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_priority_queue
+    category: Object Oriented Classes
+    difficulty: Medium
+    workflow: build
+    description: "Implement a PriorityQueue class with push(item, priority) inserting with integer priority, pop() returning the item with the highest priority, peek() returning without removing, is_empty() and size()."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_deque
+    category: Object Oriented Classes
+    difficulty: Easy
+    workflow: build
+    description: "Implement a Deque class with push_front(item), push_back(item), pop_front(), pop_back(), peek_front(), peek_back(), is_empty(), and size(). Raise ValueError on pop or peek from empty deque."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_bloom_filter
+    category: Object Oriented Classes
+    difficulty: Hard
+    workflow: build
+    description: "Implement a BloomFilter class initialised with size and num_hashes. add(item) adds to the filter. might_contain(item) returns True if item might be in the set, False if definitely not."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_counter
+    category: Object Oriented Classes
+    difficulty: Easy
+    workflow: build
+    description: "Implement a Counter class that counts hashable items. increment(item), decrement(item), count(item) returning int, most_common(n) returning the n most frequent items as a list of (item, count) tuples."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_interval_tree
+    category: Object Oriented Classes
+    difficulty: Hard
+    workflow: build
+    description: "Implement an IntervalTree class with insert(lo, hi, data) adding an interval, query(point) returning all intervals containing point as a list of dicts with keys lo, hi, data."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_sparse_matrix
+    category: Object Oriented Classes
+    difficulty: Medium
+    workflow: build
+    description: "Implement a SparseMatrix class initialised with rows and cols. set(r, c, val) stores a value, get(r, c) returns it or 0, to_dense() returns a full 2D list, and nnz() returns the count of non-zero entries."
+    args: []
+    expected: null
+    check: build_success
+
+  # ──────────────────────────────────────────────
+  # CATEGORY 10: Multi Component Pipelines (20, /build)
+  # ──────────────────────────────────────────────
+
+  - id: build_etl_pipeline
+    category: Multi Component Pipelines
+    difficulty: Medium
+    workflow: build
+    description: "Implement an ETLPipeline class with extract(csv_string) parsing CSV text into a list of dicts, transform(records) dropping records with any null values and converting numeric strings to floats, and load(records) returning a JSON string."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_log_parser
+    category: Multi Component Pipelines
+    difficulty: Medium
+    workflow: build
+    description: "Implement a LogParser class with parse_line(line) extracting timestamp, level, and message from lines like '2024-01-01 12:00:00 ERROR something failed', parse_file(text) parsing all lines, and summary() returning a dict of level counts."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_config_manager
+    category: Multi Component Pipelines
+    difficulty: Medium
+    workflow: build
+    description: "Implement a ConfigManager class initialised with a dict of defaults. load_json(json_str) overrides defaults with parsed values. get(key, default=None) retrieves a value. set(key, value) updates a value. to_dict() returns all current settings."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_invoice_processor
+    category: Multi Component Pipelines
+    difficulty: Medium
+    workflow: build
+    description: "Implement an InvoiceProcessor class with add_item(name, qty, unit_price), set_tax_rate(rate), compute() returning a dict with subtotal, tax_amount, and total rounded to 2 decimal places, and to_string() returning a formatted invoice summary."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_simple_router
+    category: Multi Component Pipelines
+    difficulty: Hard
+    workflow: build
+    description: "Implement an HTTPRouter class with add_route(method, path, handler) registering a callable, dispatch(method, path) calling the matching handler and returning its result, and 404 handling returning a dict with error key when no route matches."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_job_scheduler
+    category: Multi Component Pipelines
+    difficulty: Hard
+    workflow: build
+    description: "Implement a JobScheduler class with add_job(name, fn, priority) adding a callable with integer priority, run_next() executing the highest-priority pending job and returning its name, cancel(name) removing a job, and pending_count() returning int."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_markdown_parser
+    category: Multi Component Pipelines
+    difficulty: Hard
+    workflow: build
+    description: "Implement a MarkdownParser class with parse(md_text) converting Markdown to HTML, supporting h1-h3 headings, bold, italic, inline code, unordered lists with dashes, and paragraphs separated by blank lines."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_text_stats
+    category: Multi Component Pipelines
+    difficulty: Medium
+    workflow: build
+    description: "Implement a TextAnalyzer class with load(text), word_count(), sentence_count(), average_word_length() rounded to 2 decimals, most_common_words(n) returning list of (word, count) tuples, and readability_score() returning Flesch-Kincaid grade level."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_data_validator
+    category: Multi Component Pipelines
+    difficulty: Medium
+    workflow: build
+    description: "Implement a DataValidator class initialised with a schema dict mapping field names to type strings like int, str, float, bool. validate(record) checks a dict against the schema and returns a list of validation error strings."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_expression_evaluator
+    category: Multi Component Pipelines
+    difficulty: Hard
+    workflow: build
+    description: "Implement an ExpressionEvaluator class with evaluate(expr) that computes the result of a string arithmetic expression containing integers, plus, minus, multiply, divide, and parentheses without using eval()."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_csv_transformer
+    category: Multi Component Pipelines
+    difficulty: Medium
+    workflow: build
+    description: "Implement a CSVTransformer class with load(csv_string), filter_rows(column, value) keeping only rows where column equals value, rename_column(old, new), drop_column(name), and to_csv() serialising back to a CSV string."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_notification_dispatcher
+    category: Multi Component Pipelines
+    difficulty: Medium
+    workflow: build
+    description: "Implement a NotificationDispatcher class with register_channel(name, handler_fn), send(message, channels) dispatching message to each named channel handler, broadcast(message) sending to all, and get_log() returning a list of all sent message records."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_cache_manager
+    category: Multi Component Pipelines
+    difficulty: Medium
+    workflow: build
+    description: "Implement a CacheManager class with set(key, value, ttl_seconds), get(key) returning value or None if expired or absent, delete(key), clear(), and stats() returning a dict with total_keys, hit_count, and miss_count."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_pipeline_chain
+    category: Multi Component Pipelines
+    difficulty: Hard
+    workflow: build
+    description: "Implement a Pipeline class where add_stage(fn) appends a transformation function and run(data) passes data through each stage in order, collecting the output of each stage and returning a list of intermediate results."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_simple_orm
+    category: Multi Component Pipelines
+    difficulty: Hard
+    workflow: build
+    description: "Implement a SimpleORM class backed by an in-memory dict store with create(table, record_dict) returning an auto-incremented id, find(table, id) returning the record or None, update(table, id, fields), delete(table, id), and all(table) returning all records."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_report_generator
+    category: Multi Component Pipelines
+    difficulty: Medium
+    workflow: build
+    description: "Implement a ReportGenerator class with add_section(title, content), add_table(headers, rows), generate_text() returning a plain text formatted report, and generate_html() returning an HTML string."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_retry_wrapper
+    category: Multi Component Pipelines
+    difficulty: Medium
+    workflow: build
+    description: "Implement a RetryWrapper class initialised with max_retries and backoff_seconds. wrap(fn) returns a new callable that retries fn on exception up to max_retries times with exponential backoff and raises the last exception if all retries fail."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_feature_flags
+    category: Multi Component Pipelines
+    difficulty: Easy
+    workflow: build
+    description: "Implement a FeatureFlags class with set_flag(name, enabled), is_enabled(name) returning bool defaulting to False, enable_all(), disable_all(), and to_dict() returning all flags and their current state."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_token_bucket
+    category: Multi Component Pipelines
+    difficulty: Hard
+    workflow: build
+    description: "Implement a TokenBucket class initialised with capacity and refill_rate tokens per second. consume(tokens) returns True and deducts tokens if available, False otherwise. The bucket refills over time based on elapsed seconds since the last consume call."
+    args: []
+    expected: null
+    check: build_success
+
+  - id: build_search_engine
+    category: Multi Component Pipelines
+    difficulty: Hard
+    workflow: build
+    description: "Implement a SimpleSearchEngine class with index(doc_id, text) building an inverted index, search(query) returning a list of doc_ids ranked by term frequency relevance, and remove(doc_id) removing a document from the index."
+    args: []
+    expected: null
+    check: build_success
+
+  # ──────────────────────────────────────────────
+  # CATEGORY 11: Adversarial and Edge Case (10)
+  # ──────────────────────────────────────────────
+
+  - id: safe_divide
+    category: Adversarial and Edge Case
+    difficulty: Hard
+    workflow: run
+    description: "Return a divided by b as a float. Return None if b is zero. Accept int and float inputs without raising any exception."
+    args: [10, 0]
+    expected: null
+    check: exact
+
+  - id: deep_flatten
+    category: Adversarial and Edge Case
+    difficulty: Hard
+    workflow: run
+    description: "Return a flat list from arbitrarily nested list lst that may contain integers, strings, None values, and further nested lists."
+    args: [[1, [2, [None, "x"]], [3, [4, [5]]]]]
+    expected: [1, 2, null, "x", 3, 4, 5]
+    check: exact
+
+  - id: type_safe_max
+    category: Adversarial and Edge Case
+    difficulty: Hard
+    workflow: run
+    description: "Return the maximum value from list lst. If lst is empty return None. If lst contains mixed incomparable types, return None."
+    args: [[3, 1, 4, 1, 5, 9]]
+    expected: 9
+    check: exact
+
+  - id: safe_json_parse
+    category: Adversarial and Edge Case
+    difficulty: Hard
+    workflow: run
+    description: "Parse JSON string s and return the parsed object. Return None instead of raising an exception if s is invalid JSON."
+    args: ["{invalid json"]
+    expected: null
+    check: exact
+
+  - id: coerce_to_int
+    category: Adversarial and Edge Case
+    difficulty: Hard
+    workflow: run
+    description: "Return integer value of x. Accept int, float, string representations of numbers, and bool. Return None if conversion is not possible."
+    args: ["  42  "]
+    expected: 42
+    check: exact
+
+  - id: safe_get_nested
+    category: Adversarial and Edge Case
+    difficulty: Hard
+    workflow: run
+    description: "Return the value at dot-notation path string path within nested dict d. Return default if any key in the path is missing."
+    args: [{"a": {"b": 1}}, "a.c", "missing"]
+    expected: "missing"
+    check: exact
+
+  - id: normalize_whitespace
+    category: Adversarial and Edge Case
+    difficulty: Hard
+    workflow: run
+    description: "Return string s with all sequences of whitespace characters including tabs and newlines replaced by a single space, and leading and trailing whitespace stripped."
+    args: ["  hello\t\nworld   foo  "]
+    expected: "hello world foo"
+    check: exact
+
+  - id: safe_list_get
+    category: Adversarial and Edge Case
+    difficulty: Hard
+    workflow: run
+    description: "Return element at integer index idx from list lst. Support negative indices. Return default if idx is out of range."
+    args: [[1, 2, 3], 10, -1]
+    expected: -1
+    check: exact
+
+  - id: deduplicate_stable
+    category: Adversarial and Edge Case
+    difficulty: Hard
+    workflow: run
+    description: "Return list lst with duplicate elements removed preserving the original order of first occurrences. Elements may be of any hashable type."
+    args: [[3, 1, 4, 1, 5, 9, 2, 6, 5, 3]]
+    expected: [3, 1, 4, 5, 9, 2, 6]
+    check: exact
+
+  - id: merge_intervals
+    category: Adversarial and Edge Case
+    difficulty: Hard
+    workflow: run
+    description: "Given a list of intervals where each interval is a list [start, end], return a list of merged non-overlapping intervals sorted by start."
+    args: [[[1, 3], [2, 6], [8, 10], [15, 18]]]
+    expected: [[1, 6], [8, 10], [15, 18]]
+    check: exact

@@ -1,0 +1,14 @@
+condition,task_id,category,difficulty,workflow,trial_index,latency_ms,correct,confidence,coverage_pct,repair_iterations,cache_status,http_status,error_type,timestamp
+A3_no_repair,build_stack,Object Oriented Classes,Easy,build,0,19328.82,False,76,,0,,200,logic_error,2026-07-25T10:12:20.819132+00:00
+A3_no_repair,build_stack,Object Oriented Classes,Easy,build,1,9179.72,True,100,,0,,200,,2026-07-25T10:12:34.004890+00:00
+A3_no_repair,build_stack,Object Oriented Classes,Easy,build,2,10459.83,True,97,,0,,200,,2026-07-25T10:12:48.466485+00:00
+A3_no_repair,build_queue,Object Oriented Classes,Easy,build,0,8796.64,False,68,,0,,200,logic_error,2026-07-25T10:13:01.265034+00:00
+A3_no_repair,build_queue,Object Oriented Classes,Easy,build,1,9289.74,False,73,,0,,200,hallucinated_api,2026-07-25T10:13:14.561461+00:00
+A3_no_repair,build_queue,Object Oriented Classes,Easy,build,2,8586.1,True,97,,0,,200,,2026-07-25T10:13:27.154246+00:00
+A3_no_repair,build_linked_list,Object Oriented Classes,Medium,build,0,10433.02,False,76,,0,,200,type_error,2026-07-25T10:13:41.592198+00:00
+A3_no_repair,build_linked_list,Object Oriented Classes,Medium,build,1,15142.28,False,76,,0,,200,logic_error,2026-07-25T10:14:00.741219+00:00
+A3_no_repair,build_linked_list,Object Oriented Classes,Medium,build,2,12790.35,True,99,,0,,200,,2026-07-25T10:14:17.536825+00:00
+A3_no_repair,build_min_heap,Object Oriented Classes,Medium,build,0,4729.55,False,,,0,,500,logic_error,2026-07-25T10:14:26.268788+00:00
+A3_no_repair,build_min_heap,Object Oriented Classes,Medium,build,1,4077.77,False,,,0,,500,logic_error,2026-07-25T10:14:34.350188+00:00
+A3_no_repair,build_min_heap,Object Oriented Classes,Medium,build,2,5288.04,False,,,0,,500,logic_error,2026-07-25T10:14:43.643993+00:00
+A3_no_repair,build_graph,Object Oriented Classes,Medium,build,0,1527.41,False,,,0,,500,logic_error,2026-07-25T10:14:49.173697+00:00

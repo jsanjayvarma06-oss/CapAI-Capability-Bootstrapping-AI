@@ -1,0 +1,297 @@
+task_id,category,difficulty,workflow,condition,trial_index,latency_ms,correct,confidence,coverage_pct,repair_iterations,cache_status,provider_used,error_type,http_status,timestamp
+parse_json_field,File and IO Utilities,Medium,run,cold,0,12800.99,False,,,0,miss,unknown,logic_error,500,2026-07-25T07:46:26.539244+00:00
+parse_json_field,File and IO Utilities,Medium,run,warm,0,11213.78,False,,,0,miss,unknown,logic_error,500,2026-07-25T07:46:40.754667+00:00
+parse_json_field,File and IO Utilities,Medium,run,warm,1,11378.12,False,,,0,miss,unknown,logic_error,500,2026-07-25T07:46:55.139519+00:00
+parse_json_field,File and IO Utilities,Medium,run,warm,2,11595.6,False,,,0,miss,unknown,logic_error,500,2026-07-25T07:47:09.738547+00:00
+flatten_dict,File and IO Utilities,Medium,run,cold,0,6822.49,True,,,0,miss,unknown,,200,2026-07-25T07:47:19.567955+00:00
+flatten_dict,File and IO Utilities,Medium,run,warm,0,575.54,True,,,0,miss,unknown,,200,2026-07-25T07:47:23.150165+00:00
+flatten_dict,File and IO Utilities,Medium,run,warm,1,582.02,True,,,0,miss,unknown,,200,2026-07-25T07:47:26.734692+00:00
+flatten_dict,File and IO Utilities,Medium,run,warm,2,577.37,True,,,0,miss,unknown,,200,2026-07-25T07:47:30.318141+00:00
+merge_dicts,File and IO Utilities,Easy,run,cold,0,6488.62,True,,,0,miss,unknown,,200,2026-07-25T07:47:39.813618+00:00
+merge_dicts,File and IO Utilities,Easy,run,warm,0,401.42,True,,,0,miss,unknown,,200,2026-07-25T07:47:43.219499+00:00
+merge_dicts,File and IO Utilities,Easy,run,warm,1,411.86,True,,,0,miss,unknown,,200,2026-07-25T07:47:46.634708+00:00
+merge_dicts,File and IO Utilities,Easy,run,warm,2,501.21,True,,,0,miss,unknown,,200,2026-07-25T07:47:50.139348+00:00
+invert_dict,File and IO Utilities,Easy,run,cold,0,13490.55,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T07:48:06.635160+00:00
+invert_dict,File and IO Utilities,Easy,run,warm,0,510.91,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T07:48:10.149845+00:00
+invert_dict,File and IO Utilities,Easy,run,warm,1,484.16,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T07:48:13.637926+00:00
+invert_dict,File and IO Utilities,Easy,run,warm,2,402.34,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T07:48:17.042149+00:00
+deep_merge_dicts,File and IO Utilities,Medium,run,cold,0,6999.97,True,,,0,miss,unknown,,200,2026-07-25T07:48:27.047715+00:00
+deep_merge_dicts,File and IO Utilities,Medium,run,warm,0,576.43,True,,,0,miss,unknown,,200,2026-07-25T07:48:30.628155+00:00
+deep_merge_dicts,File and IO Utilities,Medium,run,warm,1,403.25,True,,,0,miss,unknown,,200,2026-07-25T07:48:34.034923+00:00
+deep_merge_dicts,File and IO Utilities,Medium,run,warm,2,556.47,True,,,0,miss,unknown,,200,2026-07-25T07:48:37.593132+00:00
+filter_dict_by_keys,File and IO Utilities,Easy,run,cold,0,6890.32,True,,,0,miss,unknown,,200,2026-07-25T07:48:47.490169+00:00
+filter_dict_by_keys,File and IO Utilities,Easy,run,warm,0,493.28,True,,,0,miss,unknown,,200,2026-07-25T07:48:50.990113+00:00
+filter_dict_by_keys,File and IO Utilities,Easy,run,warm,1,494.44,True,,,0,miss,unknown,,200,2026-07-25T07:48:54.491158+00:00
+filter_dict_by_keys,File and IO Utilities,Easy,run,warm,2,477.77,True,,,0,miss,unknown,,200,2026-07-25T07:48:57.972560+00:00
+group_by,File and IO Utilities,Medium,run,cold,0,7133.82,True,,,0,miss,unknown,,200,2026-07-25T07:49:08.111308+00:00
+group_by,File and IO Utilities,Medium,run,warm,0,679.18,True,,,0,miss,unknown,,200,2026-07-25T07:49:11.795363+00:00
+group_by,File and IO Utilities,Medium,run,warm,1,345.26,True,,,0,miss,unknown,,200,2026-07-25T07:49:15.145852+00:00
+group_by,File and IO Utilities,Medium,run,warm,2,490.7,True,,,0,miss,unknown,,200,2026-07-25T07:49:18.641825+00:00
+csv_to_list,File and IO Utilities,Easy,run,cold,0,7294.68,True,,,0,miss,unknown,,200,2026-07-25T07:49:28.942871+00:00
+csv_to_list,File and IO Utilities,Easy,run,warm,0,498.4,True,,,0,miss,unknown,,200,2026-07-25T07:49:32.446989+00:00
+csv_to_list,File and IO Utilities,Easy,run,warm,1,510.37,True,,,0,miss,unknown,,200,2026-07-25T07:49:35.961545+00:00
+csv_to_list,File and IO Utilities,Easy,run,warm,2,516.64,True,,,0,miss,unknown,,200,2026-07-25T07:49:39.481568+00:00
+list_to_csv,File and IO Utilities,Easy,run,cold,0,6887.01,True,,,0,miss,unknown,,200,2026-07-25T07:49:49.376388+00:00
+list_to_csv,File and IO Utilities,Easy,run,warm,0,451.06,True,,,0,miss,unknown,,200,2026-07-25T07:49:52.832495+00:00
+list_to_csv,File and IO Utilities,Easy,run,warm,1,542.58,True,,,0,miss,unknown,,200,2026-07-25T07:49:56.380002+00:00
+list_to_csv,File and IO Utilities,Easy,run,warm,2,537.13,True,,,0,miss,unknown,,200,2026-07-25T07:49:59.923807+00:00
+transpose_matrix,File and IO Utilities,Medium,run,cold,0,6927.67,True,,,0,miss,unknown,,200,2026-07-25T07:50:09.855144+00:00
+transpose_matrix,File and IO Utilities,Medium,run,warm,0,481.81,True,,,0,miss,unknown,,200,2026-07-25T07:50:13.339045+00:00
+transpose_matrix,File and IO Utilities,Medium,run,warm,1,540.65,True,,,0,miss,unknown,,200,2026-07-25T07:50:16.882467+00:00
+transpose_matrix,File and IO Utilities,Medium,run,warm,2,518.41,True,,,0,miss,unknown,,200,2026-07-25T07:50:20.403844+00:00
+sort_dicts_by_key,File and IO Utilities,Easy,run,cold,0,6836.68,True,,,0,miss,unknown,,200,2026-07-25T07:50:30.246593+00:00
+sort_dicts_by_key,File and IO Utilities,Easy,run,warm,0,561.01,True,,,0,miss,unknown,,200,2026-07-25T07:50:33.813827+00:00
+sort_dicts_by_key,File and IO Utilities,Easy,run,warm,1,565.61,True,,,0,miss,unknown,,200,2026-07-25T07:50:37.382873+00:00
+sort_dicts_by_key,File and IO Utilities,Easy,run,warm,2,498.63,True,,,0,miss,unknown,,200,2026-07-25T07:50:40.884613+00:00
+unique_values,File and IO Utilities,Easy,run,cold,0,7046.79,True,,,0,miss,unknown,,200,2026-07-25T07:50:50.936912+00:00
+unique_values,File and IO Utilities,Easy,run,warm,0,562.23,True,,,0,miss,unknown,,200,2026-07-25T07:50:54.503289+00:00
+unique_values,File and IO Utilities,Easy,run,warm,1,374.87,True,,,0,miss,unknown,,200,2026-07-25T07:50:57.882171+00:00
+unique_values,File and IO Utilities,Easy,run,warm,2,476.09,True,,,0,miss,unknown,,200,2026-07-25T07:51:01.364961+00:00
+pivot_records,File and IO Utilities,Medium,run,cold,0,8463.11,True,,,0,miss,unknown,,200,2026-07-25T07:51:12.833074+00:00
+pivot_records,File and IO Utilities,Medium,run,warm,0,476.11,True,,,0,miss,unknown,,200,2026-07-25T07:51:16.314387+00:00
+pivot_records,File and IO Utilities,Medium,run,warm,1,461.65,True,,,0,miss,unknown,,200,2026-07-25T07:51:19.778459+00:00
+pivot_records,File and IO Utilities,Medium,run,warm,2,453.62,True,,,0,miss,unknown,,200,2026-07-25T07:51:23.234367+00:00
+running_sum,File and IO Utilities,Easy,run,cold,0,6760.43,True,,,0,miss,unknown,,200,2026-07-25T07:51:33.001752+00:00
+running_sum,File and IO Utilities,Easy,run,warm,0,481.43,True,,,0,miss,unknown,,200,2026-07-25T07:51:36.487199+00:00
+running_sum,File and IO Utilities,Easy,run,warm,1,478.06,True,,,0,miss,unknown,,200,2026-07-25T07:51:39.968629+00:00
+running_sum,File and IO Utilities,Easy,run,warm,2,480.52,True,,,0,miss,unknown,,200,2026-07-25T07:51:43.452312+00:00
+days_between,Date Time and Calendar,Easy,run,cold,0,7132.85,True,,,0,miss,unknown,,200,2026-07-25T07:51:53.591258+00:00
+days_between,Date Time and Calendar,Easy,run,warm,0,543.02,True,,,0,miss,unknown,,200,2026-07-25T07:51:57.138215+00:00
+days_between,Date Time and Calendar,Easy,run,warm,1,611.17,True,,,0,miss,unknown,,200,2026-07-25T07:52:00.756088+00:00
+days_between,Date Time and Calendar,Easy,run,warm,2,476.54,True,,,0,miss,unknown,,200,2026-07-25T07:52:04.233867+00:00
+is_leap_year,Date Time and Calendar,Easy,run,cold,0,6728.23,True,,,0,miss,unknown,,200,2026-07-25T07:52:13.966736+00:00
+is_leap_year,Date Time and Calendar,Easy,run,warm,0,471.61,True,,,0,miss,unknown,,200,2026-07-25T07:52:17.447304+00:00
+is_leap_year,Date Time and Calendar,Easy,run,warm,1,574.23,True,,,0,miss,unknown,,200,2026-07-25T07:52:21.031462+00:00
+is_leap_year,Date Time and Calendar,Easy,run,warm,2,449.04,True,,,0,miss,unknown,,200,2026-07-25T07:52:24.490278+00:00
+days_in_month,Date Time and Calendar,Easy,run,cold,0,6747.03,True,,,0,miss,unknown,,200,2026-07-25T07:52:34.242029+00:00
+days_in_month,Date Time and Calendar,Easy,run,warm,0,583.04,True,,,0,miss,unknown,,200,2026-07-25T07:52:37.827047+00:00
+days_in_month,Date Time and Calendar,Easy,run,warm,1,571.68,True,,,0,miss,unknown,,200,2026-07-25T07:52:41.409024+00:00
+days_in_month,Date Time and Calendar,Easy,run,warm,2,517.09,True,,,0,miss,unknown,,200,2026-07-25T07:52:44.937769+00:00
+day_of_week,Date Time and Calendar,Easy,run,cold,0,7187.29,True,,,0,miss,unknown,,200,2026-07-25T07:52:55.131597+00:00
+day_of_week,Date Time and Calendar,Easy,run,warm,0,578.38,True,,,0,miss,unknown,,200,2026-07-25T07:52:58.716097+00:00
+day_of_week,Date Time and Calendar,Easy,run,warm,1,414.44,True,,,0,miss,unknown,,200,2026-07-25T07:53:02.137287+00:00
+day_of_week,Date Time and Calendar,Easy,run,warm,2,632.59,True,,,0,miss,unknown,,200,2026-07-25T07:53:05.779506+00:00
+business_days_between,Date Time and Calendar,Medium,run,cold,0,7351.55,True,,,0,miss,unknown,,200,2026-07-25T07:53:16.134424+00:00
+business_days_between,Date Time and Calendar,Medium,run,warm,0,612.44,True,,,0,miss,unknown,,200,2026-07-25T07:53:19.749375+00:00
+business_days_between,Date Time and Calendar,Medium,run,warm,1,744.69,True,,,0,miss,unknown,,200,2026-07-25T07:53:23.495666+00:00
+business_days_between,Date Time and Calendar,Medium,run,warm,2,480.59,True,,,0,miss,unknown,,200,2026-07-25T07:53:26.979649+00:00
+add_days,Date Time and Calendar,Easy,run,cold,0,7231.0,True,,,0,miss,unknown,,200,2026-07-25T07:53:37.217643+00:00
+add_days,Date Time and Calendar,Easy,run,warm,0,410.67,True,,,0,miss,unknown,,200,2026-07-25T07:53:40.632880+00:00
+add_days,Date Time and Calendar,Easy,run,warm,1,402.47,True,,,0,miss,unknown,,200,2026-07-25T07:53:44.042178+00:00
+add_days,Date Time and Calendar,Easy,run,warm,2,492.64,True,,,0,miss,unknown,,200,2026-07-25T07:53:47.542193+00:00
+week_number,Date Time and Calendar,Medium,run,cold,0,6840.03,True,,,0,miss,unknown,,200,2026-07-25T07:53:57.390600+00:00
+week_number,Date Time and Calendar,Medium,run,warm,0,575.86,True,,,0,miss,unknown,,200,2026-07-25T07:54:00.975978+00:00
+week_number,Date Time and Calendar,Medium,run,warm,1,574.85,True,,,0,miss,unknown,,200,2026-07-25T07:54:04.559070+00:00
+week_number,Date Time and Calendar,Medium,run,warm,2,581.9,True,,,0,miss,unknown,,200,2026-07-25T07:54:08.142666+00:00
+quarter_of_date,Date Time and Calendar,Easy,run,cold,0,13284.33,True,,,0,miss,unknown,,200,2026-07-25T07:54:24.434712+00:00
+quarter_of_date,Date Time and Calendar,Easy,run,warm,0,566.62,True,,,0,miss,unknown,,200,2026-07-25T07:54:28.007912+00:00
+quarter_of_date,Date Time and Calendar,Easy,run,warm,1,479.23,True,,,0,miss,unknown,,200,2026-07-25T07:54:31.490935+00:00
+quarter_of_date,Date Time and Calendar,Easy,run,warm,2,573.11,True,,,0,miss,unknown,,200,2026-07-25T07:54:35.073451+00:00
+next_weekday,Date Time and Calendar,Medium,run,cold,0,14711.49,True,,,0,miss,unknown,,200,2026-07-25T07:54:52.789025+00:00
+next_weekday,Date Time and Calendar,Medium,run,warm,0,475.69,True,,,0,miss,unknown,,200,2026-07-25T07:54:56.272637+00:00
+next_weekday,Date Time and Calendar,Medium,run,warm,1,612.46,True,,,0,miss,unknown,,200,2026-07-25T07:54:59.896085+00:00
+next_weekday,Date Time and Calendar,Medium,run,warm,2,537.97,True,,,0,miss,unknown,,200,2026-07-25T07:55:03.443592+00:00
+date_range,Date Time and Calendar,Medium,run,cold,0,7429.29,True,,,0,miss,unknown,,200,2026-07-25T07:55:13.879920+00:00
+date_range,Date Time and Calendar,Medium,run,warm,0,448.51,True,,,0,miss,unknown,,200,2026-07-25T07:55:17.336177+00:00
+date_range,Date Time and Calendar,Medium,run,warm,1,607.44,True,,,0,miss,unknown,,200,2026-07-25T07:55:20.948547+00:00
+date_range,Date Time and Calendar,Medium,run,warm,2,472.89,True,,,0,miss,unknown,,200,2026-07-25T07:55:24.429750+00:00
+is_valid_email,Validation and Parsing,Medium,run,cold,0,12046.71,True,,,0,miss,unknown,,200,2026-07-25T07:55:39.485537+00:00
+is_valid_email,Validation and Parsing,Medium,run,warm,0,483.2,True,,,0,miss,unknown,,200,2026-07-25T07:55:42.979207+00:00
+is_valid_email,Validation and Parsing,Medium,run,warm,1,560.43,True,,,0,miss,unknown,,200,2026-07-25T07:55:46.549372+00:00
+is_valid_email,Validation and Parsing,Medium,run,warm,2,572.61,True,,,0,miss,unknown,,200,2026-07-25T07:55:50.133649+00:00
+is_valid_ipv4,Validation and Parsing,Medium,run,cold,0,6924.01,True,,,0,miss,unknown,,200,2026-07-25T07:56:00.065905+00:00
+is_valid_ipv4,Validation and Parsing,Medium,run,warm,0,574.54,True,,,0,miss,unknown,,200,2026-07-25T07:56:03.650120+00:00
+is_valid_ipv4,Validation and Parsing,Medium,run,warm,1,582.39,True,,,0,miss,unknown,,200,2026-07-25T07:56:07.234368+00:00
+is_valid_ipv4,Validation and Parsing,Medium,run,warm,2,396.53,True,,,0,miss,unknown,,200,2026-07-25T07:56:10.637560+00:00
+is_valid_url,Validation and Parsing,Medium,run,cold,0,4134.92,True,,,0,miss,unknown,,200,2026-07-25T07:56:17.786705+00:00
+is_valid_url,Validation and Parsing,Medium,run,warm,0,373.22,True,,,0,miss,unknown,,200,2026-07-25T07:56:21.167608+00:00
+is_valid_url,Validation and Parsing,Medium,run,warm,1,468.7,True,,,0,miss,unknown,,200,2026-07-25T07:56:24.643492+00:00
+is_valid_url,Validation and Parsing,Medium,run,warm,2,580.57,True,,,0,miss,unknown,,200,2026-07-25T07:56:28.235443+00:00
+is_valid_json,Validation and Parsing,Easy,run,cold,0,6747.94,True,,,0,miss,unknown,,200,2026-07-25T07:56:37.996959+00:00
+is_valid_json,Validation and Parsing,Easy,run,warm,0,439.39,True,,,0,miss,unknown,,200,2026-07-25T07:56:41.445004+00:00
+is_valid_json,Validation and Parsing,Easy,run,warm,1,479.5,True,,,0,miss,unknown,,200,2026-07-25T07:56:44.929679+00:00
+is_valid_json,Validation and Parsing,Easy,run,warm,2,574.63,True,,,0,miss,unknown,,200,2026-07-25T07:56:48.513366+00:00
+luhn_check,Validation and Parsing,Hard,run,cold,0,7122.25,True,,,0,miss,unknown,,200,2026-07-25T07:56:58.646942+00:00
+luhn_check,Validation and Parsing,Hard,run,warm,0,583.93,True,,,0,miss,unknown,,200,2026-07-25T07:57:02.236524+00:00
+luhn_check,Validation and Parsing,Hard,run,warm,1,572.8,True,,,0,miss,unknown,,200,2026-07-25T07:57:05.818731+00:00
+luhn_check,Validation and Parsing,Hard,run,warm,2,570.42,True,,,0,miss,unknown,,200,2026-07-25T07:57:09.400552+00:00
+parse_query_string,Validation and Parsing,Medium,run,cold,0,13987.49,True,,,0,miss,unknown,,200,2026-07-25T07:57:26.397756+00:00
+parse_query_string,Validation and Parsing,Medium,run,warm,0,557.39,True,,,0,miss,unknown,,200,2026-07-25T07:57:29.964740+00:00
+parse_query_string,Validation and Parsing,Medium,run,warm,1,480.73,True,,,0,miss,unknown,,200,2026-07-25T07:57:33.448723+00:00
+parse_query_string,Validation and Parsing,Medium,run,warm,2,597.44,True,,,0,miss,unknown,,200,2026-07-25T07:57:37.052922+00:00
+validate_password,Validation and Parsing,Medium,run,cold,0,7395.52,True,,,0,miss,unknown,,200,2026-07-25T07:57:47.459674+00:00
+validate_password,Validation and Parsing,Medium,run,warm,0,510.95,True,,,0,miss,unknown,,200,2026-07-25T07:57:50.979145+00:00
+validate_password,Validation and Parsing,Medium,run,warm,1,575.8,True,,,0,miss,unknown,,200,2026-07-25T07:57:54.561965+00:00
+validate_password,Validation and Parsing,Medium,run,warm,2,479.84,True,,,0,miss,unknown,,200,2026-07-25T07:57:58.051419+00:00
+is_valid_hex_color,Validation and Parsing,Easy,run,cold,0,7018.89,True,,,0,miss,unknown,,200,2026-07-25T07:58:08.078927+00:00
+is_valid_hex_color,Validation and Parsing,Easy,run,warm,0,455.65,True,,,0,miss,unknown,,200,2026-07-25T07:58:11.543916+00:00
+is_valid_hex_color,Validation and Parsing,Easy,run,warm,1,591.69,True,,,0,miss,unknown,,200,2026-07-25T07:58:15.144824+00:00
+is_valid_hex_color,Validation and Parsing,Easy,run,warm,2,575.84,True,,,0,miss,unknown,,200,2026-07-25T07:58:18.729963+00:00
+extract_emails,Validation and Parsing,Medium,run,cold,0,6718.54,True,,,0,miss,unknown,,200,2026-07-25T07:58:28.457635+00:00
+extract_emails,Validation and Parsing,Medium,run,warm,0,478.53,True,,,0,miss,unknown,,200,2026-07-25T07:58:31.947698+00:00
+extract_emails,Validation and Parsing,Medium,run,warm,1,509.33,True,,,0,miss,unknown,,200,2026-07-25T07:58:35.460651+00:00
+extract_emails,Validation and Parsing,Medium,run,warm,2,526.96,True,,,0,miss,unknown,,200,2026-07-25T07:58:39.010017+00:00
+extract_numbers,Validation and Parsing,Easy,run,cold,0,6820.67,True,,,0,miss,unknown,,200,2026-07-25T07:58:48.833373+00:00
+extract_numbers,Validation and Parsing,Easy,run,warm,0,408.95,True,,,0,miss,unknown,,200,2026-07-25T07:58:52.249006+00:00
+extract_numbers,Validation and Parsing,Easy,run,warm,1,487.93,True,,,0,miss,unknown,,200,2026-07-25T07:58:55.742693+00:00
+extract_numbers,Validation and Parsing,Easy,run,warm,2,635.33,True,,,0,miss,unknown,,200,2026-07-25T07:58:59.381651+00:00
+parse_key_value,Validation and Parsing,Easy,run,cold,0,7156.57,True,,,0,miss,unknown,,200,2026-07-25T07:59:09.545150+00:00
+parse_key_value,Validation and Parsing,Easy,run,warm,0,550.04,True,,,0,miss,unknown,,200,2026-07-25T07:59:13.100844+00:00
+parse_key_value,Validation and Parsing,Easy,run,warm,1,439.21,True,,,0,miss,unknown,,200,2026-07-25T07:59:16.546775+00:00
+parse_key_value,Validation and Parsing,Easy,run,warm,2,516.26,True,,,0,miss,unknown,,200,2026-07-25T07:59:20.067649+00:00
+normalize_phone,Validation and Parsing,Medium,run,cold,0,7128.09,True,,,0,miss,unknown,,200,2026-07-25T07:59:30.202097+00:00
+normalize_phone,Validation and Parsing,Medium,run,warm,0,475.94,True,,,0,miss,unknown,,200,2026-07-25T07:59:33.684739+00:00
+normalize_phone,Validation and Parsing,Medium,run,warm,1,475.75,True,,,0,miss,unknown,,200,2026-07-25T07:59:37.167229+00:00
+normalize_phone,Validation and Parsing,Medium,run,warm,2,423.4,True,,,0,miss,unknown,,200,2026-07-25T07:59:40.597080+00:00
+is_valid_isbn13,Validation and Parsing,Hard,run,cold,0,6800.63,True,,,0,miss,unknown,,200,2026-07-25T07:59:50.401637+00:00
+is_valid_isbn13,Validation and Parsing,Hard,run,warm,0,452.45,True,,,0,miss,unknown,,200,2026-07-25T07:59:53.860411+00:00
+is_valid_isbn13,Validation and Parsing,Hard,run,warm,1,576.29,True,,,0,miss,unknown,,200,2026-07-25T07:59:57.442642+00:00
+is_valid_isbn13,Validation and Parsing,Hard,run,warm,2,475.63,True,,,0,miss,unknown,,200,2026-07-25T08:00:00.924720+00:00
+parse_csv_line,Validation and Parsing,Medium,run,cold,0,7438.77,True,,,0,miss,unknown,,200,2026-07-25T08:00:11.370954+00:00
+parse_csv_line,Validation and Parsing,Medium,run,warm,0,475.57,True,,,0,miss,unknown,,200,2026-07-25T08:00:14.850757+00:00
+parse_csv_line,Validation and Parsing,Medium,run,warm,1,480.04,True,,,0,miss,unknown,,200,2026-07-25T08:00:18.333813+00:00
+parse_csv_line,Validation and Parsing,Medium,run,warm,2,403.31,True,,,0,miss,unknown,,200,2026-07-25T08:00:21.742627+00:00
+is_valid_mac_address,Validation and Parsing,Easy,run,cold,0,7303.7,True,,,0,miss,unknown,,200,2026-07-25T08:00:32.051579+00:00
+is_valid_mac_address,Validation and Parsing,Easy,run,warm,0,530.85,True,,,0,miss,unknown,,200,2026-07-25T08:00:35.587373+00:00
+is_valid_mac_address,Validation and Parsing,Easy,run,warm,1,457.15,True,,,0,miss,unknown,,200,2026-07-25T08:00:39.049562+00:00
+is_valid_mac_address,Validation and Parsing,Easy,run,warm,2,547.3,True,,,0,miss,unknown,,200,2026-07-25T08:00:42.601153+00:00
+extract_domain,Validation and Parsing,Easy,run,cold,0,4380.45,True,,,0,miss,unknown,,200,2026-07-25T08:00:49.988213+00:00
+extract_domain,Validation and Parsing,Easy,run,warm,0,461.83,True,,,0,miss,unknown,,200,2026-07-25T08:00:53.455123+00:00
+extract_domain,Validation and Parsing,Easy,run,warm,1,392.27,True,,,0,miss,unknown,,200,2026-07-25T08:00:56.851100+00:00
+extract_domain,Validation and Parsing,Easy,run,warm,2,564.99,True,,,0,miss,unknown,,200,2026-07-25T08:01:00.420295+00:00
+is_valid_date,Validation and Parsing,Easy,run,cold,0,6919.59,True,,,0,miss,unknown,,200,2026-07-25T08:01:10.344813+00:00
+is_valid_date,Validation and Parsing,Easy,run,warm,0,539.52,True,,,0,miss,unknown,,200,2026-07-25T08:01:13.886644+00:00
+is_valid_date,Validation and Parsing,Easy,run,warm,1,456.34,True,,,0,miss,unknown,,200,2026-07-25T08:01:17.348890+00:00
+is_valid_date,Validation and Parsing,Easy,run,warm,2,535.87,True,,,0,miss,unknown,,200,2026-07-25T08:01:20.888504+00:00
+tokenize,Validation and Parsing,Medium,run,cold,0,7252.29,True,,,0,miss,unknown,,200,2026-07-25T08:01:31.145470+00:00
+tokenize,Validation and Parsing,Medium,run,warm,0,576.66,True,,,0,miss,unknown,,200,2026-07-25T08:01:34.724278+00:00
+tokenize,Validation and Parsing,Medium,run,warm,1,685.03,True,,,0,miss,unknown,,200,2026-07-25T08:01:38.412255+00:00
+tokenize,Validation and Parsing,Medium,run,warm,2,337.23,True,,,0,miss,unknown,,200,2026-07-25T08:01:41.756214+00:00
+mask_string,Validation and Parsing,Easy,run,cold,0,7368.26,True,,,0,miss,unknown,,200,2026-07-25T08:01:52.131285+00:00
+mask_string,Validation and Parsing,Easy,run,warm,0,319.34,True,,,0,miss,unknown,,200,2026-07-25T08:01:55.456340+00:00
+mask_string,Validation and Parsing,Easy,run,warm,1,429.03,True,,,0,miss,unknown,,200,2026-07-25T08:01:58.889710+00:00
+mask_string,Validation and Parsing,Easy,run,warm,2,453.93,True,,,0,miss,unknown,,200,2026-07-25T08:02:02.346334+00:00
+parse_range,Validation and Parsing,Medium,run,cold,0,18907.0,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:02:24.256328+00:00
+parse_range,Validation and Parsing,Medium,run,warm,0,19246.6,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:02:46.507380+00:00
+parse_range,Validation and Parsing,Medium,run,warm,1,19215.45,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:03:08.726890+00:00
+parse_range,Validation and Parsing,Medium,run,warm,2,19111.82,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:03:30.845614+00:00
+hex_to_rgb,Encoding and Hashing,Easy,run,cold,0,7646.45,True,,,0,miss,unknown,,200,2026-07-25T08:03:41.495734+00:00
+hex_to_rgb,Encoding and Hashing,Easy,run,warm,0,444.89,True,,,0,miss,unknown,,200,2026-07-25T08:03:44.943968+00:00
+hex_to_rgb,Encoding and Hashing,Easy,run,warm,1,504.69,True,,,0,miss,unknown,,200,2026-07-25T08:03:48.458352+00:00
+hex_to_rgb,Encoding and Hashing,Easy,run,warm,2,531.54,True,,,0,miss,unknown,,200,2026-07-25T08:03:51.992665+00:00
+rgb_to_hex,Encoding and Hashing,Easy,run,cold,0,6972.7,True,,,0,miss,unknown,,200,2026-07-25T08:04:01.976699+00:00
+rgb_to_hex,Encoding and Hashing,Easy,run,warm,0,509.85,True,,,0,miss,unknown,,200,2026-07-25T08:04:05.488749+00:00
+rgb_to_hex,Encoding and Hashing,Easy,run,warm,1,550.69,True,,,0,miss,unknown,,200,2026-07-25T08:04:09.040862+00:00
+rgb_to_hex,Encoding and Hashing,Easy,run,warm,2,314.23,True,,,0,miss,unknown,,200,2026-07-25T08:04:12.356942+00:00
+url_encode,Encoding and Hashing,Medium,run,cold,0,10474.84,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:04:25.834766+00:00
+url_encode,Encoding and Hashing,Medium,run,warm,0,10412.34,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:04:39.249105+00:00
+url_encode,Encoding and Hashing,Medium,run,warm,1,10292.17,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:04:52.542626+00:00
+url_encode,Encoding and Hashing,Medium,run,warm,2,10193.8,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:05:05.739225+00:00
+url_decode,Encoding and Hashing,Easy,run,cold,0,10839.26,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:05:19.590874+00:00
+url_decode,Encoding and Hashing,Easy,run,warm,0,10717.85,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:05:33.316506+00:00
+url_decode,Encoding and Hashing,Easy,run,warm,1,10818.91,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:05:47.145506+00:00
+url_decode,Encoding and Hashing,Easy,run,warm,2,10707.51,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:06:00.862045+00:00
+md5_hex,Encoding and Hashing,Easy,run,cold,0,4264.88,True,,,0,miss,unknown,,200,2026-07-25T08:06:08.134529+00:00
+md5_hex,Encoding and Hashing,Easy,run,warm,0,578.93,True,,,0,miss,unknown,,200,2026-07-25T08:06:11.715726+00:00
+md5_hex,Encoding and Hashing,Easy,run,warm,1,425.75,True,,,0,miss,unknown,,200,2026-07-25T08:06:15.142951+00:00
+md5_hex,Encoding and Hashing,Easy,run,warm,2,636.98,True,,,0,miss,unknown,,200,2026-07-25T08:06:18.781070+00:00
+sha256_hex,Encoding and Hashing,Easy,run,cold,0,11438.14,True,,,0,miss,unknown,,200,2026-07-25T08:06:33.220755+00:00
+sha256_hex,Encoding and Hashing,Easy,run,warm,0,476.54,True,,,0,miss,unknown,,200,2026-07-25T08:06:36.700918+00:00
+sha256_hex,Encoding and Hashing,Easy,run,warm,1,577.88,True,,,0,miss,unknown,,200,2026-07-25T08:06:40.287929+00:00
+sha256_hex,Encoding and Hashing,Easy,run,warm,2,581.06,True,,,0,miss,unknown,,200,2026-07-25T08:06:43.871057+00:00
+xor_bytes,Encoding and Hashing,Medium,run,cold,0,6928.18,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:06:53.803418+00:00
+xor_bytes,Encoding and Hashing,Medium,run,warm,0,7126.37,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:07:03.940999+00:00
+xor_bytes,Encoding and Hashing,Medium,run,warm,1,7747.1,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:07:14.690374+00:00
+xor_bytes,Encoding and Hashing,Medium,run,warm,2,7144.99,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:07:24.842987+00:00
+encode_base64,Encoding and Hashing,Medium,run,cold,0,6803.86,True,,,0,miss,unknown,,200,2026-07-25T08:07:34.658354+00:00
+encode_base64,Encoding and Hashing,Medium,run,warm,0,577.99,True,,,0,miss,unknown,,200,2026-07-25T08:07:38.245711+00:00
+encode_base64,Encoding and Hashing,Medium,run,warm,1,394.34,True,,,0,miss,unknown,,200,2026-07-25T08:07:41.648247+00:00
+encode_base64,Encoding and Hashing,Medium,run,warm,2,455.61,True,,,0,miss,unknown,,200,2026-07-25T08:07:45.106482+00:00
+decode_base64,Encoding and Hashing,Easy,run,cold,0,7128.21,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:07:55.244381+00:00
+decode_base64,Encoding and Hashing,Easy,run,warm,0,577.14,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:07:58.828352+00:00
+decode_base64,Encoding and Hashing,Easy,run,warm,1,579.6,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:08:02.412415+00:00
+decode_base64,Encoding and Hashing,Easy,run,warm,2,477.81,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:08:05.893985+00:00
+count_bits,Encoding and Hashing,Easy,run,cold,0,6515.67,True,,,0,miss,unknown,,200,2026-07-25T08:08:15.417172+00:00
+count_bits,Encoding and Hashing,Easy,run,warm,0,524.99,True,,,0,miss,unknown,,200,2026-07-25T08:08:18.947779+00:00
+count_bits,Encoding and Hashing,Easy,run,warm,1,407.57,True,,,0,miss,unknown,,200,2026-07-25T08:08:22.363220+00:00
+count_bits,Encoding and Hashing,Easy,run,warm,2,394.62,True,,,0,miss,unknown,,200,2026-07-25T08:08:25.760949+00:00
+compute_gst,India Specific Utilities,Easy,run,cold,0,4175.01,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:08:32.942987+00:00
+compute_gst,India Specific Utilities,Easy,run,warm,0,563.94,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:08:36.513882+00:00
+compute_gst,India Specific Utilities,Easy,run,warm,1,471.96,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:08:39.993461+00:00
+compute_gst,India Specific Utilities,Easy,run,warm,2,445.28,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:08:43.448978+00:00
+validate_pan,India Specific Utilities,Medium,run,cold,0,7151.91,True,,,0,miss,unknown,,200,2026-07-25T08:08:53.612820+00:00
+validate_pan,India Specific Utilities,Medium,run,warm,0,427.13,True,,,0,miss,unknown,,200,2026-07-25T08:08:57.043841+00:00
+validate_pan,India Specific Utilities,Medium,run,warm,1,547.92,True,,,0,miss,unknown,,200,2026-07-25T08:09:00.598540+00:00
+validate_pan,India Specific Utilities,Medium,run,warm,2,559.6,True,,,0,miss,unknown,,200,2026-07-25T08:09:04.161175+00:00
+format_indian_number,India Specific Utilities,Medium,run,cold,0,6720.89,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:09:13.887822+00:00
+format_indian_number,India Specific Utilities,Medium,run,warm,0,450.97,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:09:17.345497+00:00
+format_indian_number,India Specific Utilities,Medium,run,warm,1,502.06,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:09:20.850652+00:00
+format_indian_number,India Specific Utilities,Medium,run,warm,2,580.36,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:09:24.436755+00:00
+inr_to_words,India Specific Utilities,Hard,run,cold,0,7460.45,True,,,0,miss,unknown,,200,2026-07-25T08:09:34.901273+00:00
+inr_to_words,India Specific Utilities,Hard,run,warm,0,350.39,True,,,0,miss,unknown,,200,2026-07-25T08:09:38.256762+00:00
+inr_to_words,India Specific Utilities,Hard,run,warm,1,582.05,True,,,0,miss,unknown,,200,2026-07-25T08:09:41.844625+00:00
+inr_to_words,India Specific Utilities,Hard,run,warm,2,475.08,True,,,0,miss,unknown,,200,2026-07-25T08:09:45.326409+00:00
+state_from_gstin,India Specific Utilities,Medium,run,cold,0,7850.4,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:09:56.181055+00:00
+state_from_gstin,India Specific Utilities,Medium,run,warm,0,479.36,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:09:59.662410+00:00
+state_from_gstin,India Specific Utilities,Medium,run,warm,1,375.75,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:10:03.044896+00:00
+state_from_gstin,India Specific Utilities,Medium,run,warm,2,540.07,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:10:06.590872+00:00
+validate_aadhaar,India Specific Utilities,Hard,run,cold,0,6961.72,True,,,0,miss,unknown,,200,2026-07-25T08:10:16.558612+00:00
+validate_aadhaar,India Specific Utilities,Hard,run,warm,0,578.05,True,,,0,miss,unknown,,200,2026-07-25T08:10:20.141074+00:00
+validate_aadhaar,India Specific Utilities,Hard,run,warm,1,401.56,True,,,0,miss,unknown,,200,2026-07-25T08:10:23.548009+00:00
+validate_aadhaar,India Specific Utilities,Hard,run,warm,2,390.01,True,,,0,miss,unknown,,200,2026-07-25T08:10:26.944743+00:00
+compute_emi,India Specific Utilities,Medium,run,cold,0,6752.49,True,,,0,miss,unknown,,200,2026-07-25T08:10:36.701150+00:00
+compute_emi,India Specific Utilities,Medium,run,warm,0,504.89,True,,,0,miss,unknown,,200,2026-07-25T08:10:40.210436+00:00
+compute_emi,India Specific Utilities,Medium,run,warm,1,583.6,True,,,0,miss,unknown,,200,2026-07-25T08:10:43.796965+00:00
+compute_emi,India Specific Utilities,Medium,run,warm,2,679.64,True,,,0,miss,unknown,,200,2026-07-25T08:10:47.483307+00:00
+tds_calculation,India Specific Utilities,Easy,run,cold,0,4060.91,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:10:54.547721+00:00
+tds_calculation,India Specific Utilities,Easy,run,warm,0,685.12,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:10:58.236390+00:00
+tds_calculation,India Specific Utilities,Easy,run,warm,1,475.31,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:11:01.718458+00:00
+tds_calculation,India Specific Utilities,Easy,run,warm,2,418.38,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:11:05.143493+00:00
+pf_contribution,India Specific Utilities,Easy,run,cold,0,7147.69,True,,,0,miss,unknown,,200,2026-07-25T08:11:15.297820+00:00
+pf_contribution,India Specific Utilities,Easy,run,warm,0,443.88,True,,,0,miss,unknown,,200,2026-07-25T08:11:18.749981+00:00
+pf_contribution,India Specific Utilities,Easy,run,warm,1,443.18,True,,,0,miss,unknown,,200,2026-07-25T08:11:22.200777+00:00
+pf_contribution,India Specific Utilities,Easy,run,warm,2,440.38,True,,,0,miss,unknown,,200,2026-07-25T08:11:25.648924+00:00
+pin_to_state,India Specific Utilities,Medium,run,cold,0,6862.01,True,,,0,miss,unknown,,200,2026-07-25T08:11:35.517205+00:00
+pin_to_state,India Specific Utilities,Medium,run,warm,0,479.11,True,,,0,miss,unknown,,200,2026-07-25T08:11:38.999007+00:00
+pin_to_state,India Specific Utilities,Medium,run,warm,1,475.15,True,,,0,miss,unknown,,200,2026-07-25T08:11:42.481214+00:00
+pin_to_state,India Specific Utilities,Medium,run,warm,2,639.42,True,,,0,miss,unknown,,200,2026-07-25T08:11:46.126443+00:00
+safe_divide,Adversarial and Edge Case,Hard,run,cold,0,6761.24,True,,,0,miss,unknown,,200,2026-07-25T08:11:55.895185+00:00
+safe_divide,Adversarial and Edge Case,Hard,run,warm,0,477.24,True,,,0,miss,unknown,,200,2026-07-25T08:11:59.378301+00:00
+safe_divide,Adversarial and Edge Case,Hard,run,warm,1,478.22,True,,,0,miss,unknown,,200,2026-07-25T08:12:02.858552+00:00
+safe_divide,Adversarial and Edge Case,Hard,run,warm,2,580.8,True,,,0,miss,unknown,,200,2026-07-25T08:12:06.444252+00:00
+deep_flatten,Adversarial and Edge Case,Hard,run,cold,0,6693.29,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:12:16.143951+00:00
+deep_flatten,Adversarial and Edge Case,Hard,run,warm,0,401.02,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:12:19.550257+00:00
+deep_flatten,Adversarial and Edge Case,Hard,run,warm,1,478.22,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:12:23.033291+00:00
+deep_flatten,Adversarial and Edge Case,Hard,run,warm,2,565.02,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T08:12:26.605043+00:00
+type_safe_max,Adversarial and Edge Case,Hard,run,cold,0,6424.53,True,,,0,miss,unknown,,200,2026-07-25T08:12:36.036410+00:00
+type_safe_max,Adversarial and Edge Case,Hard,run,warm,0,324.53,True,,,0,miss,unknown,,200,2026-07-25T08:12:39.365946+00:00
+type_safe_max,Adversarial and Edge Case,Hard,run,warm,1,630.55,True,,,0,miss,unknown,,200,2026-07-25T08:12:43.000103+00:00
+type_safe_max,Adversarial and Edge Case,Hard,run,warm,2,409.55,True,,,0,miss,unknown,,200,2026-07-25T08:12:46.412508+00:00
+safe_json_parse,Adversarial and Edge Case,Hard,run,cold,0,7182.03,True,,,0,miss,unknown,,200,2026-07-25T08:12:56.601523+00:00
+safe_json_parse,Adversarial and Edge Case,Hard,run,warm,0,496.12,True,,,0,miss,unknown,,200,2026-07-25T08:13:00.101174+00:00
+safe_json_parse,Adversarial and Edge Case,Hard,run,warm,1,475.06,True,,,0,miss,unknown,,200,2026-07-25T08:13:03.582902+00:00
+safe_json_parse,Adversarial and Edge Case,Hard,run,warm,2,478.23,True,,,0,miss,unknown,,200,2026-07-25T08:13:07.064514+00:00
+coerce_to_int,Adversarial and Edge Case,Hard,run,cold,0,7280.91,True,,,0,miss,unknown,,200,2026-07-25T08:13:17.350981+00:00
+coerce_to_int,Adversarial and Edge Case,Hard,run,warm,0,430.08,True,,,0,miss,unknown,,200,2026-07-25T08:13:20.786379+00:00
+coerce_to_int,Adversarial and Edge Case,Hard,run,warm,1,581.52,True,,,0,miss,unknown,,200,2026-07-25T08:13:24.371481+00:00
+coerce_to_int,Adversarial and Edge Case,Hard,run,warm,2,474.85,True,,,0,miss,unknown,,200,2026-07-25T08:13:27.853071+00:00
+safe_get_nested,Adversarial and Edge Case,Hard,run,cold,0,7151.72,True,,,0,miss,unknown,,200,2026-07-25T08:13:38.011715+00:00
+safe_get_nested,Adversarial and Edge Case,Hard,run,warm,0,442.22,True,,,0,miss,unknown,,200,2026-07-25T08:13:41.458590+00:00
+safe_get_nested,Adversarial and Edge Case,Hard,run,warm,1,300.77,True,,,0,miss,unknown,,200,2026-07-25T08:13:44.762337+00:00
+safe_get_nested,Adversarial and Edge Case,Hard,run,warm,2,451.58,True,,,0,miss,unknown,,200,2026-07-25T08:13:48.218421+00:00
+normalize_whitespace,Adversarial and Edge Case,Hard,run,cold,0,6942.34,True,,,0,miss,unknown,,200,2026-07-25T08:13:58.163237+00:00
+normalize_whitespace,Adversarial and Edge Case,Hard,run,warm,0,476.9,True,,,0,miss,unknown,,200,2026-07-25T08:14:01.645323+00:00
+normalize_whitespace,Adversarial and Edge Case,Hard,run,warm,1,479.88,True,,,0,miss,unknown,,200,2026-07-25T08:14:05.126884+00:00
+normalize_whitespace,Adversarial and Edge Case,Hard,run,warm,2,578.38,True,,,0,miss,unknown,,200,2026-07-25T08:14:08.711091+00:00
+safe_list_get,Adversarial and Edge Case,Hard,run,cold,0,6839.25,True,,,0,miss,unknown,,200,2026-07-25T08:14:18.557306+00:00
+safe_list_get,Adversarial and Edge Case,Hard,run,warm,0,537.41,True,,,0,miss,unknown,,200,2026-07-25T08:14:22.099660+00:00
+safe_list_get,Adversarial and Edge Case,Hard,run,warm,1,493.25,True,,,0,miss,unknown,,200,2026-07-25T08:14:25.598657+00:00
+safe_list_get,Adversarial and Edge Case,Hard,run,warm,2,501.69,True,,,0,miss,unknown,,200,2026-07-25T08:14:29.105231+00:00
+deduplicate_stable,Adversarial and Edge Case,Hard,run,cold,0,6807.56,True,,,0,miss,unknown,,200,2026-07-25T08:14:38.916589+00:00
+deduplicate_stable,Adversarial and Edge Case,Hard,run,warm,0,482.42,True,,,0,miss,unknown,,200,2026-07-25T08:14:42.400759+00:00
+deduplicate_stable,Adversarial and Edge Case,Hard,run,warm,1,477.04,True,,,0,miss,unknown,,200,2026-07-25T08:14:45.882714+00:00
+deduplicate_stable,Adversarial and Edge Case,Hard,run,warm,2,476.06,True,,,0,miss,unknown,,200,2026-07-25T08:14:49.363727+00:00
+merge_intervals,Adversarial and Edge Case,Hard,run,cold,0,3652.44,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:14:56.020365+00:00
+merge_intervals,Adversarial and Edge Case,Hard,run,warm,0,669.08,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:14:59.690981+00:00
+merge_intervals,Adversarial and Edge Case,Hard,run,warm,1,3872.05,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:15:06.567444+00:00
+merge_intervals,Adversarial and Edge Case,Hard,run,warm,2,780.62,False,,,0,miss,unknown,logic_error,500,2026-07-25T08:15:10.353007+00:00

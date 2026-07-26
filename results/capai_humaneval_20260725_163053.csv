@@ -1,0 +1,11 @@
+task_id,he_task_id,condition,trial_index,latency_ms,correct,http_status,timestamp
+HumanEval_0,HumanEval/0,humaneval,0,8362.6,False,500,2026-07-25T11:01:02.183820+00:00
+HumanEval_1,HumanEval/1,humaneval,0,7844.73,False,500,2026-07-25T11:01:13.034530+00:00
+HumanEval_2,HumanEval/2,humaneval,0,4153.29,False,500,2026-07-25T11:01:20.194533+00:00
+HumanEval_3,HumanEval/3,humaneval,0,6694.44,False,500,2026-07-25T11:01:29.895445+00:00
+HumanEval_4,HumanEval/4,humaneval,0,7058.46,False,500,2026-07-25T11:01:39.957038+00:00
+HumanEval_5,HumanEval/5,humaneval,0,6968.12,False,500,2026-07-25T11:01:49.928937+00:00
+HumanEval_6,HumanEval/6,humaneval,0,7664.73,False,500,2026-07-25T11:02:00.597958+00:00
+HumanEval_7,HumanEval/7,humaneval,0,20459.29,False,500,2026-07-25T11:02:24.063954+00:00
+HumanEval_8,HumanEval/8,humaneval,0,6807.57,False,500,2026-07-25T11:02:33.878166+00:00
+HumanEval_9,HumanEval/9,humaneval,0,7005.13,False,500,2026-07-25T11:02:43.885625+00:00

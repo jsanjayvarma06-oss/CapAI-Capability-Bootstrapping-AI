@@ -1,0 +1,91 @@
+model_key,model_name,task_id,category,difficulty,trial_index,latency_ms,correct,cache_status,http_status,error_type,timestamp
+llama8b,llama-3.1-8b-instant,reverse_words,String and Text Processing,Easy,0,457.31,True,,200,,2026-07-25T13:24:02.388129+00:00
+llama8b,llama-3.1-8b-instant,reverse_words,String and Text Processing,Easy,1,531.11,True,,200,,2026-07-25T13:24:05.923979+00:00
+llama8b,llama-3.1-8b-instant,reverse_words,String and Text Processing,Easy,2,463.24,True,,200,,2026-07-25T13:24:09.390398+00:00
+llama8b,llama-3.1-8b-instant,count_vowels,String and Text Processing,Easy,0,495.46,True,,200,,2026-07-25T13:24:12.889998+00:00
+llama8b,llama-3.1-8b-instant,count_vowels,String and Text Processing,Easy,1,579.2,True,,200,,2026-07-25T13:24:16.472706+00:00
+llama8b,llama-3.1-8b-instant,count_vowels,String and Text Processing,Easy,2,506.9,True,,200,,2026-07-25T13:24:19.986704+00:00
+llama8b,llama-3.1-8b-instant,is_palindrome_str,String and Text Processing,Easy,0,549.24,True,,200,,2026-07-25T13:24:23.540896+00:00
+llama8b,llama-3.1-8b-instant,is_palindrome_str,String and Text Processing,Easy,1,449.21,True,,200,,2026-07-25T13:24:26.996477+00:00
+llama8b,llama-3.1-8b-instant,is_palindrome_str,String and Text Processing,Easy,2,463.64,True,,200,,2026-07-25T13:24:30.465645+00:00
+llama8b,llama-3.1-8b-instant,levenshtein_distance,String and Text Processing,Hard,0,11998.45,False,,500,logic_error,2026-07-25T13:24:45.469409+00:00
+llama8b,llama-3.1-8b-instant,levenshtein_distance,String and Text Processing,Hard,1,10397.49,False,,500,logic_error,2026-07-25T13:24:58.872485+00:00
+llama8b,llama-3.1-8b-instant,levenshtein_distance,String and Text Processing,Hard,2,20920.64,False,,500,logic_error,2026-07-25T13:25:22.796839+00:00
+llama8b,llama-3.1-8b-instant,is_prime,Numerical and Mathematical,Easy,0,511.4,True,,200,,2026-07-25T13:25:26.312847+00:00
+llama8b,llama-3.1-8b-instant,is_prime,Numerical and Mathematical,Easy,1,381.26,True,,200,,2026-07-25T13:25:29.699568+00:00
+llama8b,llama-3.1-8b-instant,is_prime,Numerical and Mathematical,Easy,2,668.11,True,,200,,2026-07-25T13:25:33.374285+00:00
+llama8b,llama-3.1-8b-instant,fibonacci,Numerical and Mathematical,Easy,0,517.43,True,,200,,2026-07-25T13:25:36.897538+00:00
+llama8b,llama-3.1-8b-instant,fibonacci,Numerical and Mathematical,Easy,1,467.18,True,,200,,2026-07-25T13:25:40.370138+00:00
+llama8b,llama-3.1-8b-instant,fibonacci,Numerical and Mathematical,Easy,2,306.22,True,,200,,2026-07-25T13:25:43.679404+00:00
+llama8b,llama-3.1-8b-instant,sieve_of_eratosthenes,Numerical and Mathematical,Medium,0,721.16,False,,200,edge_case_miss,2026-07-25T13:25:47.406729+00:00
+llama8b,llama-3.1-8b-instant,sieve_of_eratosthenes,Numerical and Mathematical,Medium,1,476.14,False,,200,edge_case_miss,2026-07-25T13:25:50.888777+00:00
+llama8b,llama-3.1-8b-instant,sieve_of_eratosthenes,Numerical and Mathematical,Medium,2,475.63,False,,200,edge_case_miss,2026-07-25T13:25:54.370963+00:00
+llama8b,llama-3.1-8b-instant,matrix_multiply,Numerical and Mathematical,Hard,0,305.27,True,,200,,2026-07-25T13:25:57.678883+00:00
+llama8b,llama-3.1-8b-instant,matrix_multiply,Numerical and Mathematical,Hard,1,509.65,True,,200,,2026-07-25T13:26:01.190843+00:00
+llama8b,llama-3.1-8b-instant,matrix_multiply,Numerical and Mathematical,Hard,2,514.67,True,,200,,2026-07-25T13:26:04.712148+00:00
+llama8b,llama-3.1-8b-instant,two_sum,Data Structures and Algorithms,Easy,0,479.31,True,,200,,2026-07-25T13:26:08.195980+00:00
+llama8b,llama-3.1-8b-instant,two_sum,Data Structures and Algorithms,Easy,1,561.91,True,,200,,2026-07-25T13:26:11.764146+00:00
+llama8b,llama-3.1-8b-instant,two_sum,Data Structures and Algorithms,Easy,2,593.32,True,,200,,2026-07-25T13:26:15.363199+00:00
+llama8b,llama-3.1-8b-instant,max_subarray_sum,Data Structures and Algorithms,Medium,0,479.21,True,,200,,2026-07-25T13:26:18.844459+00:00
+llama8b,llama-3.1-8b-instant,max_subarray_sum,Data Structures and Algorithms,Medium,1,676.05,True,,200,,2026-07-25T13:26:22.527044+00:00
+llama8b,llama-3.1-8b-instant,max_subarray_sum,Data Structures and Algorithms,Medium,2,787.9,True,,200,,2026-07-25T13:26:26.319275+00:00
+llama8b,llama-3.1-8b-instant,coin_change,Data Structures and Algorithms,Hard,0,442.34,True,,200,,2026-07-25T13:26:29.768325+00:00
+llama8b,llama-3.1-8b-instant,coin_change,Data Structures and Algorithms,Hard,1,609.94,True,,200,,2026-07-25T13:26:33.384440+00:00
+llama8b,llama-3.1-8b-instant,coin_change,Data Structures and Algorithms,Hard,2,471.36,True,,200,,2026-07-25T13:26:36.862363+00:00
+llama8b,llama-3.1-8b-instant,sliding_window_max,Data Structures and Algorithms,Hard,0,380.27,True,,200,,2026-07-25T13:26:40.245637+00:00
+llama8b,llama-3.1-8b-instant,sliding_window_max,Data Structures and Algorithms,Hard,1,414.34,True,,200,,2026-07-25T13:26:43.665674+00:00
+llama8b,llama-3.1-8b-instant,sliding_window_max,Data Structures and Algorithms,Hard,2,641.41,True,,200,,2026-07-25T13:26:47.311081+00:00
+llama8b,llama-3.1-8b-instant,is_valid_email,Validation and Parsing,Medium,0,483.57,True,,200,,2026-07-25T13:26:50.796486+00:00
+llama8b,llama-3.1-8b-instant,is_valid_email,Validation and Parsing,Medium,1,578.31,True,,200,,2026-07-25T13:26:54.378170+00:00
+llama8b,llama-3.1-8b-instant,is_valid_email,Validation and Parsing,Medium,2,503.47,True,,200,,2026-07-25T13:26:57.888308+00:00
+llama8b,llama-3.1-8b-instant,is_valid_ipv4,Validation and Parsing,Medium,0,547.41,True,,200,,2026-07-25T13:27:01.442567+00:00
+llama8b,llama-3.1-8b-instant,is_valid_ipv4,Validation and Parsing,Medium,1,584.7,True,,200,,2026-07-25T13:27:05.030453+00:00
+llama8b,llama-3.1-8b-instant,is_valid_ipv4,Validation and Parsing,Medium,2,476.94,True,,200,,2026-07-25T13:27:08.512525+00:00
+llama8b,llama-3.1-8b-instant,luhn_check,Validation and Parsing,Hard,0,471.14,True,,200,,2026-07-25T13:27:11.988384+00:00
+llama8b,llama-3.1-8b-instant,luhn_check,Validation and Parsing,Hard,1,581.87,True,,200,,2026-07-25T13:27:15.575207+00:00
+llama8b,llama-3.1-8b-instant,luhn_check,Validation and Parsing,Hard,2,476.45,True,,200,,2026-07-25T13:27:19.057681+00:00
+llama8b,llama-3.1-8b-instant,is_valid_isbn13,Validation and Parsing,Hard,0,473.66,True,,200,,2026-07-25T13:27:22.536836+00:00
+llama8b,llama-3.1-8b-instant,is_valid_isbn13,Validation and Parsing,Hard,1,580.17,True,,200,,2026-07-25T13:27:26.122806+00:00
+llama8b,llama-3.1-8b-instant,is_valid_isbn13,Validation and Parsing,Hard,2,458.42,True,,200,,2026-07-25T13:27:29.587485+00:00
+llama8b,llama-3.1-8b-instant,days_between,Date Time and Calendar,Easy,0,519.81,True,,200,,2026-07-25T13:27:33.113928+00:00
+llama8b,llama-3.1-8b-instant,days_between,Date Time and Calendar,Easy,1,550.47,True,,200,,2026-07-25T13:27:36.667812+00:00
+llama8b,llama-3.1-8b-instant,days_between,Date Time and Calendar,Easy,2,515.6,True,,200,,2026-07-25T13:27:40.190702+00:00
+llama8b,llama-3.1-8b-instant,is_leap_year,Date Time and Calendar,Easy,0,491.94,True,,200,,2026-07-25T13:27:43.686931+00:00
+llama8b,llama-3.1-8b-instant,is_leap_year,Date Time and Calendar,Easy,1,495.77,True,,200,,2026-07-25T13:27:47.188691+00:00
+llama8b,llama-3.1-8b-instant,is_leap_year,Date Time and Calendar,Easy,2,493.58,True,,200,,2026-07-25T13:27:50.687077+00:00
+llama8b,llama-3.1-8b-instant,business_days_between,Date Time and Calendar,Medium,0,689.56,True,,200,,2026-07-25T13:27:54.383538+00:00
+llama8b,llama-3.1-8b-instant,business_days_between,Date Time and Calendar,Medium,1,574.34,True,,200,,2026-07-25T13:27:57.969465+00:00
+llama8b,llama-3.1-8b-instant,business_days_between,Date Time and Calendar,Medium,2,579.47,True,,200,,2026-07-25T13:28:01.551512+00:00
+llama8b,llama-3.1-8b-instant,count_lines,File and IO Utilities,Easy,0,579.51,True,,200,,2026-07-25T13:28:05.135201+00:00
+llama8b,llama-3.1-8b-instant,count_lines,File and IO Utilities,Easy,1,473.4,True,,200,,2026-07-25T13:28:08.617115+00:00
+llama8b,llama-3.1-8b-instant,count_lines,File and IO Utilities,Easy,2,461.64,True,,200,,2026-07-25T13:28:12.087300+00:00
+llama8b,llama-3.1-8b-instant,flatten_dict,File and IO Utilities,Medium,0,583.48,True,,200,,2026-07-25T13:28:15.682488+00:00
+llama8b,llama-3.1-8b-instant,flatten_dict,File and IO Utilities,Medium,1,575.13,True,,200,,2026-07-25T13:28:19.268239+00:00
+llama8b,llama-3.1-8b-instant,flatten_dict,File and IO Utilities,Medium,2,576.91,True,,200,,2026-07-25T13:28:22.851124+00:00
+llama8b,llama-3.1-8b-instant,merge_dicts,File and IO Utilities,Easy,0,582.55,True,,200,,2026-07-25T13:28:26.436137+00:00
+llama8b,llama-3.1-8b-instant,merge_dicts,File and IO Utilities,Easy,1,456.1,True,,200,,2026-07-25T13:28:29.899261+00:00
+llama8b,llama-3.1-8b-instant,merge_dicts,File and IO Utilities,Easy,2,591.38,True,,200,,2026-07-25T13:28:33.502122+00:00
+llama8b,llama-3.1-8b-instant,hex_to_rgb,Encoding and Hashing,Easy,0,581.01,True,,200,,2026-07-25T13:28:37.085969+00:00
+llama8b,llama-3.1-8b-instant,hex_to_rgb,Encoding and Hashing,Easy,1,498.2,True,,200,,2026-07-25T13:28:40.592987+00:00
+llama8b,llama-3.1-8b-instant,hex_to_rgb,Encoding and Hashing,Easy,2,548.61,True,,200,,2026-07-25T13:28:44.151547+00:00
+llama8b,llama-3.1-8b-instant,md5_hex,Encoding and Hashing,Easy,0,536.59,True,,200,,2026-07-25T13:28:47.695464+00:00
+llama8b,llama-3.1-8b-instant,md5_hex,Encoding and Hashing,Easy,1,486.03,True,,200,,2026-07-25T13:28:51.192663+00:00
+llama8b,llama-3.1-8b-instant,md5_hex,Encoding and Hashing,Easy,2,499.09,True,,200,,2026-07-25T13:28:54.697784+00:00
+llama8b,llama-3.1-8b-instant,encode_base64,Encoding and Hashing,Medium,0,487.11,True,,200,,2026-07-25T13:28:58.191960+00:00
+llama8b,llama-3.1-8b-instant,encode_base64,Encoding and Hashing,Medium,1,499.03,True,,200,,2026-07-25T13:29:01.695979+00:00
+llama8b,llama-3.1-8b-instant,encode_base64,Encoding and Hashing,Medium,2,538.22,True,,200,,2026-07-25T13:29:05.245042+00:00
+llama8b,llama-3.1-8b-instant,compute_gst,India Specific Utilities,Easy,0,471.15,False,,200,edge_case_miss,2026-07-25T13:29:08.726106+00:00
+llama8b,llama-3.1-8b-instant,compute_gst,India Specific Utilities,Easy,1,480.05,False,,200,edge_case_miss,2026-07-25T13:29:12.209853+00:00
+llama8b,llama-3.1-8b-instant,compute_gst,India Specific Utilities,Easy,2,385.94,False,,200,edge_case_miss,2026-07-25T13:29:15.603918+00:00
+llama8b,llama-3.1-8b-instant,validate_pan,India Specific Utilities,Medium,0,556.44,True,,200,,2026-07-25T13:29:19.171409+00:00
+llama8b,llama-3.1-8b-instant,validate_pan,India Specific Utilities,Medium,1,579.57,True,,200,,2026-07-25T13:29:22.760231+00:00
+llama8b,llama-3.1-8b-instant,validate_pan,India Specific Utilities,Medium,2,401.97,True,,200,,2026-07-25T13:29:26.170342+00:00
+llama8b,llama-3.1-8b-instant,format_indian_number,India Specific Utilities,Medium,0,513.22,False,,200,edge_case_miss,2026-07-25T13:29:29.693927+00:00
+llama8b,llama-3.1-8b-instant,format_indian_number,India Specific Utilities,Medium,1,501.47,False,,200,edge_case_miss,2026-07-25T13:29:33.200664+00:00
+llama8b,llama-3.1-8b-instant,format_indian_number,India Specific Utilities,Medium,2,579.08,False,,200,edge_case_miss,2026-07-25T13:29:36.786166+00:00
+llama8b,llama-3.1-8b-instant,safe_divide,Adversarial and Edge Case,Hard,0,376.06,True,,200,,2026-07-25T13:29:40.174035+00:00
+llama8b,llama-3.1-8b-instant,safe_divide,Adversarial and Edge Case,Hard,1,569.89,True,,200,,2026-07-25T13:29:43.749390+00:00
+llama8b,llama-3.1-8b-instant,safe_divide,Adversarial and Edge Case,Hard,2,606.68,True,,200,,2026-07-25T13:29:47.367059+00:00
+llama8b,llama-3.1-8b-instant,merge_intervals,Adversarial and Edge Case,Hard,0,544.71,True,,200,,2026-07-25T13:29:50.916410+00:00
+llama8b,llama-3.1-8b-instant,merge_intervals,Adversarial and Edge Case,Hard,1,475.13,True,,200,,2026-07-25T13:29:54.396731+00:00
+llama8b,llama-3.1-8b-instant,merge_intervals,Adversarial and Edge Case,Hard,2,579.07,True,,200,,2026-07-25T13:29:57.981114+00:00

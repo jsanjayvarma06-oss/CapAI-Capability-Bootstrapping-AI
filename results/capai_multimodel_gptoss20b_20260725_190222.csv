@@ -1,0 +1,91 @@
+model_key,model_name,task_id,category,difficulty,trial_index,latency_ms,correct,cache_status,http_status,error_type,timestamp
+gptoss20b,openai/gpt-oss-20b,reverse_words,String and Text Processing,Easy,0,610.92,True,,200,,2026-07-25T13:32:23.390928+00:00
+gptoss20b,openai/gpt-oss-20b,reverse_words,String and Text Processing,Easy,1,501.6,True,,200,,2026-07-25T13:32:26.897609+00:00
+gptoss20b,openai/gpt-oss-20b,reverse_words,String and Text Processing,Easy,2,557.25,True,,200,,2026-07-25T13:32:30.456823+00:00
+gptoss20b,openai/gpt-oss-20b,count_vowels,String and Text Processing,Easy,0,529.79,True,,200,,2026-07-25T13:32:33.992848+00:00
+gptoss20b,openai/gpt-oss-20b,count_vowels,String and Text Processing,Easy,1,503.53,True,,200,,2026-07-25T13:32:37.499221+00:00
+gptoss20b,openai/gpt-oss-20b,count_vowels,String and Text Processing,Easy,2,604.74,True,,200,,2026-07-25T13:32:41.108969+00:00
+gptoss20b,openai/gpt-oss-20b,is_palindrome_str,String and Text Processing,Easy,0,576.63,True,,200,,2026-07-25T13:32:44.689964+00:00
+gptoss20b,openai/gpt-oss-20b,is_palindrome_str,String and Text Processing,Easy,1,452.7,True,,200,,2026-07-25T13:32:48.148462+00:00
+gptoss20b,openai/gpt-oss-20b,is_palindrome_str,String and Text Processing,Easy,2,535.95,True,,200,,2026-07-25T13:32:51.690488+00:00
+gptoss20b,openai/gpt-oss-20b,levenshtein_distance,String and Text Processing,Hard,0,12728.67,False,,500,logic_error,2026-07-25T13:33:07.424599+00:00
+gptoss20b,openai/gpt-oss-20b,levenshtein_distance,String and Text Processing,Hard,1,10670.42,False,,500,logic_error,2026-07-25T13:33:21.097035+00:00
+gptoss20b,openai/gpt-oss-20b,levenshtein_distance,String and Text Processing,Hard,2,10460.79,False,,500,logic_error,2026-07-25T13:33:34.563755+00:00
+gptoss20b,openai/gpt-oss-20b,is_prime,Numerical and Mathematical,Easy,0,523.18,True,,200,,2026-07-25T13:33:38.091857+00:00
+gptoss20b,openai/gpt-oss-20b,is_prime,Numerical and Mathematical,Easy,1,458.74,True,,200,,2026-07-25T13:33:41.556908+00:00
+gptoss20b,openai/gpt-oss-20b,is_prime,Numerical and Mathematical,Easy,2,648.38,True,,200,,2026-07-25T13:33:45.210531+00:00
+gptoss20b,openai/gpt-oss-20b,fibonacci,Numerical and Mathematical,Easy,0,576.25,True,,200,,2026-07-25T13:33:48.793518+00:00
+gptoss20b,openai/gpt-oss-20b,fibonacci,Numerical and Mathematical,Easy,1,578.94,True,,200,,2026-07-25T13:33:52.378885+00:00
+gptoss20b,openai/gpt-oss-20b,fibonacci,Numerical and Mathematical,Easy,2,510.86,True,,200,,2026-07-25T13:33:55.893793+00:00
+gptoss20b,openai/gpt-oss-20b,sieve_of_eratosthenes,Numerical and Mathematical,Medium,0,490.03,False,,200,edge_case_miss,2026-07-25T13:33:59.390590+00:00
+gptoss20b,openai/gpt-oss-20b,sieve_of_eratosthenes,Numerical and Mathematical,Medium,1,531.87,False,,200,edge_case_miss,2026-07-25T13:34:02.925579+00:00
+gptoss20b,openai/gpt-oss-20b,sieve_of_eratosthenes,Numerical and Mathematical,Medium,2,473.86,False,,200,edge_case_miss,2026-07-25T13:34:06.402447+00:00
+gptoss20b,openai/gpt-oss-20b,matrix_multiply,Numerical and Mathematical,Hard,0,586.8,True,,200,,2026-07-25T13:34:09.991435+00:00
+gptoss20b,openai/gpt-oss-20b,matrix_multiply,Numerical and Mathematical,Hard,1,499.33,True,,200,,2026-07-25T13:34:13.493220+00:00
+gptoss20b,openai/gpt-oss-20b,matrix_multiply,Numerical and Mathematical,Hard,2,454.41,True,,200,,2026-07-25T13:34:16.954237+00:00
+gptoss20b,openai/gpt-oss-20b,two_sum,Data Structures and Algorithms,Easy,0,528.72,True,,200,,2026-07-25T13:34:20.489702+00:00
+gptoss20b,openai/gpt-oss-20b,two_sum,Data Structures and Algorithms,Easy,1,498.53,True,,200,,2026-07-25T13:34:23.993164+00:00
+gptoss20b,openai/gpt-oss-20b,two_sum,Data Structures and Algorithms,Easy,2,500.77,True,,200,,2026-07-25T13:34:27.497232+00:00
+gptoss20b,openai/gpt-oss-20b,max_subarray_sum,Data Structures and Algorithms,Medium,0,585.51,True,,200,,2026-07-25T13:34:31.088903+00:00
+gptoss20b,openai/gpt-oss-20b,max_subarray_sum,Data Structures and Algorithms,Medium,1,502.52,True,,200,,2026-07-25T13:34:34.597430+00:00
+gptoss20b,openai/gpt-oss-20b,max_subarray_sum,Data Structures and Algorithms,Medium,2,548.28,True,,200,,2026-07-25T13:34:38.149695+00:00
+gptoss20b,openai/gpt-oss-20b,coin_change,Data Structures and Algorithms,Hard,0,475.89,True,,200,,2026-07-25T13:34:41.632056+00:00
+gptoss20b,openai/gpt-oss-20b,coin_change,Data Structures and Algorithms,Hard,1,580.02,True,,200,,2026-07-25T13:34:45.217627+00:00
+gptoss20b,openai/gpt-oss-20b,coin_change,Data Structures and Algorithms,Hard,2,478.3,True,,200,,2026-07-25T13:34:48.701416+00:00
+gptoss20b,openai/gpt-oss-20b,sliding_window_max,Data Structures and Algorithms,Hard,0,1290.06,True,,200,,2026-07-25T13:34:52.995491+00:00
+gptoss20b,openai/gpt-oss-20b,sliding_window_max,Data Structures and Algorithms,Hard,1,578.76,True,,200,,2026-07-25T13:34:56.582542+00:00
+gptoss20b,openai/gpt-oss-20b,sliding_window_max,Data Structures and Algorithms,Hard,2,513.7,True,,200,,2026-07-25T13:35:00.105371+00:00
+gptoss20b,openai/gpt-oss-20b,is_valid_email,Validation and Parsing,Medium,0,492.16,True,,200,,2026-07-25T13:35:03.603641+00:00
+gptoss20b,openai/gpt-oss-20b,is_valid_email,Validation and Parsing,Medium,1,520.38,True,,200,,2026-07-25T13:35:07.128061+00:00
+gptoss20b,openai/gpt-oss-20b,is_valid_email,Validation and Parsing,Medium,2,562.38,True,,200,,2026-07-25T13:35:10.696010+00:00
+gptoss20b,openai/gpt-oss-20b,is_valid_ipv4,Validation and Parsing,Medium,0,597.66,True,,200,,2026-07-25T13:35:14.298729+00:00
+gptoss20b,openai/gpt-oss-20b,is_valid_ipv4,Validation and Parsing,Medium,1,451.06,True,,200,,2026-07-25T13:35:17.751819+00:00
+gptoss20b,openai/gpt-oss-20b,is_valid_ipv4,Validation and Parsing,Medium,2,606.65,True,,200,,2026-07-25T13:35:21.362925+00:00
+gptoss20b,openai/gpt-oss-20b,luhn_check,Validation and Parsing,Hard,0,579.83,True,,200,,2026-07-25T13:35:24.949052+00:00
+gptoss20b,openai/gpt-oss-20b,luhn_check,Validation and Parsing,Hard,1,574.89,True,,200,,2026-07-25T13:35:28.530568+00:00
+gptoss20b,openai/gpt-oss-20b,luhn_check,Validation and Parsing,Hard,2,475.88,True,,200,,2026-07-25T13:35:32.012515+00:00
+gptoss20b,openai/gpt-oss-20b,is_valid_isbn13,Validation and Parsing,Hard,0,476.61,True,,200,,2026-07-25T13:35:35.491630+00:00
+gptoss20b,openai/gpt-oss-20b,is_valid_isbn13,Validation and Parsing,Hard,1,580.56,True,,200,,2026-07-25T13:35:39.077690+00:00
+gptoss20b,openai/gpt-oss-20b,is_valid_isbn13,Validation and Parsing,Hard,2,580.99,True,,200,,2026-07-25T13:35:42.663223+00:00
+gptoss20b,openai/gpt-oss-20b,days_between,Date Time and Calendar,Easy,0,475.85,True,,200,,2026-07-25T13:35:46.144251+00:00
+gptoss20b,openai/gpt-oss-20b,days_between,Date Time and Calendar,Easy,1,581.14,True,,200,,2026-07-25T13:35:49.729901+00:00
+gptoss20b,openai/gpt-oss-20b,days_between,Date Time and Calendar,Easy,2,476.74,True,,200,,2026-07-25T13:35:53.210898+00:00
+gptoss20b,openai/gpt-oss-20b,is_leap_year,Date Time and Calendar,Easy,0,477.01,True,,200,,2026-07-25T13:35:56.693370+00:00
+gptoss20b,openai/gpt-oss-20b,is_leap_year,Date Time and Calendar,Easy,1,580.81,True,,200,,2026-07-25T13:36:00.278310+00:00
+gptoss20b,openai/gpt-oss-20b,is_leap_year,Date Time and Calendar,Easy,2,575.34,True,,200,,2026-07-25T13:36:03.859613+00:00
+gptoss20b,openai/gpt-oss-20b,business_days_between,Date Time and Calendar,Medium,0,683.55,True,,200,,2026-07-25T13:36:07.546931+00:00
+gptoss20b,openai/gpt-oss-20b,business_days_between,Date Time and Calendar,Medium,1,582.18,True,,200,,2026-07-25T13:36:11.132776+00:00
+gptoss20b,openai/gpt-oss-20b,business_days_between,Date Time and Calendar,Medium,2,556.1,True,,200,,2026-07-25T13:36:14.694577+00:00
+gptoss20b,openai/gpt-oss-20b,count_lines,File and IO Utilities,Easy,0,494.08,True,,200,,2026-07-25T13:36:18.191163+00:00
+gptoss20b,openai/gpt-oss-20b,count_lines,File and IO Utilities,Easy,1,582.03,True,,200,,2026-07-25T13:36:21.779316+00:00
+gptoss20b,openai/gpt-oss-20b,count_lines,File and IO Utilities,Easy,2,468.47,True,,200,,2026-07-25T13:36:25.254404+00:00
+gptoss20b,openai/gpt-oss-20b,flatten_dict,File and IO Utilities,Medium,0,392.15,True,,200,,2026-07-25T13:36:28.649684+00:00
+gptoss20b,openai/gpt-oss-20b,flatten_dict,File and IO Utilities,Medium,1,471.1,True,,200,,2026-07-25T13:36:32.122703+00:00
+gptoss20b,openai/gpt-oss-20b,flatten_dict,File and IO Utilities,Medium,2,564.51,True,,200,,2026-07-25T13:36:35.693502+00:00
+gptoss20b,openai/gpt-oss-20b,merge_dicts,File and IO Utilities,Easy,0,595.34,True,,200,,2026-07-25T13:36:39.292247+00:00
+gptoss20b,openai/gpt-oss-20b,merge_dicts,File and IO Utilities,Easy,1,451.82,True,,200,,2026-07-25T13:36:42.750621+00:00
+gptoss20b,openai/gpt-oss-20b,merge_dicts,File and IO Utilities,Easy,2,538.36,True,,200,,2026-07-25T13:36:46.295628+00:00
+gptoss20b,openai/gpt-oss-20b,hex_to_rgb,Encoding and Hashing,Easy,0,534.22,True,,200,,2026-07-25T13:36:49.836602+00:00
+gptoss20b,openai/gpt-oss-20b,hex_to_rgb,Encoding and Hashing,Easy,1,581.02,True,,200,,2026-07-25T13:36:53.424218+00:00
+gptoss20b,openai/gpt-oss-20b,hex_to_rgb,Encoding and Hashing,Easy,2,883.68,True,,200,,2026-07-25T13:36:57.312252+00:00
+gptoss20b,openai/gpt-oss-20b,md5_hex,Encoding and Hashing,Easy,0,683.11,True,,200,,2026-07-25T13:37:00.998801+00:00
+gptoss20b,openai/gpt-oss-20b,md5_hex,Encoding and Hashing,Easy,1,452.13,True,,200,,2026-07-25T13:37:04.453604+00:00
+gptoss20b,openai/gpt-oss-20b,md5_hex,Encoding and Hashing,Easy,2,606.63,True,,200,,2026-07-25T13:37:08.064988+00:00
+gptoss20b,openai/gpt-oss-20b,encode_base64,Encoding and Hashing,Medium,0,574.17,True,,200,,2026-07-25T13:37:11.645885+00:00
+gptoss20b,openai/gpt-oss-20b,encode_base64,Encoding and Hashing,Medium,1,585.24,True,,200,,2026-07-25T13:37:15.235257+00:00
+gptoss20b,openai/gpt-oss-20b,encode_base64,Encoding and Hashing,Medium,2,581.06,True,,200,,2026-07-25T13:37:18.818777+00:00
+gptoss20b,openai/gpt-oss-20b,compute_gst,India Specific Utilities,Easy,0,469.87,False,,200,edge_case_miss,2026-07-25T13:37:22.294479+00:00
+gptoss20b,openai/gpt-oss-20b,compute_gst,India Specific Utilities,Easy,1,495.07,False,,200,edge_case_miss,2026-07-25T13:37:25.794675+00:00
+gptoss20b,openai/gpt-oss-20b,compute_gst,India Specific Utilities,Easy,2,568.36,False,,200,edge_case_miss,2026-07-25T13:37:29.366625+00:00
+gptoss20b,openai/gpt-oss-20b,validate_pan,India Specific Utilities,Medium,0,390.75,True,,200,,2026-07-25T13:37:32.759064+00:00
+gptoss20b,openai/gpt-oss-20b,validate_pan,India Specific Utilities,Medium,1,394.01,True,,200,,2026-07-25T13:37:36.159504+00:00
+gptoss20b,openai/gpt-oss-20b,validate_pan,India Specific Utilities,Medium,2,382.59,True,,200,,2026-07-25T13:37:39.547254+00:00
+gptoss20b,openai/gpt-oss-20b,format_indian_number,India Specific Utilities,Medium,0,535.98,False,,200,edge_case_miss,2026-07-25T13:37:43.089733+00:00
+gptoss20b,openai/gpt-oss-20b,format_indian_number,India Specific Utilities,Medium,1,674.14,False,,200,edge_case_miss,2026-07-25T13:37:46.769100+00:00
+gptoss20b,openai/gpt-oss-20b,format_indian_number,India Specific Utilities,Medium,2,585.99,False,,200,edge_case_miss,2026-07-25T13:37:50.359301+00:00
+gptoss20b,openai/gpt-oss-20b,safe_divide,Adversarial and Edge Case,Hard,0,529.16,True,,200,,2026-07-25T13:37:53.890763+00:00
+gptoss20b,openai/gpt-oss-20b,safe_divide,Adversarial and Edge Case,Hard,1,627.19,True,,200,,2026-07-25T13:37:57.524036+00:00
+gptoss20b,openai/gpt-oss-20b,safe_divide,Adversarial and Edge Case,Hard,2,578.95,True,,200,,2026-07-25T13:38:01.109603+00:00
+gptoss20b,openai/gpt-oss-20b,merge_intervals,Adversarial and Edge Case,Hard,0,480.91,True,,200,,2026-07-25T13:38:04.595199+00:00
+gptoss20b,openai/gpt-oss-20b,merge_intervals,Adversarial and Edge Case,Hard,1,469.67,True,,200,,2026-07-25T13:38:08.071367+00:00
+gptoss20b,openai/gpt-oss-20b,merge_intervals,Adversarial and Edge Case,Hard,2,578.43,True,,200,,2026-07-25T13:38:11.655885+00:00

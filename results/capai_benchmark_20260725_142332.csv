@@ -1,0 +1,16 @@
+task_id,category,difficulty,workflow,condition,trial_index,latency_ms,correct,confidence,coverage_pct,repair_iterations,cache_status,provider_used,error_type,http_status,timestamp
+build_report_generator,Multi Component Pipelines,Medium,build,build_independent,0,40521.93,False,28,,0,miss,unknown,logic_error,200,2026-07-25T08:54:12.567626+00:00
+build_report_generator,Multi Component Pipelines,Medium,build,build_independent,1,11793.65,True,100,,0,miss,unknown,,200,2026-07-25T08:54:27.366620+00:00
+build_report_generator,Multi Component Pipelines,Medium,build,build_independent,2,45279.62,False,30,,0,miss,unknown,logic_error,200,2026-07-25T08:55:15.653045+00:00
+build_retry_wrapper,Multi Component Pipelines,Medium,build,build_independent,0,9989.33,True,97,,0,miss,unknown,,200,2026-07-25T08:55:28.646569+00:00
+build_retry_wrapper,Multi Component Pipelines,Medium,build,build_independent,1,11451.41,True,100,,0,miss,unknown,,200,2026-07-25T08:55:43.100775+00:00
+build_retry_wrapper,Multi Component Pipelines,Medium,build,build_independent,2,19932.71,True,62,,0,miss,unknown,,200,2026-07-25T08:56:06.039178+00:00
+build_feature_flags,Multi Component Pipelines,Easy,build,build_independent,0,18397.82,True,80,,0,miss,unknown,,200,2026-07-25T08:56:27.443333+00:00
+build_feature_flags,Multi Component Pipelines,Easy,build,build_independent,1,9590.17,True,94,,0,miss,unknown,,200,2026-07-25T08:56:40.038798+00:00
+build_feature_flags,Multi Component Pipelines,Easy,build,build_independent,2,9078.22,True,100,,0,miss,unknown,,200,2026-07-25T08:56:52.122660+00:00
+build_token_bucket,Multi Component Pipelines,Hard,build,build_independent,0,10411.16,True,97,,0,miss,unknown,,200,2026-07-25T08:57:05.539251+00:00
+build_token_bucket,Multi Component Pipelines,Hard,build,build_independent,1,27916.79,True,60,,0,miss,unknown,,200,2026-07-25T08:57:36.461524+00:00
+build_token_bucket,Multi Component Pipelines,Hard,build,build_independent,2,26595.52,True,57,,0,miss,unknown,,200,2026-07-25T08:58:06.061592+00:00
+build_search_engine,Multi Component Pipelines,Hard,build,build_independent,0,28527.33,True,60,,0,miss,unknown,,200,2026-07-25T08:58:37.596345+00:00
+build_search_engine,Multi Component Pipelines,Hard,build,build_independent,1,20657.76,True,73,,0,miss,unknown,,200,2026-07-25T08:59:01.259676+00:00
+build_search_engine,Multi Component Pipelines,Hard,build,build_independent,2,19413.09,True,77,,0,miss,unknown,,200,2026-07-25T08:59:23.675077+00:00

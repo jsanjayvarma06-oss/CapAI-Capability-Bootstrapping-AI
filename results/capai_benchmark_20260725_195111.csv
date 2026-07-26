@@ -1,0 +1,151 @@
+task_id,category,difficulty,workflow,condition,trial_index,latency_ms,correct,confidence,coverage_pct,repair_iterations,cache_status,provider_used,error_type,http_status,timestamp
+reverse_words,String and Text Processing,Easy,run,cold,0,481.98,True,,,0,miss,unknown,,200,2026-07-25T14:21:12.340096+00:00
+count_vowels,String and Text Processing,Easy,run,cold,0,471.46,True,,,0,miss,unknown,,200,2026-07-25T14:21:15.817125+00:00
+title_case,String and Text Processing,Easy,run,cold,0,608.27,True,,,0,miss,unknown,,200,2026-07-25T14:21:19.432159+00:00
+is_pangram,String and Text Processing,Easy,run,cold,0,580.95,True,,,0,miss,unknown,,200,2026-07-25T14:21:23.016832+00:00
+longest_common_prefix,String and Text Processing,Medium,run,cold,0,22595.65,False,,,0,miss,unknown,logic_error,500,2026-07-25T14:21:48.619017+00:00
+run_length_encode,String and Text Processing,Medium,run,cold,0,371.22,True,,,0,miss,unknown,,200,2026-07-25T14:21:51.996010+00:00
+caesar_cipher,String and Text Processing,Easy,run,cold,0,497.97,True,,,0,miss,unknown,,200,2026-07-25T14:21:55.499910+00:00
+remove_duplicate_chars,String and Text Processing,Easy,run,cold,0,453.34,True,,,0,miss,unknown,,200,2026-07-25T14:21:58.960047+00:00
+word_frequency,String and Text Processing,Easy,run,cold,0,435.01,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:22:02.401283+00:00
+levenshtein_distance,String and Text Processing,Hard,run,cold,0,401.19,True,,,0,miss,unknown,,200,2026-07-25T14:22:05.807262+00:00
+is_anagram,String and Text Processing,Easy,run,cold,0,387.85,True,,,0,miss,unknown,,200,2026-07-25T14:22:09.200998+00:00
+truncate_string,String and Text Processing,Easy,run,cold,0,304.38,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:22:12.509193+00:00
+count_words,String and Text Processing,Easy,run,cold,0,297.88,True,,,0,miss,unknown,,200,2026-07-25T14:22:15.813837+00:00
+snake_to_camel,String and Text Processing,Easy,run,cold,0,418.25,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:22:19.234527+00:00
+camel_to_snake,String and Text Processing,Medium,run,cold,0,479.71,True,,,0,miss,unknown,,200,2026-07-25T14:22:22.716182+00:00
+count_substring,String and Text Processing,Easy,run,cold,0,477.13,True,,,0,miss,unknown,,200,2026-07-25T14:22:26.197514+00:00
+reverse_string,String and Text Processing,Easy,run,cold,0,475.73,True,,,0,miss,unknown,,200,2026-07-25T14:22:29.678939+00:00
+capitalize_first,String and Text Processing,Easy,run,cold,0,411.02,True,,,0,miss,unknown,,200,2026-07-25T14:22:33.096704+00:00
+remove_whitespace,String and Text Processing,Easy,run,cold,0,1055.57,True,,,0,miss,unknown,,200,2026-07-25T14:22:37.154472+00:00
+is_palindrome_str,String and Text Processing,Easy,run,cold,0,352.4,True,,,0,miss,unknown,,200,2026-07-25T14:22:40.508897+00:00
+longest_word,String and Text Processing,Easy,run,cold,0,500.72,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:22:44.016293+00:00
+char_frequency,String and Text Processing,Easy,run,cold,0,383.58,True,,,0,miss,unknown,,200,2026-07-25T14:22:47.404318+00:00
+strip_html_tags,String and Text Processing,Medium,run,cold,0,303.68,True,,,0,miss,unknown,,200,2026-07-25T14:22:50.711013+00:00
+repeat_string,String and Text Processing,Easy,run,cold,0,436.49,True,,,0,miss,unknown,,200,2026-07-25T14:22:54.152893+00:00
+find_all_indices,String and Text Processing,Medium,run,cold,0,475.6,True,,,0,miss,unknown,,200,2026-07-25T14:22:57.635390+00:00
+is_prime,Numerical and Mathematical,Easy,run,cold,0,474.13,True,,,0,miss,unknown,,200,2026-07-25T14:23:01.116319+00:00
+fibonacci,Numerical and Mathematical,Easy,run,cold,0,375.13,True,,,0,miss,unknown,,200,2026-07-25T14:23:04.496942+00:00
+factorial,Numerical and Mathematical,Easy,run,cold,0,581.17,True,,,0,miss,unknown,,200,2026-07-25T14:23:08.080779+00:00
+gcd,Numerical and Mathematical,Easy,run,cold,0,582.94,True,,,0,miss,unknown,,200,2026-07-25T14:23:11.665553+00:00
+lcm,Numerical and Mathematical,Easy,run,cold,0,533.05,True,,,0,miss,unknown,,200,2026-07-25T14:23:15.204640+00:00
+is_perfect_number,Numerical and Mathematical,Medium,run,cold,0,507.82,True,,,0,miss,unknown,,200,2026-07-25T14:23:18.719289+00:00
+sieve_of_eratosthenes,Numerical and Mathematical,Medium,run,cold,0,287.26,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:23:22.011044+00:00
+power_mod,Numerical and Mathematical,Medium,run,cold,0,578.82,True,,,0,miss,unknown,,200,2026-07-25T14:23:25.592311+00:00
+count_prime_factors,Numerical and Mathematical,Medium,run,cold,0,435.89,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:23:29.032962+00:00
+is_armstrong_number,Numerical and Mathematical,Medium,run,cold,0,458.36,True,,,0,miss,unknown,,200,2026-07-25T14:23:32.497516+00:00
+roman_to_int,Numerical and Mathematical,Medium,run,cold,0,396.64,True,,,0,miss,unknown,,200,2026-07-25T14:23:35.897581+00:00
+int_to_roman,Numerical and Mathematical,Medium,run,cold,0,401.88,True,,,0,miss,unknown,,200,2026-07-25T14:23:39.301349+00:00
+celsius_to_fahrenheit,Numerical and Mathematical,Easy,run,cold,0,589.44,True,,,0,miss,unknown,,200,2026-07-25T14:23:42.897424+00:00
+is_perfect_square,Numerical and Mathematical,Easy,run,cold,0,522.26,True,,,0,miss,unknown,,200,2026-07-25T14:23:46.424073+00:00
+sum_of_digits,Numerical and Mathematical,Easy,run,cold,0,404.27,True,,,0,miss,unknown,,200,2026-07-25T14:23:49.831909+00:00
+count_digits,Numerical and Mathematical,Easy,run,cold,0,404.36,True,,,0,miss,unknown,,200,2026-07-25T14:23:53.238505+00:00
+is_even,Numerical and Mathematical,Easy,run,cold,0,478.43,True,,,0,miss,unknown,,200,2026-07-25T14:23:56.723581+00:00
+clamp,Numerical and Mathematical,Easy,run,cold,0,573.61,True,,,0,miss,unknown,,200,2026-07-25T14:24:00.303931+00:00
+nth_triangular,Numerical and Mathematical,Easy,run,cold,0,406.97,True,,,0,miss,unknown,,200,2026-07-25T14:24:03.717705+00:00
+binary_to_decimal,Numerical and Mathematical,Easy,run,cold,0,497.51,True,,,0,miss,unknown,,200,2026-07-25T14:24:07.219972+00:00
+decimal_to_binary,Numerical and Mathematical,Easy,run,cold,0,288.81,True,,,0,miss,unknown,,200,2026-07-25T14:24:10.510850+00:00
+matrix_multiply,Numerical and Mathematical,Hard,run,cold,0,411.65,True,,,0,miss,unknown,,200,2026-07-25T14:24:13.924596+00:00
+average,Numerical and Mathematical,Easy,run,cold,0,580.63,True,,,0,miss,unknown,,200,2026-07-25T14:24:17.508470+00:00
+median,Numerical and Mathematical,Medium,run,cold,0,479.93,True,,,0,miss,unknown,,200,2026-07-25T14:24:20.990004+00:00
+standard_deviation,Numerical and Mathematical,Hard,run,cold,0,436.98,True,,,0,miss,unknown,,200,2026-07-25T14:24:24.432841+00:00
+two_sum,Data Structures and Algorithms,Easy,run,cold,0,366.87,True,,,0,miss,unknown,,200,2026-07-25T14:24:27.804637+00:00
+max_subarray_sum,Data Structures and Algorithms,Medium,run,cold,0,390.44,True,,,0,miss,unknown,,200,2026-07-25T14:24:31.198310+00:00
+merge_sorted_lists,Data Structures and Algorithms,Easy,run,cold,0,611.54,True,,,0,miss,unknown,,200,2026-07-25T14:24:34.814550+00:00
+valid_parentheses,Data Structures and Algorithms,Medium,run,cold,0,473.64,True,,,0,miss,unknown,,200,2026-07-25T14:24:38.293260+00:00
+rotate_array,Data Structures and Algorithms,Medium,run,cold,0,400.38,True,,,0,miss,unknown,,200,2026-07-25T14:24:41.697839+00:00
+find_kth_largest,Data Structures and Algorithms,Medium,run,cold,0,427.68,True,,,0,miss,unknown,,200,2026-07-25T14:24:45.131608+00:00
+group_anagrams,Data Structures and Algorithms,Medium,run,cold,0,502.54,True,,,0,miss,unknown,,200,2026-07-25T14:24:48.637564+00:00
+coin_change,Data Structures and Algorithms,Hard,run,cold,0,467.84,True,,,0,miss,unknown,,200,2026-07-25T14:24:52.110448+00:00
+longest_increasing_subsequence,Data Structures and Algorithms,Hard,run,cold,0,394.94,True,,,0,miss,unknown,,200,2026-07-25T14:24:55.510563+00:00
+binary_search,Data Structures and Algorithms,Easy,run,cold,0,393.85,True,,,0,miss,unknown,,200,2026-07-25T14:24:58.909012+00:00
+flatten,Data Structures and Algorithms,Medium,run,cold,0,547.62,True,,,0,miss,unknown,,200,2026-07-25T14:25:02.462038+00:00
+remove_duplicates_list,Data Structures and Algorithms,Easy,run,cold,0,434.42,True,,,0,miss,unknown,,200,2026-07-25T14:25:05.902448+00:00
+intersection,Data Structures and Algorithms,Easy,run,cold,0,620.85,True,,,0,miss,unknown,,200,2026-07-25T14:25:09.527981+00:00
+union_lists,Data Structures and Algorithms,Easy,run,cold,0,412.39,True,,,0,miss,unknown,,200,2026-07-25T14:25:12.943941+00:00
+bubble_sort,Data Structures and Algorithms,Easy,run,cold,0,475.34,True,,,0,miss,unknown,,200,2026-07-25T14:25:16.423989+00:00
+count_occurrences,Data Structures and Algorithms,Easy,run,cold,0,472.97,True,,,0,miss,unknown,,200,2026-07-25T14:25:19.899336+00:00
+chunk_list,Data Structures and Algorithms,Medium,run,cold,0,551.1,True,,,0,miss,unknown,,200,2026-07-25T14:25:23.454563+00:00
+zip_lists,Data Structures and Algorithms,Easy,run,cold,0,477.34,True,,,0,miss,unknown,,200,2026-07-25T14:25:26.933898+00:00
+find_missing_number,Data Structures and Algorithms,Medium,run,cold,0,488.25,True,,,0,miss,unknown,,200,2026-07-25T14:25:30.428393+00:00
+max_profit,Data Structures and Algorithms,Medium,run,cold,0,566.98,True,,,0,miss,unknown,,200,2026-07-25T14:25:34.002976+00:00
+product_except_self,Data Structures and Algorithms,Hard,run,cold,0,473.53,True,,,0,miss,unknown,,200,2026-07-25T14:25:37.482962+00:00
+sliding_window_max,Data Structures and Algorithms,Hard,run,cold,0,475.61,True,,,0,miss,unknown,,200,2026-07-25T14:25:40.963990+00:00
+three_sum,Data Structures and Algorithms,Hard,run,cold,0,7558.05,True,,,0,miss,unknown,,200,2026-07-25T14:25:51.527166+00:00
+is_balanced_tree,Data Structures and Algorithms,Medium,run,cold,0,7834.56,False,,,0,miss,unknown,logic_error,500,2026-07-25T14:26:02.365300+00:00
+frequency_sort,Data Structures and Algorithms,Medium,run,cold,0,7826.79,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:26:13.196651+00:00
+count_lines,File and IO Utilities,Easy,run,cold,0,517.09,True,,,0,miss,unknown,,200,2026-07-25T14:26:16.719725+00:00
+parse_json_field,File and IO Utilities,Medium,run,cold,0,11209.7,False,,,0,miss,unknown,logic_error,500,2026-07-25T14:26:30.935625+00:00
+flatten_dict,File and IO Utilities,Medium,run,cold,0,479.56,True,,,0,miss,unknown,,200,2026-07-25T14:26:34.419444+00:00
+merge_dicts,File and IO Utilities,Easy,run,cold,0,477.59,True,,,0,miss,unknown,,200,2026-07-25T14:26:37.904030+00:00
+invert_dict,File and IO Utilities,Easy,run,cold,0,470.99,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:26:41.381376+00:00
+deep_merge_dicts,File and IO Utilities,Medium,run,cold,0,374.51,True,,,0,miss,unknown,,200,2026-07-25T14:26:44.760895+00:00
+filter_dict_by_keys,File and IO Utilities,Easy,run,cold,0,474.98,True,,,0,miss,unknown,,200,2026-07-25T14:26:48.240309+00:00
+group_by,File and IO Utilities,Medium,run,cold,0,580.45,True,,,0,miss,unknown,,200,2026-07-25T14:26:51.826756+00:00
+csv_to_list,File and IO Utilities,Easy,run,cold,0,579.35,True,,,0,miss,unknown,,200,2026-07-25T14:26:55.408919+00:00
+list_to_csv,File and IO Utilities,Easy,run,cold,0,481.46,True,,,0,miss,unknown,,200,2026-07-25T14:26:58.893368+00:00
+transpose_matrix,File and IO Utilities,Medium,run,cold,0,476.01,True,,,0,miss,unknown,,200,2026-07-25T14:27:02.372540+00:00
+sort_dicts_by_key,File and IO Utilities,Easy,run,cold,0,448.9,True,,,0,miss,unknown,,200,2026-07-25T14:27:05.826442+00:00
+unique_values,File and IO Utilities,Easy,run,cold,0,607.37,True,,,0,miss,unknown,,200,2026-07-25T14:27:09.438091+00:00
+pivot_records,File and IO Utilities,Medium,run,cold,0,474.6,True,,,0,miss,unknown,,200,2026-07-25T14:27:12.918398+00:00
+running_sum,File and IO Utilities,Easy,run,cold,0,495.11,True,,,0,miss,unknown,,200,2026-07-25T14:27:16.418602+00:00
+days_between,Date Time and Calendar,Easy,run,cold,0,372.29,True,,,0,miss,unknown,,200,2026-07-25T14:27:19.794598+00:00
+is_leap_year,Date Time and Calendar,Easy,run,cold,0,466.96,True,,,0,miss,unknown,,200,2026-07-25T14:27:23.268409+00:00
+days_in_month,Date Time and Calendar,Easy,run,cold,0,674.48,True,,,0,miss,unknown,,200,2026-07-25T14:27:26.947751+00:00
+day_of_week,Date Time and Calendar,Easy,run,cold,0,475.86,True,,,0,miss,unknown,,200,2026-07-25T14:27:30.429414+00:00
+business_days_between,Date Time and Calendar,Medium,run,cold,0,564.8,True,,,0,miss,unknown,,200,2026-07-25T14:27:33.996833+00:00
+add_days,Date Time and Calendar,Easy,run,cold,0,469.14,True,,,0,miss,unknown,,200,2026-07-25T14:27:37.472659+00:00
+week_number,Date Time and Calendar,Medium,run,cold,0,511.06,True,,,0,miss,unknown,,200,2026-07-25T14:27:40.989093+00:00
+quarter_of_date,Date Time and Calendar,Easy,run,cold,0,407.34,True,,,0,miss,unknown,,200,2026-07-25T14:27:44.398522+00:00
+next_weekday,Date Time and Calendar,Medium,run,cold,0,539.31,True,,,0,miss,unknown,,200,2026-07-25T14:27:47.942902+00:00
+date_range,Date Time and Calendar,Medium,run,cold,0,474.69,True,,,0,miss,unknown,,200,2026-07-25T14:27:51.422791+00:00
+is_valid_email,Validation and Parsing,Medium,run,cold,0,480.11,True,,,0,miss,unknown,,200,2026-07-25T14:27:54.909196+00:00
+is_valid_ipv4,Validation and Parsing,Medium,run,cold,0,294.64,True,,,0,miss,unknown,,200,2026-07-25T14:27:58.207739+00:00
+is_valid_url,Validation and Parsing,Medium,run,cold,0,556.2,True,,,0,miss,unknown,,200,2026-07-25T14:28:01.766214+00:00
+is_valid_json,Validation and Parsing,Easy,run,cold,0,455.02,True,,,0,miss,unknown,,200,2026-07-25T14:28:05.227125+00:00
+luhn_check,Validation and Parsing,Hard,run,cold,0,395.93,True,,,0,miss,unknown,,200,2026-07-25T14:28:08.625172+00:00
+parse_query_string,Validation and Parsing,Medium,run,cold,0,532.68,True,,,0,miss,unknown,,200,2026-07-25T14:28:12.160575+00:00
+validate_password,Validation and Parsing,Medium,run,cold,0,435.51,True,,,0,miss,unknown,,200,2026-07-25T14:28:15.598376+00:00
+is_valid_hex_color,Validation and Parsing,Easy,run,cold,0,517.63,True,,,0,miss,unknown,,200,2026-07-25T14:28:19.121873+00:00
+extract_emails,Validation and Parsing,Medium,run,cold,0,525.35,True,,,0,miss,unknown,,200,2026-07-25T14:28:22.653533+00:00
+extract_numbers,Validation and Parsing,Easy,run,cold,0,532.21,True,,,0,miss,unknown,,200,2026-07-25T14:28:26.189505+00:00
+parse_key_value,Validation and Parsing,Easy,run,cold,0,421.69,True,,,0,miss,unknown,,200,2026-07-25T14:28:29.616988+00:00
+normalize_phone,Validation and Parsing,Medium,run,cold,0,498.36,True,,,0,miss,unknown,,200,2026-07-25T14:28:33.119390+00:00
+is_valid_isbn13,Validation and Parsing,Hard,run,cold,0,503.96,True,,,0,miss,unknown,,200,2026-07-25T14:28:36.627288+00:00
+parse_csv_line,Validation and Parsing,Medium,run,cold,0,545.52,True,,,0,miss,unknown,,200,2026-07-25T14:28:40.174710+00:00
+is_valid_mac_address,Validation and Parsing,Easy,run,cold,0,467.42,True,,,0,miss,unknown,,200,2026-07-25T14:28:43.646156+00:00
+extract_domain,Validation and Parsing,Easy,run,cold,0,479.44,True,,,0,miss,unknown,,200,2026-07-25T14:28:47.128265+00:00
+is_valid_date,Validation and Parsing,Easy,run,cold,0,580.31,True,,,0,miss,unknown,,200,2026-07-25T14:28:50.711894+00:00
+tokenize,Validation and Parsing,Medium,run,cold,0,479.27,True,,,0,miss,unknown,,200,2026-07-25T14:28:54.192943+00:00
+mask_string,Validation and Parsing,Easy,run,cold,0,476.12,True,,,0,miss,unknown,,200,2026-07-25T14:28:57.675623+00:00
+parse_range,Validation and Parsing,Medium,run,cold,0,19245.5,False,,,0,miss,unknown,logic_error,500,2026-07-25T14:29:19.923040+00:00
+hex_to_rgb,Encoding and Hashing,Easy,run,cold,0,476.11,True,,,0,miss,unknown,,200,2026-07-25T14:29:23.402759+00:00
+rgb_to_hex,Encoding and Hashing,Easy,run,cold,0,454.24,True,,,0,miss,unknown,,200,2026-07-25T14:29:26.858750+00:00
+url_encode,Encoding and Hashing,Medium,run,cold,0,10718.09,False,,,0,miss,unknown,logic_error,500,2026-07-25T14:29:40.580548+00:00
+url_decode,Encoding and Hashing,Easy,run,cold,0,10309.15,False,,,0,miss,unknown,logic_error,500,2026-07-25T14:29:53.892076+00:00
+md5_hex,Encoding and Hashing,Easy,run,cold,0,474.33,True,,,0,miss,unknown,,200,2026-07-25T14:29:57.372891+00:00
+sha256_hex,Encoding and Hashing,Easy,run,cold,0,477.92,True,,,0,miss,unknown,,200,2026-07-25T14:30:00.857183+00:00
+xor_bytes,Encoding and Hashing,Medium,run,cold,0,7847.94,False,,,0,miss,unknown,logic_error,500,2026-07-25T14:30:11.707442+00:00
+encode_base64,Encoding and Hashing,Medium,run,cold,0,579.5,True,,,0,miss,unknown,,200,2026-07-25T14:30:15.291696+00:00
+decode_base64,Encoding and Hashing,Easy,run,cold,0,474.8,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:30:18.773280+00:00
+count_bits,Encoding and Hashing,Easy,run,cold,0,442.7,True,,,0,miss,unknown,,200,2026-07-25T14:30:22.222111+00:00
+compute_gst,India Specific Utilities,Easy,run,cold,0,510.62,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:30:25.738380+00:00
+validate_pan,India Specific Utilities,Medium,run,cold,0,477.81,True,,,0,miss,unknown,,200,2026-07-25T14:30:29.222574+00:00
+format_indian_number,India Specific Utilities,Medium,run,cold,0,411.89,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:30:32.639593+00:00
+inr_to_words,India Specific Utilities,Hard,run,cold,0,537.94,True,,,0,miss,unknown,,200,2026-07-25T14:30:36.181949+00:00
+state_from_gstin,India Specific Utilities,Medium,run,cold,0,477.5,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:30:39.665242+00:00
+validate_aadhaar,India Specific Utilities,Hard,run,cold,0,474.98,True,,,0,miss,unknown,,200,2026-07-25T14:30:43.145443+00:00
+compute_emi,India Specific Utilities,Medium,run,cold,0,469.47,True,,,0,miss,unknown,,200,2026-07-25T14:30:46.619933+00:00
+tds_calculation,India Specific Utilities,Easy,run,cold,0,379.58,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:30:50.006017+00:00
+pf_contribution,India Specific Utilities,Easy,run,cold,0,581.93,True,,,0,miss,unknown,,200,2026-07-25T14:30:53.589914+00:00
+pin_to_state,India Specific Utilities,Medium,run,cold,0,397.98,True,,,0,miss,unknown,,200,2026-07-25T14:30:56.993053+00:00
+safe_divide,Adversarial and Edge Case,Hard,run,cold,0,349.82,True,,,0,miss,unknown,,200,2026-07-25T14:31:00.347944+00:00
+deep_flatten,Adversarial and Edge Case,Hard,run,cold,0,475.59,False,,,0,miss,unknown,edge_case_miss,200,2026-07-25T14:31:03.829916+00:00
+type_safe_max,Adversarial and Edge Case,Hard,run,cold,0,482.28,True,,,0,miss,unknown,,200,2026-07-25T14:31:07.319038+00:00
+safe_json_parse,Adversarial and Edge Case,Hard,run,cold,0,571.17,True,,,0,miss,unknown,,200,2026-07-25T14:31:10.897305+00:00
+coerce_to_int,Adversarial and Edge Case,Hard,run,cold,0,387.44,True,,,0,miss,unknown,,200,2026-07-25T14:31:14.291655+00:00
+safe_get_nested,Adversarial and Edge Case,Hard,run,cold,0,441.61,True,,,0,miss,unknown,,200,2026-07-25T14:31:17.739604+00:00
+normalize_whitespace,Adversarial and Edge Case,Hard,run,cold,0,490.61,True,,,0,miss,unknown,,200,2026-07-25T14:31:21.237059+00:00
+safe_list_get,Adversarial and Edge Case,Hard,run,cold,0,479.54,True,,,0,miss,unknown,,200,2026-07-25T14:31:24.722961+00:00
+deduplicate_stable,Adversarial and Edge Case,Hard,run,cold,0,474.24,True,,,0,miss,unknown,,200,2026-07-25T14:31:28.200050+00:00
+merge_intervals,Adversarial and Edge Case,Hard,run,cold,0,476.55,True,,,0,miss,unknown,,200,2026-07-25T14:31:31.682712+00:00

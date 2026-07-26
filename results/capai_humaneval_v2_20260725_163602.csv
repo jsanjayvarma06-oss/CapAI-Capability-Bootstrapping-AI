@@ -1,0 +1,5 @@
+task_id,he_task_id,trial_index,latency_ms,correct,pass_count,total_tests,http_status,timestamp
+HumanEval_0,HumanEval/0,0,981.75,True,7,7,200,2026-07-25T11:06:15.084368+00:00
+HumanEval_1,HumanEval/1,0,492.38,True,1,1,200,2026-07-25T11:06:21.588633+00:00
+HumanEval_2,HumanEval/2,0,4394.16,False,0,1,500,2026-07-25T11:06:31.994582+00:00
+HumanEval_3,HumanEval/3,0,1307.2,True,6,6,200,2026-07-25T11:06:51.952074+00:00

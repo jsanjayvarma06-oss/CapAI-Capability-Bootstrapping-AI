@@ -1,0 +1,22 @@
+task_id,category,difficulty,workflow,condition,trial_index,latency_ms,correct,confidence,coverage_pct,repair_iterations,cache_status,provider_used,error_type,http_status,timestamp
+is_prime,Numerical and Mathematical,Easy,run,cold,0,472.26,True,,,0,miss,unknown,,200,2026-07-25T06:52:31.760592+00:00
+is_prime,Numerical and Mathematical,Easy,run,warm,0,1043.88,True,,,0,miss,unknown,,200,2026-07-25T06:52:35.809957+00:00
+is_prime,Numerical and Mathematical,Easy,run,warm,1,449.5,True,,,0,miss,unknown,,200,2026-07-25T06:52:39.265965+00:00
+is_prime,Numerical and Mathematical,Easy,run,warm,2,614.97,True,,,0,miss,unknown,,200,2026-07-25T06:52:42.882707+00:00
+is_prime,Numerical and Mathematical,Easy,run,warm,3,579.33,True,,,0,miss,unknown,,200,2026-07-25T06:52:46.465574+00:00
+is_prime,Numerical and Mathematical,Easy,run,warm,4,502.47,True,,,0,miss,unknown,,200,2026-07-25T06:52:49.970650+00:00
+is_prime,Numerical and Mathematical,Easy,run,warm,5,499.39,True,,,0,miss,unknown,,200,2026-07-25T06:52:53.474803+00:00
+is_prime,Numerical and Mathematical,Easy,run,warm,6,479.93,True,,,0,miss,unknown,,200,2026-07-25T06:52:56.960780+00:00
+is_prime,Numerical and Mathematical,Easy,run,warm,7,506.81,True,,,0,miss,unknown,,200,2026-07-25T06:53:00.472031+00:00
+is_prime,Numerical and Mathematical,Easy,run,warm,8,601.39,True,,,0,miss,unknown,,200,2026-07-25T06:53:04.077210+00:00
+is_prime,Numerical and Mathematical,Easy,run,warm,9,490.96,True,,,0,miss,unknown,,200,2026-07-25T06:53:07.571672+00:00
+is_prime,Numerical and Mathematical,Easy,run,baseline,0,484.28,True,,,0,N/A,unknown,,200,2026-07-25T06:53:11.061831+00:00
+is_prime,Numerical and Mathematical,Easy,run,baseline,1,557.11,True,,,0,N/A,unknown,,200,2026-07-25T06:53:14.624574+00:00
+is_prime,Numerical and Mathematical,Easy,run,baseline,2,473.71,True,,,0,N/A,unknown,,200,2026-07-25T06:53:18.104896+00:00
+is_prime,Numerical and Mathematical,Easy,run,baseline,3,578.52,True,,,0,N/A,unknown,,200,2026-07-25T06:53:21.690047+00:00
+is_prime,Numerical and Mathematical,Easy,run,baseline,4,473.67,True,,,0,N/A,unknown,,200,2026-07-25T06:53:25.170312+00:00
+is_prime,Numerical and Mathematical,Easy,run,baseline,5,578.48,True,,,0,N/A,unknown,,200,2026-07-25T06:53:28.755453+00:00
+is_prime,Numerical and Mathematical,Easy,run,baseline,6,578.5,True,,,0,N/A,unknown,,200,2026-07-25T06:53:32.340004+00:00
+is_prime,Numerical and Mathematical,Easy,run,baseline,7,473.94,True,,,0,N/A,unknown,,200,2026-07-25T06:53:35.819822+00:00
+is_prime,Numerical and Mathematical,Easy,run,baseline,8,479.84,True,,,0,N/A,unknown,,200,2026-07-25T06:53:39.302620+00:00
+is_prime,Numerical and Mathematical,Easy,run,baseline,9,477.63,True,,,0,N/A,unknown,,200,2026-07-25T06:53:42.782810+00:00

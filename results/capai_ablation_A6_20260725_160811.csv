@@ -1,0 +1,46 @@
+condition,task_id,category,difficulty,workflow,trial_index,latency_ms,correct,confidence,coverage_pct,repair_iterations,cache_status,http_status,error_type,timestamp
+A6_no_persistence_s1_cold,reverse_words,String and Text Processing,Easy,run,0,634.77,True,,,0,,200,,2026-07-25T10:38:12.443412+00:00
+A6_no_persistence_s1_warm,reverse_words,String and Text Processing,Easy,run,1,702.97,True,,,0,,200,,2026-07-25T10:38:16.148378+00:00
+A6_no_persistence_s1_cold,count_vowels,String and Text Processing,Easy,run,0,496.16,True,,,0,,200,,2026-07-25T10:38:19.647325+00:00
+A6_no_persistence_s1_warm,count_vowels,String and Text Processing,Easy,run,1,591.94,True,,,0,,200,,2026-07-25T10:38:23.242480+00:00
+A6_no_persistence_s1_cold,is_palindrome_str,String and Text Processing,Easy,run,0,998.06,True,,,0,,200,,2026-07-25T10:38:27.243955+00:00
+A6_no_persistence_s1_warm,is_palindrome_str,String and Text Processing,Easy,run,1,474.67,True,,,0,,200,,2026-07-25T10:38:30.724988+00:00
+A6_no_persistence_s1_cold,levenshtein_distance,String and Text Processing,Hard,run,0,11018.41,False,,,0,,500,logic_error,2026-07-25T10:38:44.750140+00:00
+A6_no_persistence_s1_warm,levenshtein_distance,String and Text Processing,Hard,run,1,11497.0,False,,,0,,500,logic_error,2026-07-25T10:38:59.243000+00:00
+A6_no_persistence_s1_cold,is_prime,Numerical and Mathematical,Easy,run,0,583.2,True,,,0,,200,,2026-07-25T10:39:02.830116+00:00
+A6_no_persistence_s1_warm,is_prime,Numerical and Mathematical,Easy,run,1,696.18,True,,,0,,200,,2026-07-25T10:39:06.530921+00:00
+A6_no_persistence_s1_cold,fibonacci,Numerical and Mathematical,Easy,run,0,590.93,True,,,0,,200,,2026-07-25T10:39:10.125013+00:00
+A6_no_persistence_s1_warm,fibonacci,Numerical and Mathematical,Easy,run,1,1300.61,True,,,0,,200,,2026-07-25T10:39:14.430599+00:00
+A6_no_persistence_s1_cold,sieve_of_eratosthenes,Numerical and Mathematical,Medium,run,0,2326.79,False,,,0,,200,edge_case_miss,2026-07-25T10:39:19.760560+00:00
+A6_no_persistence_s1_warm,sieve_of_eratosthenes,Numerical and Mathematical,Medium,run,1,3003.69,False,,,0,,200,edge_case_miss,2026-07-25T10:39:25.769296+00:00
+A6_no_persistence_s1_cold,matrix_multiply,Numerical and Mathematical,Hard,run,0,562.06,True,,,0,,200,,2026-07-25T10:39:29.333776+00:00
+A6_no_persistence_s1_warm,matrix_multiply,Numerical and Mathematical,Hard,run,1,591.91,True,,,0,,200,,2026-07-25T10:39:32.927098+00:00
+A6_no_persistence_s1_cold,two_sum,Data Structures and Algorithms,Easy,run,0,1193.07,True,,,0,,200,,2026-07-25T10:39:37.125988+00:00
+A6_no_persistence_s1_warm,two_sum,Data Structures and Algorithms,Easy,run,1,2000.29,True,,,0,,200,,2026-07-25T10:39:42.131912+00:00
+A6_no_persistence_s1_cold,max_subarray_sum,Data Structures and Algorithms,Medium,run,0,750.41,True,,,0,,200,,2026-07-25T10:39:45.885678+00:00
+A6_no_persistence_s1_warm,max_subarray_sum,Data Structures and Algorithms,Medium,run,1,1640.8,True,,,0,,200,,2026-07-25T10:39:50.531744+00:00
+A6_no_persistence_s1_cold,coin_change,Data Structures and Algorithms,Hard,run,0,454.7,True,,,0,,200,,2026-07-25T10:39:53.988995+00:00
+A6_no_persistence_s1_warm,coin_change,Data Structures and Algorithms,Hard,run,1,746.17,True,,,0,,200,,2026-07-25T10:39:57.740580+00:00
+A6_no_persistence_s1_cold,sliding_window_max,Data Structures and Algorithms,Hard,run,0,697.89,True,,,0,,200,,2026-07-25T10:40:01.441877+00:00
+A6_no_persistence_s1_warm,sliding_window_max,Data Structures and Algorithms,Hard,run,1,561.5,True,,,0,,200,,2026-07-25T10:40:05.005998+00:00
+A6_no_persistence_s1_cold,is_valid_email,Validation and Parsing,Medium,run,0,728.95,True,,,0,,200,,2026-07-25T10:40:08.741835+00:00
+A6_no_persistence_s1_warm,is_valid_email,Validation and Parsing,Medium,run,1,786.45,True,,,0,,200,,2026-07-25T10:40:12.533328+00:00
+A6_no_persistence_s1_cold,is_valid_ipv4,Validation and Parsing,Medium,run,0,546.16,True,,,0,,200,,2026-07-25T10:40:16.084396+00:00
+A6_no_persistence_s1_warm,is_valid_ipv4,Validation and Parsing,Medium,run,1,760.65,True,,,0,,200,,2026-07-25T10:40:19.848288+00:00
+A6_no_persistence_s1_cold,luhn_check,Validation and Parsing,Hard,run,0,753.63,True,,,0,,200,,2026-07-25T10:40:23.603613+00:00
+A6_no_persistence_s1_warm,luhn_check,Validation and Parsing,Hard,run,1,587.05,True,,,0,,200,,2026-07-25T10:40:27.192160+00:00
+A6_no_persistence_s2_cold,reverse_words,String and Text Processing,Easy,run,0,13213.78,True,,,0,,200,,2026-07-25T10:40:48.826750+00:00
+A6_no_persistence_s2_cold,count_vowels,String and Text Processing,Easy,run,0,4069.44,True,,,0,,200,,2026-07-25T10:40:55.902004+00:00
+A6_no_persistence_s2_cold,is_palindrome_str,String and Text Processing,Easy,run,0,3976.75,True,,,0,,200,,2026-07-25T10:41:02.880838+00:00
+A6_no_persistence_s2_cold,levenshtein_distance,String and Text Processing,Hard,run,0,12240.09,False,,,0,,500,logic_error,2026-07-25T10:41:18.123443+00:00
+A6_no_persistence_s2_cold,is_prime,Numerical and Mathematical,Easy,run,0,4310.08,True,,,0,,200,,2026-07-25T10:41:25.440355+00:00
+A6_no_persistence_s2_cold,fibonacci,Numerical and Mathematical,Easy,run,0,3893.81,True,,,0,,200,,2026-07-25T10:41:32.338431+00:00
+A6_no_persistence_s2_cold,sieve_of_eratosthenes,Numerical and Mathematical,Medium,run,0,3746.87,False,,,0,,200,edge_case_miss,2026-07-25T10:41:39.092063+00:00
+A6_no_persistence_s2_cold,matrix_multiply,Numerical and Mathematical,Hard,run,0,3614.13,False,,,0,,500,logic_error,2026-07-25T10:41:45.708236+00:00
+A6_no_persistence_s2_cold,two_sum,Data Structures and Algorithms,Easy,run,0,748.24,False,,,0,,500,logic_error,2026-07-25T10:41:49.458901+00:00
+A6_no_persistence_s2_cold,max_subarray_sum,Data Structures and Algorithms,Medium,run,0,984.45,False,,,0,,500,logic_error,2026-07-25T10:41:53.447973+00:00
+A6_no_persistence_s2_cold,coin_change,Data Structures and Algorithms,Hard,run,0,779.47,False,,,0,,500,logic_error,2026-07-25T10:41:57.233901+00:00
+A6_no_persistence_s2_cold,sliding_window_max,Data Structures and Algorithms,Hard,run,0,787.95,False,,,0,,500,logic_error,2026-07-25T10:42:01.026136+00:00
+A6_no_persistence_s2_cold,is_valid_email,Validation and Parsing,Medium,run,0,1303.67,True,,,0,,200,,2026-07-25T10:42:05.333417+00:00
+A6_no_persistence_s2_cold,is_valid_ipv4,Validation and Parsing,Medium,run,0,688.54,False,,,0,,500,logic_error,2026-07-25T10:42:09.027418+00:00
+A6_no_persistence_s2_cold,luhn_check,Validation and Parsing,Hard,run,0,1031.83,False,,,0,,500,logic_error,2026-07-25T10:42:13.065633+00:00

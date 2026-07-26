@@ -1,0 +1,15 @@
+model_key,model_name,task_id,category,difficulty,trial_index,latency_ms,correct,cache_status,http_status,error_type,timestamp
+gemma2,gemma2-9b-it,reverse_words,String and Text Processing,Easy,0,1090.28,True,,200,,2026-07-25T13:18:54.186899+00:00
+gemma2,gemma2-9b-it,reverse_words,String and Text Processing,Easy,1,1410.12,True,,200,,2026-07-25T13:18:58.603689+00:00
+gemma2,gemma2-9b-it,reverse_words,String and Text Processing,Easy,2,567.46,True,,200,,2026-07-25T13:19:02.176783+00:00
+gemma2,gemma2-9b-it,count_vowels,String and Text Processing,Easy,0,2127.39,True,,200,,2026-07-25T13:19:07.310590+00:00
+gemma2,gemma2-9b-it,count_vowels,String and Text Processing,Easy,1,1362.01,True,,200,,2026-07-25T13:19:11.675115+00:00
+gemma2,gemma2-9b-it,count_vowels,String and Text Processing,Easy,2,414.56,True,,200,,2026-07-25T13:19:15.093423+00:00
+gemma2,gemma2-9b-it,is_palindrome_str,String and Text Processing,Easy,0,448.52,True,,200,,2026-07-25T13:19:18.548389+00:00
+gemma2,gemma2-9b-it,is_palindrome_str,String and Text Processing,Easy,1,401.25,True,,200,,2026-07-25T13:19:21.952395+00:00
+gemma2,gemma2-9b-it,is_palindrome_str,String and Text Processing,Easy,2,577.61,True,,200,,2026-07-25T13:19:25.534329+00:00
+gemma2,gemma2-9b-it,levenshtein_distance,String and Text Processing,Hard,0,4785.23,False,,500,logic_error,2026-07-25T13:19:33.321449+00:00
+gemma2,gemma2-9b-it,levenshtein_distance,String and Text Processing,Hard,1,2757.86,False,,500,logic_error,2026-07-25T13:19:39.085951+00:00
+gemma2,gemma2-9b-it,levenshtein_distance,String and Text Processing,Hard,2,2593.03,False,,500,logic_error,2026-07-25T13:19:44.685600+00:00
+gemma2,gemma2-9b-it,is_prime,Numerical and Mathematical,Easy,0,484.47,True,,200,,2026-07-25T13:19:48.176298+00:00
+gemma2,gemma2-9b-it,is_prime,Numerical and Mathematical,Easy,1,671.83,True,,200,,2026-07-25T13:19:51.853953+00:00

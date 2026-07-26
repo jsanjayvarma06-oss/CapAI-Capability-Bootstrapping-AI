@@ -1,0 +1,13 @@
+task_id,category,difficulty,workflow,condition,trial_index,latency_ms,correct,confidence,coverage_pct,repair_iterations,cache_status,provider_used,error_type,http_status,timestamp
+reverse_words,String and Text Processing,Easy,run,cold,0,416.92,False,,,0,miss,unknown,logic_error,500,2026-07-25T06:56:18.736143+00:00
+reverse_words,String and Text Processing,Easy,run,warm,0,1391.12,False,,,0,miss,unknown,logic_error,500,2026-07-25T06:56:23.133955+00:00
+reverse_words,String and Text Processing,Easy,run,warm,1,887.56,False,,,0,miss,unknown,logic_error,500,2026-07-25T06:56:27.024831+00:00
+reverse_words,String and Text Processing,Easy,run,warm,2,1288.52,False,,,0,miss,unknown,logic_error,500,2026-07-25T06:56:31.314993+00:00
+reverse_words,String and Text Processing,Easy,run,warm,3,925.98,False,,,0,miss,unknown,logic_error,500,2026-07-25T06:56:35.245015+00:00
+reverse_words,String and Text Processing,Easy,run,warm,4,965.51,False,,,0,miss,unknown,logic_error,500,2026-07-25T06:56:39.217099+00:00
+count_vowels,String and Text Processing,Easy,run,cold,0,375.34,False,,,0,miss,unknown,logic_error,500,2026-07-25T06:56:42.594840+00:00
+count_vowels,String and Text Processing,Easy,run,warm,0,377.92,False,,,0,miss,unknown,logic_error,500,2026-07-25T06:56:45.975472+00:00
+count_vowels,String and Text Processing,Easy,run,warm,1,361.31,False,,,0,miss,unknown,logic_error,500,2026-07-25T06:56:49.339386+00:00
+count_vowels,String and Text Processing,Easy,run,warm,2,392.83,False,,,0,miss,unknown,logic_error,500,2026-07-25T06:56:52.733786+00:00
+count_vowels,String and Text Processing,Easy,run,warm,3,375.75,False,,,0,miss,unknown,logic_error,500,2026-07-25T06:56:56.112862+00:00
+count_vowels,String and Text Processing,Easy,run,warm,4,373.48,False,,,0,miss,unknown,logic_error,500,2026-07-25T06:56:59.492944+00:00

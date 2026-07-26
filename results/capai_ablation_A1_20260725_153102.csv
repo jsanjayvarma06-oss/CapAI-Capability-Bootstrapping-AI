@@ -1,0 +1,121 @@
+condition,task_id,category,difficulty,workflow,trial_index,latency_ms,correct,confidence,coverage_pct,repair_iterations,cache_status,http_status,error_type,timestamp
+A1_no_cache,reverse_words,String and Text Processing,Easy,run,0,510.59,True,,,0,,200,,2026-07-25T10:01:03.098893+00:00
+A1_no_cache,reverse_words,String and Text Processing,Easy,run,1,1503.14,True,,,0,,200,,2026-07-25T10:01:07.607355+00:00
+A1_no_cache,reverse_words,String and Text Processing,Easy,run,2,1573.66,True,,,0,,200,,2026-07-25T10:01:12.211952+00:00
+A1_no_cache,reverse_words,String and Text Processing,Easy,run,3,886.41,True,,,0,,200,,2026-07-25T10:01:16.104406+00:00
+A1_no_cache,count_vowels,String and Text Processing,Easy,run,0,798.51,True,,,0,,200,,2026-07-25T10:01:19.908650+00:00
+A1_no_cache,count_vowels,String and Text Processing,Easy,run,1,11319.68,True,,,0,,200,,2026-07-25T10:01:34.233711+00:00
+A1_no_cache,count_vowels,String and Text Processing,Easy,run,2,1932.42,True,,,0,,200,,2026-07-25T10:01:39.168014+00:00
+A1_no_cache,count_vowels,String and Text Processing,Easy,run,3,463.66,True,,,0,,200,,2026-07-25T10:01:42.633242+00:00
+A1_no_cache,is_palindrome_str,String and Text Processing,Easy,run,0,1593.55,True,,,0,,200,,2026-07-25T10:01:47.233456+00:00
+A1_no_cache,is_palindrome_str,String and Text Processing,Easy,run,1,4775.99,True,,,0,,200,,2026-07-25T10:01:55.015992+00:00
+A1_no_cache,is_palindrome_str,String and Text Processing,Easy,run,2,476.94,True,,,0,,200,,2026-07-25T10:01:58.498550+00:00
+A1_no_cache,is_palindrome_str,String and Text Processing,Easy,run,3,537.98,True,,,0,,200,,2026-07-25T10:02:02.038163+00:00
+A1_no_cache,levenshtein_distance,String and Text Processing,Hard,run,0,13386.02,False,,,0,,500,logic_error,2026-07-25T10:02:18.432104+00:00
+A1_no_cache,levenshtein_distance,String and Text Processing,Hard,run,1,11467.3,False,,,0,,500,logic_error,2026-07-25T10:02:32.906059+00:00
+A1_no_cache,levenshtein_distance,String and Text Processing,Hard,run,2,11638.69,False,,,0,,500,logic_error,2026-07-25T10:02:47.551038+00:00
+A1_no_cache,levenshtein_distance,String and Text Processing,Hard,run,3,13783.98,False,,,0,,500,logic_error,2026-07-25T10:03:04.340971+00:00
+A1_no_cache,is_prime,Numerical and Mathematical,Easy,run,0,690.87,True,,,0,,200,,2026-07-25T10:03:08.035256+00:00
+A1_no_cache,is_prime,Numerical and Mathematical,Easy,run,1,618.33,True,,,0,,200,,2026-07-25T10:03:11.676859+00:00
+A1_no_cache,is_prime,Numerical and Mathematical,Easy,run,2,1960.78,True,,,0,,200,,2026-07-25T10:03:16.643909+00:00
+A1_no_cache,is_prime,Numerical and Mathematical,Easy,run,3,489.37,True,,,0,,200,,2026-07-25T10:03:20.138923+00:00
+A1_no_cache,fibonacci,Numerical and Mathematical,Easy,run,0,688.14,True,,,0,,200,,2026-07-25T10:03:23.831776+00:00
+A1_no_cache,fibonacci,Numerical and Mathematical,Easy,run,1,2593.39,True,,,0,,200,,2026-07-25T10:03:29.430497+00:00
+A1_no_cache,fibonacci,Numerical and Mathematical,Easy,run,2,478.02,True,,,0,,200,,2026-07-25T10:03:32.911496+00:00
+A1_no_cache,fibonacci,Numerical and Mathematical,Easy,run,3,731.79,True,,,0,,200,,2026-07-25T10:03:36.647465+00:00
+A1_no_cache,sieve_of_eratosthenes,Numerical and Mathematical,Medium,run,0,1758.84,False,,,0,,200,edge_case_miss,2026-07-25T10:03:41.410654+00:00
+A1_no_cache,sieve_of_eratosthenes,Numerical and Mathematical,Medium,run,1,578.85,False,,,0,,200,edge_case_miss,2026-07-25T10:03:44.994830+00:00
+A1_no_cache,sieve_of_eratosthenes,Numerical and Mathematical,Medium,run,2,474.66,False,,,0,,200,edge_case_miss,2026-07-25T10:03:48.476040+00:00
+A1_no_cache,sieve_of_eratosthenes,Numerical and Mathematical,Medium,run,3,3732.34,False,,,0,,200,edge_case_miss,2026-07-25T10:03:55.214925+00:00
+A1_no_cache,matrix_multiply,Numerical and Mathematical,Hard,run,0,4894.53,True,,,0,,200,,2026-07-25T10:04:03.116171+00:00
+A1_no_cache,matrix_multiply,Numerical and Mathematical,Hard,run,1,507.84,True,,,0,,200,,2026-07-25T10:04:06.630566+00:00
+A1_no_cache,matrix_multiply,Numerical and Mathematical,Hard,run,2,2597.45,True,,,0,,200,,2026-07-25T10:04:12.233317+00:00
+A1_no_cache,matrix_multiply,Numerical and Mathematical,Hard,run,3,499.18,True,,,0,,200,,2026-07-25T10:04:15.733889+00:00
+A1_no_cache,two_sum,Data Structures and Algorithms,Easy,run,0,371.32,True,,,0,,200,,2026-07-25T10:04:19.110954+00:00
+A1_no_cache,two_sum,Data Structures and Algorithms,Easy,run,1,2609.87,True,,,0,,200,,2026-07-25T10:04:24.726317+00:00
+A1_no_cache,two_sum,Data Structures and Algorithms,Easy,run,2,1704.33,True,,,0,,200,,2026-07-25T10:04:29.436774+00:00
+A1_no_cache,two_sum,Data Structures and Algorithms,Easy,run,3,709.99,True,,,0,,200,,2026-07-25T10:04:33.153312+00:00
+A1_no_cache,max_subarray_sum,Data Structures and Algorithms,Medium,run,0,754.04,True,,,0,,200,,2026-07-25T10:04:36.912147+00:00
+A1_no_cache,max_subarray_sum,Data Structures and Algorithms,Medium,run,1,2625.12,True,,,0,,200,,2026-07-25T10:04:42.543813+00:00
+A1_no_cache,max_subarray_sum,Data Structures and Algorithms,Medium,run,2,1499.64,True,,,0,,200,,2026-07-25T10:04:47.049761+00:00
+A1_no_cache,max_subarray_sum,Data Structures and Algorithms,Medium,run,3,1498.91,True,,,0,,200,,2026-07-25T10:04:51.555175+00:00
+A1_no_cache,coin_change,Data Structures and Algorithms,Hard,run,0,1705.48,True,,,0,,200,,2026-07-25T10:04:56.265471+00:00
+A1_no_cache,coin_change,Data Structures and Algorithms,Hard,run,1,441.49,True,,,0,,200,,2026-07-25T10:04:59.708616+00:00
+A1_no_cache,coin_change,Data Structures and Algorithms,Hard,run,2,2151.98,True,,,0,,200,,2026-07-25T10:05:04.867157+00:00
+A1_no_cache,coin_change,Data Structures and Algorithms,Hard,run,3,889.96,True,,,0,,200,,2026-07-25T10:05:08.758668+00:00
+A1_no_cache,sliding_window_max,Data Structures and Algorithms,Hard,run,0,786.16,True,,,0,,200,,2026-07-25T10:05:12.547218+00:00
+A1_no_cache,sliding_window_max,Data Structures and Algorithms,Hard,run,1,989.99,True,,,0,,200,,2026-07-25T10:05:16.542039+00:00
+A1_no_cache,sliding_window_max,Data Structures and Algorithms,Hard,run,2,474.87,True,,,0,,200,,2026-07-25T10:05:20.021342+00:00
+A1_no_cache,sliding_window_max,Data Structures and Algorithms,Hard,run,3,2389.26,True,,,0,,200,,2026-07-25T10:05:25.415547+00:00
+A1_no_cache,is_valid_email,Validation and Parsing,Medium,run,0,2762.32,True,,,0,,200,,2026-07-25T10:05:31.184279+00:00
+A1_no_cache,is_valid_email,Validation and Parsing,Medium,run,1,3595.56,True,,,0,,200,,2026-07-25T10:05:37.783744+00:00
+A1_no_cache,is_valid_email,Validation and Parsing,Medium,run,2,1665.09,True,,,0,,200,,2026-07-25T10:05:42.450511+00:00
+A1_no_cache,is_valid_email,Validation and Parsing,Medium,run,3,3647.53,True,,,0,,200,,2026-07-25T10:05:49.104583+00:00
+A1_no_cache,is_valid_ipv4,Validation and Parsing,Medium,run,0,781.8,True,,,0,,200,,2026-07-25T10:05:52.893151+00:00
+A1_no_cache,is_valid_ipv4,Validation and Parsing,Medium,run,1,414.91,True,,,0,,200,,2026-07-25T10:05:56.311250+00:00
+A1_no_cache,is_valid_ipv4,Validation and Parsing,Medium,run,2,517.89,True,,,0,,200,,2026-07-25T10:05:59.830851+00:00
+A1_no_cache,is_valid_ipv4,Validation and Parsing,Medium,run,3,2037.26,True,,,0,,200,,2026-07-25T10:06:04.872835+00:00
+A1_no_cache,luhn_check,Validation and Parsing,Hard,run,0,537.3,True,,,0,,200,,2026-07-25T10:06:08.412462+00:00
+A1_no_cache,luhn_check,Validation and Parsing,Hard,run,1,1511.55,True,,,0,,200,,2026-07-25T10:06:12.930108+00:00
+A1_no_cache,luhn_check,Validation and Parsing,Hard,run,2,601.76,True,,,0,,200,,2026-07-25T10:06:16.536116+00:00
+A1_no_cache,luhn_check,Validation and Parsing,Hard,run,3,708.58,True,,,0,,200,,2026-07-25T10:06:20.248030+00:00
+A1_no_cache,is_valid_isbn13,Validation and Parsing,Hard,run,0,2576.88,True,,,0,,200,,2026-07-25T10:06:25.826994+00:00
+A1_no_cache,is_valid_isbn13,Validation and Parsing,Hard,run,1,813.18,True,,,0,,200,,2026-07-25T10:06:29.644587+00:00
+A1_no_cache,is_valid_isbn13,Validation and Parsing,Hard,run,2,1511.91,True,,,0,,200,,2026-07-25T10:06:34.161131+00:00
+A1_no_cache,is_valid_isbn13,Validation and Parsing,Hard,run,3,677.96,True,,,0,,200,,2026-07-25T10:06:37.845124+00:00
+A1_no_cache,days_between,Date Time and Calendar,Easy,run,0,2680.7,True,,,0,,200,,2026-07-25T10:06:43.531831+00:00
+A1_no_cache,days_between,Date Time and Calendar,Easy,run,1,1958.59,True,,,0,,200,,2026-07-25T10:06:48.496784+00:00
+A1_no_cache,days_between,Date Time and Calendar,Easy,run,2,1805.14,True,,,0,,200,,2026-07-25T10:06:53.305714+00:00
+A1_no_cache,days_between,Date Time and Calendar,Easy,run,3,684.12,True,,,0,,200,,2026-07-25T10:06:56.996315+00:00
+A1_no_cache,is_leap_year,Date Time and Calendar,Easy,run,0,532.57,True,,,0,,200,,2026-07-25T10:07:00.533222+00:00
+A1_no_cache,is_leap_year,Date Time and Calendar,Easy,run,1,805.69,True,,,0,,200,,2026-07-25T10:07:04.346482+00:00
+A1_no_cache,is_leap_year,Date Time and Calendar,Easy,run,2,4679.28,True,,,0,,200,,2026-07-25T10:07:12.032392+00:00
+A1_no_cache,is_leap_year,Date Time and Calendar,Easy,run,3,597.12,True,,,0,,200,,2026-07-25T10:07:15.633127+00:00
+A1_no_cache,business_days_between,Date Time and Calendar,Medium,run,0,1803.68,True,,,0,,200,,2026-07-25T10:07:20.443572+00:00
+A1_no_cache,business_days_between,Date Time and Calendar,Medium,run,1,465.64,True,,,0,,200,,2026-07-25T10:07:23.915093+00:00
+A1_no_cache,business_days_between,Date Time and Calendar,Medium,run,2,2715.1,True,,,0,,200,,2026-07-25T10:07:29.636173+00:00
+A1_no_cache,business_days_between,Date Time and Calendar,Medium,run,3,502.14,True,,,0,,200,,2026-07-25T10:07:33.140504+00:00
+A1_no_cache,count_lines,File and IO Utilities,Easy,run,0,7335.12,True,,,0,,200,,2026-07-25T10:07:43.477536+00:00
+A1_no_cache,count_lines,File and IO Utilities,Easy,run,1,699.28,True,,,0,,200,,2026-07-25T10:07:47.179757+00:00
+A1_no_cache,count_lines,File and IO Utilities,Easy,run,2,570.62,True,,,0,,200,,2026-07-25T10:07:50.756485+00:00
+A1_no_cache,count_lines,File and IO Utilities,Easy,run,3,784.62,True,,,0,,200,,2026-07-25T10:07:54.545270+00:00
+A1_no_cache,flatten_dict,File and IO Utilities,Medium,run,0,478.69,True,,,0,,200,,2026-07-25T10:07:58.026374+00:00
+A1_no_cache,flatten_dict,File and IO Utilities,Medium,run,1,505.3,True,,,0,,200,,2026-07-25T10:08:01.533205+00:00
+A1_no_cache,flatten_dict,File and IO Utilities,Medium,run,2,2708.45,True,,,0,,200,,2026-07-25T10:08:07.246694+00:00
+A1_no_cache,flatten_dict,File and IO Utilities,Medium,run,3,480.35,True,,,0,,200,,2026-07-25T10:08:10.728662+00:00
+A1_no_cache,merge_dicts,File and IO Utilities,Easy,run,0,3849.17,True,,,0,,200,,2026-07-25T10:08:17.582302+00:00
+A1_no_cache,merge_dicts,File and IO Utilities,Easy,run,1,440.84,True,,,0,,200,,2026-07-25T10:08:21.027425+00:00
+A1_no_cache,merge_dicts,File and IO Utilities,Easy,run,2,3689.03,True,,,0,,200,,2026-07-25T10:08:27.722988+00:00
+A1_no_cache,merge_dicts,File and IO Utilities,Easy,run,3,379.17,True,,,0,,200,,2026-07-25T10:08:31.106484+00:00
+A1_no_cache,hex_to_rgb,Encoding and Hashing,Easy,run,0,1598.27,True,,,0,,200,,2026-07-25T10:08:35.710196+00:00
+A1_no_cache,hex_to_rgb,Encoding and Hashing,Easy,run,1,582.95,True,,,0,,200,,2026-07-25T10:08:39.295076+00:00
+A1_no_cache,hex_to_rgb,Encoding and Hashing,Easy,run,2,2116.19,True,,,0,,200,,2026-07-25T10:08:44.415584+00:00
+A1_no_cache,hex_to_rgb,Encoding and Hashing,Easy,run,3,751.41,True,,,0,,200,,2026-07-25T10:08:48.173145+00:00
+A1_no_cache,md5_hex,Encoding and Hashing,Easy,run,0,3456.58,True,,,0,,200,,2026-07-25T10:08:54.638122+00:00
+A1_no_cache,md5_hex,Encoding and Hashing,Easy,run,1,810.86,True,,,0,,200,,2026-07-25T10:08:58.455710+00:00
+A1_no_cache,md5_hex,Encoding and Hashing,Easy,run,2,1477.41,True,,,0,,200,,2026-07-25T10:09:02.938850+00:00
+A1_no_cache,md5_hex,Encoding and Hashing,Easy,run,3,1825.63,True,,,0,,200,,2026-07-25T10:09:07.768740+00:00
+A1_no_cache,encode_base64,Encoding and Hashing,Medium,run,0,444.97,True,,,0,,200,,2026-07-25T10:09:11.220785+00:00
+A1_no_cache,encode_base64,Encoding and Hashing,Medium,run,1,606.65,True,,,0,,200,,2026-07-25T10:09:14.833794+00:00
+A1_no_cache,encode_base64,Encoding and Hashing,Medium,run,2,597.41,True,,,0,,200,,2026-07-25T10:09:18.437503+00:00
+A1_no_cache,encode_base64,Encoding and Hashing,Medium,run,3,1970.58,True,,,0,,200,,2026-07-25T10:09:23.411502+00:00
+A1_no_cache,compute_gst,India Specific Utilities,Easy,run,0,1728.81,False,,,0,,200,edge_case_miss,2026-07-25T10:09:28.146126+00:00
+A1_no_cache,compute_gst,India Specific Utilities,Easy,run,1,494.59,False,,,0,,200,edge_case_miss,2026-07-25T10:09:31.647378+00:00
+A1_no_cache,compute_gst,India Specific Utilities,Easy,run,2,1688.7,False,,,0,,200,edge_case_miss,2026-07-25T10:09:36.340189+00:00
+A1_no_cache,compute_gst,India Specific Utilities,Easy,run,3,780.45,False,,,0,,200,edge_case_miss,2026-07-25T10:09:40.127268+00:00
+A1_no_cache,validate_pan,India Specific Utilities,Medium,run,0,382.76,True,,,0,,200,,2026-07-25T10:09:43.516804+00:00
+A1_no_cache,validate_pan,India Specific Utilities,Medium,run,1,1489.04,True,,,0,,200,,2026-07-25T10:09:48.012413+00:00
+A1_no_cache,validate_pan,India Specific Utilities,Medium,run,2,1621.77,True,,,0,,200,,2026-07-25T10:09:52.640788+00:00
+A1_no_cache,validate_pan,India Specific Utilities,Medium,run,3,491.09,True,,,0,,200,,2026-07-25T10:09:56.137536+00:00
+A1_no_cache,format_indian_number,India Specific Utilities,Medium,run,0,852.09,False,,,0,,200,edge_case_miss,2026-07-25T10:09:59.993603+00:00
+A1_no_cache,format_indian_number,India Specific Utilities,Medium,run,1,1703.77,False,,,0,,200,edge_case_miss,2026-07-25T10:10:04.703952+00:00
+A1_no_cache,format_indian_number,India Specific Utilities,Medium,run,2,845.3,False,,,0,,200,edge_case_miss,2026-07-25T10:10:08.555812+00:00
+A1_no_cache,format_indian_number,India Specific Utilities,Medium,run,3,1760.1,False,,,0,,200,edge_case_miss,2026-07-25T10:10:13.321981+00:00
+A1_no_cache,safe_divide,Adversarial and Edge Case,Hard,run,0,1397.47,True,,,0,,200,,2026-07-25T10:10:17.726158+00:00
+A1_no_cache,safe_divide,Adversarial and Edge Case,Hard,run,1,2508.19,True,,,0,,200,,2026-07-25T10:10:23.240910+00:00
+A1_no_cache,safe_divide,Adversarial and Edge Case,Hard,run,2,780.26,True,,,0,,200,,2026-07-25T10:10:27.027186+00:00
+A1_no_cache,safe_divide,Adversarial and Edge Case,Hard,run,3,2501.18,True,,,0,,200,,2026-07-25T10:10:32.534035+00:00
+A1_no_cache,merge_intervals,Adversarial and Edge Case,Hard,run,0,7566.94,True,,,0,,200,,2026-07-25T10:10:43.103860+00:00
+A1_no_cache,merge_intervals,Adversarial and Edge Case,Hard,run,1,1018.82,True,,,0,,200,,2026-07-25T10:10:47.126750+00:00
+A1_no_cache,merge_intervals,Adversarial and Edge Case,Hard,run,2,447.84,True,,,0,,200,,2026-07-25T10:10:50.578778+00:00
+A1_no_cache,merge_intervals,Adversarial and Edge Case,Hard,run,3,2834.86,True,,,0,,200,,2026-07-25T10:10:56.416372+00:00

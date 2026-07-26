@@ -1,0 +1,121 @@
+condition,task_id,category,difficulty,workflow,trial_index,latency_ms,correct,confidence,coverage_pct,repair_iterations,cache_status,http_status,error_type,timestamp
+A4_no_heuristic,reverse_words,String and Text Processing,Easy,run,0,511.11,True,,,0,,200,,2026-07-25T14:10:05.323538+00:00
+A4_no_heuristic,reverse_words,String and Text Processing,Easy,run,1,478.88,True,,,0,,200,,2026-07-25T14:10:08.804901+00:00
+A4_no_heuristic,reverse_words,String and Text Processing,Easy,run,2,476.98,True,,,0,,200,,2026-07-25T14:10:12.286288+00:00
+A4_no_heuristic,reverse_words,String and Text Processing,Easy,run,3,578.48,True,,,0,,200,,2026-07-25T14:10:15.870623+00:00
+A4_no_heuristic,count_vowels,String and Text Processing,Easy,run,0,1192.85,True,,,0,,200,,2026-07-25T14:10:20.068003+00:00
+A4_no_heuristic,count_vowels,String and Text Processing,Easy,run,1,478.93,True,,,0,,200,,2026-07-25T14:10:23.551810+00:00
+A4_no_heuristic,count_vowels,String and Text Processing,Easy,run,2,578.66,True,,,0,,200,,2026-07-25T14:10:27.135175+00:00
+A4_no_heuristic,count_vowels,String and Text Processing,Easy,run,3,420.97,True,,,0,,200,,2026-07-25T14:10:30.562062+00:00
+A4_no_heuristic,is_palindrome_str,String and Text Processing,Easy,run,0,632.9,True,,,0,,200,,2026-07-25T14:10:34.200134+00:00
+A4_no_heuristic,is_palindrome_str,String and Text Processing,Easy,run,1,459.39,True,,,0,,200,,2026-07-25T14:10:37.665023+00:00
+A4_no_heuristic,is_palindrome_str,String and Text Processing,Easy,run,2,595.15,True,,,0,,200,,2026-07-25T14:10:41.266187+00:00
+A4_no_heuristic,is_palindrome_str,String and Text Processing,Easy,run,3,459.38,True,,,0,,200,,2026-07-25T14:10:44.731570+00:00
+A4_no_heuristic,levenshtein_distance,String and Text Processing,Hard,run,0,9724.22,True,,,0,,200,,2026-07-25T14:10:57.460662+00:00
+A4_no_heuristic,levenshtein_distance,String and Text Processing,Hard,run,1,460.21,True,,,0,,200,,2026-07-25T14:11:00.926397+00:00
+A4_no_heuristic,levenshtein_distance,String and Text Processing,Hard,run,2,681.34,True,,,0,,200,,2026-07-25T14:11:04.613860+00:00
+A4_no_heuristic,levenshtein_distance,String and Text Processing,Hard,run,3,492.58,True,,,0,,200,,2026-07-25T14:11:08.108529+00:00
+A4_no_heuristic,is_prime,Numerical and Mathematical,Easy,run,0,495.06,True,,,0,,200,,2026-07-25T14:11:11.610314+00:00
+A4_no_heuristic,is_prime,Numerical and Mathematical,Easy,run,1,547.1,True,,,0,,200,,2026-07-25T14:11:15.161710+00:00
+A4_no_heuristic,is_prime,Numerical and Mathematical,Easy,run,2,395.52,True,,,0,,200,,2026-07-25T14:11:18.561204+00:00
+A4_no_heuristic,is_prime,Numerical and Mathematical,Easy,run,3,456.73,True,,,0,,200,,2026-07-25T14:11:22.021552+00:00
+A4_no_heuristic,fibonacci,Numerical and Mathematical,Easy,run,0,474.98,True,,,0,,200,,2026-07-25T14:11:25.503202+00:00
+A4_no_heuristic,fibonacci,Numerical and Mathematical,Easy,run,1,453.22,True,,,0,,200,,2026-07-25T14:11:28.958781+00:00
+A4_no_heuristic,fibonacci,Numerical and Mathematical,Easy,run,2,604.75,True,,,0,,200,,2026-07-25T14:11:32.568779+00:00
+A4_no_heuristic,fibonacci,Numerical and Mathematical,Easy,run,3,535.6,True,,,0,,200,,2026-07-25T14:11:36.110146+00:00
+A4_no_heuristic,sieve_of_eratosthenes,Numerical and Mathematical,Medium,run,0,517.67,False,,,0,,200,edge_case_miss,2026-07-25T14:11:39.634459+00:00
+A4_no_heuristic,sieve_of_eratosthenes,Numerical and Mathematical,Medium,run,1,580.9,False,,,0,,200,edge_case_miss,2026-07-25T14:11:43.218699+00:00
+A4_no_heuristic,sieve_of_eratosthenes,Numerical and Mathematical,Medium,run,2,471.65,False,,,0,,200,edge_case_miss,2026-07-25T14:11:46.696778+00:00
+A4_no_heuristic,sieve_of_eratosthenes,Numerical and Mathematical,Medium,run,3,582.0,False,,,0,,200,edge_case_miss,2026-07-25T14:11:50.284239+00:00
+A4_no_heuristic,matrix_multiply,Numerical and Mathematical,Hard,run,0,580.59,True,,,0,,200,,2026-07-25T14:11:53.868148+00:00
+A4_no_heuristic,matrix_multiply,Numerical and Mathematical,Hard,run,1,479.57,True,,,0,,200,,2026-07-25T14:11:57.349863+00:00
+A4_no_heuristic,matrix_multiply,Numerical and Mathematical,Hard,run,2,551.03,True,,,0,,200,,2026-07-25T14:12:00.907438+00:00
+A4_no_heuristic,matrix_multiply,Numerical and Mathematical,Hard,run,3,501.51,True,,,0,,200,,2026-07-25T14:12:04.415504+00:00
+A4_no_heuristic,two_sum,Data Structures and Algorithms,Easy,run,0,488.11,True,,,0,,200,,2026-07-25T14:12:07.908628+00:00
+A4_no_heuristic,two_sum,Data Structures and Algorithms,Easy,run,1,567.35,True,,,0,,200,,2026-07-25T14:12:11.481569+00:00
+A4_no_heuristic,two_sum,Data Structures and Algorithms,Easy,run,2,484.14,True,,,0,,200,,2026-07-25T14:12:14.971712+00:00
+A4_no_heuristic,two_sum,Data Structures and Algorithms,Easy,run,3,540.19,True,,,0,,200,,2026-07-25T14:12:18.516822+00:00
+A4_no_heuristic,max_subarray_sum,Data Structures and Algorithms,Medium,run,0,488.58,True,,,0,,200,,2026-07-25T14:12:22.012088+00:00
+A4_no_heuristic,max_subarray_sum,Data Structures and Algorithms,Medium,run,1,404.93,True,,,0,,200,,2026-07-25T14:12:25.423534+00:00
+A4_no_heuristic,max_subarray_sum,Data Structures and Algorithms,Medium,run,2,460.42,True,,,0,,200,,2026-07-25T14:12:28.889093+00:00
+A4_no_heuristic,max_subarray_sum,Data Structures and Algorithms,Medium,run,3,476.69,True,,,0,,200,,2026-07-25T14:12:32.370976+00:00
+A4_no_heuristic,coin_change,Data Structures and Algorithms,Hard,run,0,376.52,True,,,0,,200,,2026-07-25T14:12:35.749995+00:00
+A4_no_heuristic,coin_change,Data Structures and Algorithms,Hard,run,1,404.76,True,,,0,,200,,2026-07-25T14:12:39.158445+00:00
+A4_no_heuristic,coin_change,Data Structures and Algorithms,Hard,run,2,544.9,True,,,0,,200,,2026-07-25T14:12:42.709897+00:00
+A4_no_heuristic,coin_change,Data Structures and Algorithms,Hard,run,3,582.72,True,,,0,,200,,2026-07-25T14:12:46.297243+00:00
+A4_no_heuristic,sliding_window_max,Data Structures and Algorithms,Hard,run,0,455.28,True,,,0,,200,,2026-07-25T14:12:49.757713+00:00
+A4_no_heuristic,sliding_window_max,Data Structures and Algorithms,Hard,run,1,496.3,True,,,0,,200,,2026-07-25T14:12:53.260564+00:00
+A4_no_heuristic,sliding_window_max,Data Structures and Algorithms,Hard,run,2,579.41,True,,,0,,200,,2026-07-25T14:12:56.844594+00:00
+A4_no_heuristic,sliding_window_max,Data Structures and Algorithms,Hard,run,3,480.34,True,,,0,,200,,2026-07-25T14:13:00.327170+00:00
+A4_no_heuristic,is_valid_email,Validation and Parsing,Medium,run,0,430.87,True,,,0,,200,,2026-07-25T14:13:03.760917+00:00
+A4_no_heuristic,is_valid_email,Validation and Parsing,Medium,run,1,420.93,True,,,0,,200,,2026-07-25T14:13:07.187447+00:00
+A4_no_heuristic,is_valid_email,Validation and Parsing,Medium,run,2,377.2,True,,,0,,200,,2026-07-25T14:13:10.569323+00:00
+A4_no_heuristic,is_valid_email,Validation and Parsing,Medium,run,3,575.28,True,,,0,,200,,2026-07-25T14:13:14.150312+00:00
+A4_no_heuristic,is_valid_ipv4,Validation and Parsing,Medium,run,0,578.13,True,,,0,,200,,2026-07-25T14:13:17.734384+00:00
+A4_no_heuristic,is_valid_ipv4,Validation and Parsing,Medium,run,1,577.5,True,,,0,,200,,2026-07-25T14:13:21.318390+00:00
+A4_no_heuristic,is_valid_ipv4,Validation and Parsing,Medium,run,2,475.85,True,,,0,,200,,2026-07-25T14:13:24.800766+00:00
+A4_no_heuristic,is_valid_ipv4,Validation and Parsing,Medium,run,3,502.94,True,,,0,,200,,2026-07-25T14:13:28.308009+00:00
+A4_no_heuristic,luhn_check,Validation and Parsing,Hard,run,0,551.78,True,,,0,,200,,2026-07-25T14:13:31.865198+00:00
+A4_no_heuristic,luhn_check,Validation and Parsing,Hard,run,1,476.35,True,,,0,,200,,2026-07-25T14:13:35.347315+00:00
+A4_no_heuristic,luhn_check,Validation and Parsing,Hard,run,2,320.71,True,,,0,,200,,2026-07-25T14:13:38.674158+00:00
+A4_no_heuristic,luhn_check,Validation and Parsing,Hard,run,3,427.29,True,,,0,,200,,2026-07-25T14:13:42.105910+00:00
+A4_no_heuristic,is_valid_isbn13,Validation and Parsing,Hard,run,0,578.22,True,,,0,,200,,2026-07-25T14:13:45.689139+00:00
+A4_no_heuristic,is_valid_isbn13,Validation and Parsing,Hard,run,1,515.83,True,,,0,,200,,2026-07-25T14:13:49.210578+00:00
+A4_no_heuristic,is_valid_isbn13,Validation and Parsing,Hard,run,2,445.79,True,,,0,,200,,2026-07-25T14:13:52.661188+00:00
+A4_no_heuristic,is_valid_isbn13,Validation and Parsing,Hard,run,3,668.42,True,,,0,,200,,2026-07-25T14:13:56.335708+00:00
+A4_no_heuristic,days_between,Date Time and Calendar,Easy,run,0,433.19,True,,,0,,200,,2026-07-25T14:13:59.775565+00:00
+A4_no_heuristic,days_between,Date Time and Calendar,Easy,run,1,521.03,True,,,0,,200,,2026-07-25T14:14:03.302681+00:00
+A4_no_heuristic,days_between,Date Time and Calendar,Easy,run,2,475.95,True,,,0,,200,,2026-07-25T14:14:06.785135+00:00
+A4_no_heuristic,days_between,Date Time and Calendar,Easy,run,3,523.2,True,,,0,,200,,2026-07-25T14:14:10.310510+00:00
+A4_no_heuristic,is_leap_year,Date Time and Calendar,Easy,run,0,443.53,True,,,0,,200,,2026-07-25T14:14:13.760754+00:00
+A4_no_heuristic,is_leap_year,Date Time and Calendar,Easy,run,1,392.45,True,,,0,,200,,2026-07-25T14:14:17.160867+00:00
+A4_no_heuristic,is_leap_year,Date Time and Calendar,Easy,run,2,445.97,True,,,0,,200,,2026-07-25T14:14:20.610086+00:00
+A4_no_heuristic,is_leap_year,Date Time and Calendar,Easy,run,3,581.15,True,,,0,,200,,2026-07-25T14:14:24.198400+00:00
+A4_no_heuristic,business_days_between,Date Time and Calendar,Medium,run,0,679.94,True,,,0,,200,,2026-07-25T14:14:27.883980+00:00
+A4_no_heuristic,business_days_between,Date Time and Calendar,Medium,run,1,533.06,True,,,0,,200,,2026-07-25T14:14:31.422387+00:00
+A4_no_heuristic,business_days_between,Date Time and Calendar,Medium,run,2,524.84,True,,,0,,200,,2026-07-25T14:14:34.950996+00:00
+A4_no_heuristic,business_days_between,Date Time and Calendar,Medium,run,3,479.68,True,,,0,,200,,2026-07-25T14:14:38.433142+00:00
+A4_no_heuristic,count_lines,File and IO Utilities,Easy,run,0,575.4,True,,,0,,200,,2026-07-25T14:14:42.015730+00:00
+A4_no_heuristic,count_lines,File and IO Utilities,Easy,run,1,477.87,True,,,0,,200,,2026-07-25T14:14:45.498895+00:00
+A4_no_heuristic,count_lines,File and IO Utilities,Easy,run,2,508.64,True,,,0,,200,,2026-07-25T14:14:49.013660+00:00
+A4_no_heuristic,count_lines,File and IO Utilities,Easy,run,3,547.27,True,,,0,,200,,2026-07-25T14:14:52.564163+00:00
+A4_no_heuristic,flatten_dict,File and IO Utilities,Medium,run,0,577.6,True,,,0,,200,,2026-07-25T14:14:56.147702+00:00
+A4_no_heuristic,flatten_dict,File and IO Utilities,Medium,run,1,477.22,True,,,0,,200,,2026-07-25T14:14:59.629369+00:00
+A4_no_heuristic,flatten_dict,File and IO Utilities,Medium,run,2,477.09,True,,,0,,200,,2026-07-25T14:15:03.111624+00:00
+A4_no_heuristic,flatten_dict,File and IO Utilities,Medium,run,3,579.54,True,,,0,,200,,2026-07-25T14:15:06.695733+00:00
+A4_no_heuristic,merge_dicts,File and IO Utilities,Easy,run,0,475.22,True,,,0,,200,,2026-07-25T14:15:10.176600+00:00
+A4_no_heuristic,merge_dicts,File and IO Utilities,Easy,run,1,533.1,True,,,0,,200,,2026-07-25T14:15:13.716171+00:00
+A4_no_heuristic,merge_dicts,File and IO Utilities,Easy,run,2,457.75,True,,,0,,200,,2026-07-25T14:15:17.177496+00:00
+A4_no_heuristic,merge_dicts,File and IO Utilities,Easy,run,3,544.47,True,,,0,,200,,2026-07-25T14:15:20.727925+00:00
+A4_no_heuristic,hex_to_rgb,Encoding and Hashing,Easy,run,0,439.4,True,,,0,,200,,2026-07-25T14:15:24.172181+00:00
+A4_no_heuristic,hex_to_rgb,Encoding and Hashing,Easy,run,1,610.69,True,,,0,,200,,2026-07-25T14:15:27.789377+00:00
+A4_no_heuristic,hex_to_rgb,Encoding and Hashing,Easy,run,2,543.53,True,,,0,,200,,2026-07-25T14:15:31.336363+00:00
+A4_no_heuristic,hex_to_rgb,Encoding and Hashing,Easy,run,3,616.53,True,,,0,,200,,2026-07-25T14:15:34.956421+00:00
+A4_no_heuristic,md5_hex,Encoding and Hashing,Easy,run,0,581.23,True,,,0,,200,,2026-07-25T14:15:38.540796+00:00
+A4_no_heuristic,md5_hex,Encoding and Hashing,Easy,run,1,474.24,True,,,0,,200,,2026-07-25T14:15:42.019514+00:00
+A4_no_heuristic,md5_hex,Encoding and Hashing,Easy,run,2,584.8,True,,,0,,200,,2026-07-25T14:15:45.608123+00:00
+A4_no_heuristic,md5_hex,Encoding and Hashing,Easy,run,3,507.54,True,,,0,,200,,2026-07-25T14:15:49.118645+00:00
+A4_no_heuristic,encode_base64,Encoding and Hashing,Medium,run,0,549.34,True,,,0,,200,,2026-07-25T14:15:52.672790+00:00
+A4_no_heuristic,encode_base64,Encoding and Hashing,Medium,run,1,576.88,True,,,0,,200,,2026-07-25T14:15:56.256213+00:00
+A4_no_heuristic,encode_base64,Encoding and Hashing,Medium,run,2,477.21,True,,,0,,200,,2026-07-25T14:15:59.738097+00:00
+A4_no_heuristic,encode_base64,Encoding and Hashing,Medium,run,3,478.77,True,,,0,,200,,2026-07-25T14:16:03.219382+00:00
+A4_no_heuristic,compute_gst,India Specific Utilities,Easy,run,0,440.4,False,,,0,,200,edge_case_miss,2026-07-25T14:16:06.666502+00:00
+A4_no_heuristic,compute_gst,India Specific Utilities,Easy,run,1,617.15,False,,,0,,200,edge_case_miss,2026-07-25T14:16:10.285344+00:00
+A4_no_heuristic,compute_gst,India Specific Utilities,Easy,run,2,521.69,False,,,0,,200,edge_case_miss,2026-07-25T14:16:13.811839+00:00
+A4_no_heuristic,compute_gst,India Specific Utilities,Easy,run,3,532.49,False,,,0,,200,edge_case_miss,2026-07-25T14:16:17.350528+00:00
+A4_no_heuristic,validate_pan,India Specific Utilities,Medium,run,0,554.98,True,,,0,,200,,2026-07-25T14:16:20.909609+00:00
+A4_no_heuristic,validate_pan,India Specific Utilities,Medium,run,1,500.43,True,,,0,,200,,2026-07-25T14:16:24.416771+00:00
+A4_no_heuristic,validate_pan,India Specific Utilities,Medium,run,2,581.48,True,,,0,,200,,2026-07-25T14:16:28.000643+00:00
+A4_no_heuristic,validate_pan,India Specific Utilities,Medium,run,3,579.06,True,,,0,,200,,2026-07-25T14:16:31.584577+00:00
+A4_no_heuristic,format_indian_number,India Specific Utilities,Medium,run,0,524.18,False,,,0,,200,edge_case_miss,2026-07-25T14:16:35.112364+00:00
+A4_no_heuristic,format_indian_number,India Specific Utilities,Medium,run,1,432.88,False,,,0,,200,edge_case_miss,2026-07-25T14:16:38.547916+00:00
+A4_no_heuristic,format_indian_number,India Specific Utilities,Medium,run,2,477.03,False,,,0,,200,edge_case_miss,2026-07-25T14:16:42.029615+00:00
+A4_no_heuristic,format_indian_number,India Specific Utilities,Medium,run,3,580.67,False,,,0,,200,edge_case_miss,2026-07-25T14:16:45.611864+00:00
+A4_no_heuristic,safe_divide,Adversarial and Edge Case,Hard,run,0,476.45,True,,,0,,200,,2026-07-25T14:16:49.094996+00:00
+A4_no_heuristic,safe_divide,Adversarial and Edge Case,Hard,run,1,577.88,True,,,0,,200,,2026-07-25T14:16:52.679129+00:00
+A4_no_heuristic,safe_divide,Adversarial and Edge Case,Hard,run,2,578.11,True,,,0,,200,,2026-07-25T14:16:56.262541+00:00
+A4_no_heuristic,safe_divide,Adversarial and Edge Case,Hard,run,3,475.63,True,,,0,,200,,2026-07-25T14:16:59.744712+00:00
+A4_no_heuristic,merge_intervals,Adversarial and Edge Case,Hard,run,0,578.67,True,,,0,,200,,2026-07-25T14:17:03.330184+00:00
+A4_no_heuristic,merge_intervals,Adversarial and Edge Case,Hard,run,1,580.51,True,,,0,,200,,2026-07-25T14:17:06.912785+00:00
+A4_no_heuristic,merge_intervals,Adversarial and Edge Case,Hard,run,2,678.05,True,,,0,,200,,2026-07-25T14:17:10.594797+00:00
+A4_no_heuristic,merge_intervals,Adversarial and Edge Case,Hard,run,3,468.18,True,,,0,,200,,2026-07-25T14:17:14.066837+00:00
